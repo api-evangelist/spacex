@@ -1,0 +1,79 @@
+aid: spacex
+name: SpaceX
+description: >-
+  SpaceX is the launch and space transportation company founded by Elon Musk
+  that operates the partially-reusable Falcon 9 and Falcon Heavy rockets, the
+  fully-reusable Starship super-heavy lift vehicle, and the Dragon crew and
+  cargo spacecraft for ISS and commercial missions. SpaceX also operates
+  Starlink, the world's largest low-earth-orbit satellite internet
+  constellation, serving consumers, enterprises, maritime, aviation, and
+  governments. Neither SpaceX launch services nor Starlink expose a public
+  developer REST API at this time. Programmatic access to a Starlink user
+  terminal is possible through an unauthenticated local gRPC service on the
+  dish at 192.168.100.1:9200, whose protobuf definitions have been
+  reverse-engineered by the community (notably the starlink-grpc-tools
+  project) and are used for monitoring throughput, latency, obstructions,
+  reboot, and stow.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Space
+  - Launch
+  - Satellites
+  - Starlink
+  - Falcon 9
+  - Falcon Heavy
+  - Starship
+  - Dragon
+  - Connectivity
+  - LEO
+  - gRPC
+apis: []
+common:
+  - type: Website
+    url: https://www.spacex.com/
+  - type: Falcon9
+    url: https://www.spacex.com/vehicles/falcon-9/
+  - type: FalconHeavy
+    url: https://www.spacex.com/vehicles/falcon-heavy/
+  - type: Starship
+    url: https://www.spacex.com/vehicles/starship/
+  - type: Dragon
+    url: https://www.spacex.com/vehicles/dragon/
+  - type: Launches
+    url: https://www.spacex.com/launches/
+  - type: Missions
+    url: https://www.spacex.com/mission/
+  - type: Starlink
+    url: https://www.starlink.com/
+  - type: StarlinkBusiness
+    url: https://www.starlink.com/business
+  - type: StarlinkRoam
+    url: https://www.starlink.com/roam
+  - type: StarlinkMaritime
+    url: https://www.starlink.com/maritime
+  - type: StarlinkAviation
+    url: https://www.starlink.com/aviation
+  - type: UnofficialStarlinkGrpc
+    url: https://github.com/sparky8512/starlink-grpc-tools
+  - type: Careers
+    url: https://www.spacex.com/careers/
+  - type: Updates
+    url: https://www.spacex.com/updates/
+  - type: X
+    url: https://x.com/SpaceX
+  - type: StarlinkX
+    url: https://x.com/Starlink
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/spacex/
+  - type: YouTube
+    url: https://www.youtube.com/@SpaceX
+url: https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/apis.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.20'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
