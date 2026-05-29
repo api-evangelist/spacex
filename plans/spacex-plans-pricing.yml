@@ -1,0 +1,72 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SpaceX (Community API)
+providerId: spacex
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Open Source
+  - Free
+  - Community
+description: >-
+  The community r-spacex/SpaceX-API has no commercial offering. The hosted
+  endpoint (https://api.spacexdata.com) is free, unauthenticated for reads,
+  and operated on a best-effort basis by the r-spacex community. Self-hosting
+  is supported via the public Apache 2.0 source code and the published Docker
+  image (jakewmeyer/spacex-api). Database export snapshots are published at
+  https://backups.spacexdata.com so consumers can host their own copy of the
+  dataset without depending on the community-operated endpoint.
+sources:
+  - https://github.com/r-spacex/SpaceX-API
+  - https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - https://hub.docker.com/r/jakewmeyer/spacex-api/
+  - https://backups.spacexdata.com
+plans:
+  - id: spacex-community-free
+    name: Community Free
+    type: free
+    description: >-
+      Hosted community endpoint at https://api.spacexdata.com. Free,
+      unauthenticated reads. No SLA. In maintenance-only mode as of 2024.
+    entries:
+      - label: API requests
+        name: requests
+        type: included
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+    elements:
+      - name: All read endpoints (capsules, company, cores, crew, dragons, history, landpads, launches, launchpads, payloads, roadster, rockets, ships, starlink)
+      - name: GraphQL community gateways (e.g. SpaceXLand/api)
+      - name: Postman collection
+      - name: Database export snapshots (backups.spacexdata.com)
+  - id: spacex-self-hosted
+    name: Self-Hosted (Apache 2.0)
+    type: free
+    description: >-
+      Run the open-source project yourself from source or the published Docker
+      image. License is Apache 2.0; no payment to the project required. You are
+      responsible for hosting, MongoDB, Redis cache, and refreshing the dataset
+      from the published backups.
+    entries:
+      - label: License fee
+        name: license
+        type: included
+        metric: month
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+    elements:
+      - name: Apache 2.0 source license
+      - name: Official Docker image (jakewmeyer/spacex-api)
+      - name: MongoDB-compatible storage
+      - name: Redis cache (optional but recommended)

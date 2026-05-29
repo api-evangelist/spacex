@@ -1,0 +1,92 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SpaceX REST API — Starlink
+  description: 'SpaceX Starlink satellites capability. Per-satellite records with Space-Track OMM orbit data. Lead operation: List Starlink satellites.'
+  tags:
+    - SpaceX
+    - Starlink
+    - Satellites
+    - Orbits
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds: []
+capability:
+  consumes:
+    - type: http
+      namespace: spacex-starlink
+      baseUri: https://api.spacexdata.com
+      description: Starlink satellite catalog with raw Space-Track Orbit Mean Elements Message fields.
+      resources:
+        - name: starlink
+          path: /v4/starlink
+          operations:
+            - name: listStarlinkSatellites
+              method: GET
+              description: List all Starlink satellites with orbit data.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: array
+                  value: $.
+            - name: queryStarlinkSatellites
+              method: POST
+              path: /v4/starlink/query
+              description: Query the Starlink collection with a MongoDB filter.
+              outputRawFormat: json
+              inputParameters:
+                - name: query
+                  in: body
+                  type: object
+                - name: options
+                  in: body
+                  type: object
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: starlink-id
+          path: /v4/starlink/{id}
+          operations:
+            - name: getStarlinkSatellite
+              method: GET
+              description: Get one Starlink satellite by ID.
+              outputRawFormat: json
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: mcp
+      namespace: spacex-starlink-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for SpaceX Starlink.
+      tools:
+        - name: list-starlink-satellites
+          description: List all Starlink satellites with orbit data.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-starlink.listStarlinkSatellites
+          outputParameters:
+            - type: array
+              mapping: $.
+        - name: get-starlink-satellite
+          description: Get a single Starlink satellite by ID.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-starlink.getStarlinkSatellite
+          with: { id: tools.id }
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: query-starlink
+          description: Query the Starlink collection with a MongoDB filter.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-starlink.queryStarlinkSatellites
+          with: { query: tools.query, options: tools.options }
+          outputParameters:
+            - type: object
+              mapping: $.

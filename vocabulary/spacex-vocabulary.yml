@@ -1,0 +1,41 @@
+name: SpaceX Community API Domain Vocabulary
+provider: SpaceX (Community API)
+providerId: spacex
+description: Tag-derived vocabulary for the r-spacex/SpaceX-API REST surface; sourced from openapi/ tags and the underlying mongoose models.
+terms:
+  - term: Launches
+    description: Past, upcoming, latest, and next launches; the central event resource keyed by flight_number and date_utc.
+  - term: Rockets
+    description: Rocket version records (Falcon 1, Falcon 9, Falcon Heavy, Starship) including stages, engines, mass, and payload weights.
+  - term: Capsules
+    description: Serialized Dragon capsule fleet (Dragon 1.0, 1.1, 2.0) with status, reuse count, water_landings, and land_landings.
+  - term: Cores
+    description: Serialized Falcon first-stage cores with block number, status, reuse count, RTLS / ASDS landing attempts and successes.
+  - term: Crew
+    description: SpaceX Dragon crew members (NASA, ESA, Axiom, etc.) keyed by name with launches array.
+  - term: Dragons
+    description: Dragon capsule versions — engineering specs (dry mass, heat shield, payload mass, trunk volume).
+  - term: Payloads
+    description: Launch payloads — customers, manufacturers, nationalities, mass, orbit class, and orbital elements.
+  - term: Ships
+    description: Ships in the SpaceX fleet — droneships, recovery, support — with AIS/MMSI/IMO identifiers and last-known position.
+  - term: Launchpads
+    description: Active and historical launchpads with locality, region, latitude/longitude, and launch_attempts / launch_successes counts.
+  - term: Landpads
+    description: Landing pads and droneship platforms with landing_attempts / landing_successes and type (RTLS / ASDS).
+  - term: Starlink
+    description: Starlink satellite catalog with Space-Track Orbit Mean Elements Message fields and current lat/lon/height/velocity.
+  - term: Roadster
+    description: Tesla Roadster ephemeris launched on Falcon Heavy demo; orbital elements and Earth/Mars distances (single document).
+  - term: Company
+    description: SpaceX company info document (founder, employees, valuation, headquarters, leadership).
+  - term: History
+    description: Significant SpaceX historical events keyed by event_date_utc with article links.
+  - term: Query
+    description: POST /{resource}/query mongoose-paginate-v2 endpoint accepting MongoDB find() body with options for select/sort/limit/page/populate.
+  - term: Populate
+    description: mongoose-paginate populate option that hydrates UUID references inline with the referenced document (e.g. launches.payloads -> Payload).
+  - term: Admin
+    description: Destructive create / update / delete routes gated by the `spacex-key` header; not used by typical read-only clients.
+  - term: Maintenance-Only
+    description: Project status as of 2024 — new launches, payloads, crew, and starlink records are not being added; data remains historical.

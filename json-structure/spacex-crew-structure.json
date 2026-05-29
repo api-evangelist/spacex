@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-crew-structure.json",
+  "name": "SpaceX CrewMember",
+  "description": "A SpaceX Dragon crew member. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "retired",
+        "unknown"
+      ]
+    },
+    "agency": {
+      "type": "string",
+      "nullable": true,
+      "description": "e.g. NASA, ESA."
+    },
+    "image": {
+      "type": "uri",
+      "nullable": true
+    },
+    "wikipedia": {
+      "type": "uri",
+      "nullable": true
+    },
+    "launches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

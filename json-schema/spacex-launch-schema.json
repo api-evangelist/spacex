@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-launch-schema.json",
+  "title": "SpaceX Launch",
+  "description": "A SpaceX launch record. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "flight_number": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "date_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "date_unix": {
+      "type": "integer"
+    },
+    "date_local": {
+      "type": "string"
+    },
+    "date_precision": {
+      "type": "string",
+      "enum": [
+        "half",
+        "quarter",
+        "year",
+        "month",
+        "day",
+        "hour"
+      ]
+    },
+    "static_fire_date_utc": {
+      "type": "string",
+      "nullable": true,
+      "format": "date-time"
+    },
+    "static_fire_date_unix": {
+      "type": "integer",
+      "nullable": true
+    },
+    "tbd": {
+      "type": "boolean",
+      "default": false
+    },
+    "net": {
+      "type": "boolean",
+      "default": false
+    },
+    "window": {
+      "type": "integer",
+      "nullable": true
+    },
+    "rocket": {
+      "type": "string",
+      "nullable": true
+    },
+    "success": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "integer"
+          },
+          "altitude": {
+            "type": "integer",
+            "nullable": true
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "upcoming": {
+      "type": "boolean"
+    },
+    "details": {
+      "type": "string",
+      "nullable": true
+    },
+    "fairings": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "reused": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "recovery_attempt": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "recovered": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "ships": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "crew": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "crew": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "ships": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capsules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "payloads": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "launchpad": {
+      "type": "string",
+      "nullable": true
+    },
+    "cores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "core": {
+            "type": "string",
+            "nullable": true
+          },
+          "flight": {
+            "type": "integer",
+            "nullable": true
+          },
+          "gridfins": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "legs": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "reused": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "landing_attempt": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "landing_success": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "landing_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "landpad": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "patch": {
+          "type": "object",
+          "properties": {
+            "small": {
+              "type": "string",
+              "nullable": true,
+              "format": "uri"
+            },
+            "large": {
+              "type": "string",
+              "nullable": true,
+              "format": "uri"
+            }
+          }
+        },
+        "reddit": {
+          "type": "object",
+          "properties": {
+            "campaign": {
+              "type": "string",
+              "nullable": true,
+              "format": "uri"
+            },
+            "launch": {
+              "type": "string",
+              "nullable": true,
+              "format": "uri"
+            },
+            "media": {
+              "type": "string",
+              "nullable": true,
+              "format": "uri"
+            },
+            "recovery": {
+              "type": "string",
+              "nullable": true,
+              "format": "uri"
+            }
+          }
+        },
+        "flickr": {
+          "type": "object",
+          "properties": {
+            "small": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "original": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "presskit": {
+          "type": "string",
+          "nullable": true,
+          "format": "uri"
+        },
+        "webcast": {
+          "type": "string",
+          "nullable": true,
+          "format": "uri"
+        },
+        "youtube_id": {
+          "type": "string",
+          "nullable": true
+        },
+        "article": {
+          "type": "string",
+          "nullable": true,
+          "format": "uri"
+        },
+        "wikipedia": {
+          "type": "string",
+          "nullable": true,
+          "format": "uri"
+        }
+      }
+    },
+    "auto_update": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "flight_number",
+    "name",
+    "date_utc",
+    "date_unix",
+    "date_local",
+    "date_precision",
+    "upcoming"
+  ]
+}

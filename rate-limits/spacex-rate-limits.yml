@@ -1,0 +1,43 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: SpaceX (Community API)
+providerId: spacex
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Caching
+description: >-
+  The community SpaceX REST API enforces a per-IP request-rate limit of
+  approximately 50 requests/second at the hosted endpoint
+  (https://api.spacexdata.com). All GET responses and POST /query responses
+  are also cached server-side via Redis (launches 20s; capsules / cores /
+  launchpads / landpads / crew / ships / payloads 5min; dragons / rockets
+  24h). Throttled responses return HTTP 429. Self-hosted deployments do not
+  enforce any rate limit by default.
+sources:
+  - https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md
+  - https://github.com/r-spacex/SpaceX-API/blob/master/middleware
+headers: {}
+responseCodes:
+  throttled: 429
+limits:
+  - name: Per-IP request rate
+    scope: ip
+    metric: requests_per_second
+    limit: 50
+  - name: Launches cache TTL
+    scope: server
+    metric: seconds
+    limit: 20
+  - name: Capsules / Cores / Launchpads / Landpads / Crew / Ships / Payloads cache TTL
+    scope: server
+    metric: seconds
+    limit: 300
+  - name: Dragons / Rockets cache TTL
+    scope: server
+    metric: seconds
+    limit: 86400

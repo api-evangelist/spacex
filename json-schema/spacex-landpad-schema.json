@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-landpad-schema.json",
+  "title": "SpaceX Landpad",
+  "description": "A SpaceX landing pad or droneship. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "full_name": {
+      "type": "string",
+      "nullable": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "unknown",
+        "retired",
+        "lost",
+        "under construction"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "nullable": true,
+      "description": "e.g. RTLS, ASDS."
+    },
+    "locality": {
+      "type": "string",
+      "nullable": true
+    },
+    "region": {
+      "type": "string",
+      "nullable": true
+    },
+    "latitude": {
+      "type": "number",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "number",
+      "nullable": true
+    },
+    "landing_attempts": {
+      "type": "integer",
+      "default": 0
+    },
+    "landing_successes": {
+      "type": "integer",
+      "default": 0
+    },
+    "wikipedia": {
+      "type": "string",
+      "nullable": true,
+      "format": "uri"
+    },
+    "details": {
+      "type": "string",
+      "nullable": true
+    },
+    "launches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

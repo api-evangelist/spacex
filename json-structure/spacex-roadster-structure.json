@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-roadster-structure.json",
+  "name": "SpaceX Roadster",
+  "description": "Tesla Roadster ephemeris (single document). Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "launch_date_utc": {
+      "type": "datetime"
+    },
+    "launch_date_unix": {
+      "type": "int32"
+    },
+    "launch_mass_kg": {
+      "type": "double"
+    },
+    "launch_mass_lbs": {
+      "type": "double"
+    },
+    "norad_id": {
+      "type": "int32"
+    },
+    "epoch_jd": {
+      "type": "double"
+    },
+    "orbit_type": {
+      "type": "string"
+    },
+    "apoapsis_au": {
+      "type": "double"
+    },
+    "periapsis_au": {
+      "type": "double"
+    },
+    "semi_major_axis_au": {
+      "type": "double"
+    },
+    "eccentricity": {
+      "type": "double"
+    },
+    "inclination": {
+      "type": "double"
+    },
+    "longitude": {
+      "type": "double"
+    },
+    "periapsis_arg": {
+      "type": "double"
+    },
+    "period_days": {
+      "type": "double"
+    },
+    "speed_kph": {
+      "type": "double"
+    },
+    "speed_mph": {
+      "type": "double"
+    },
+    "earth_distance_km": {
+      "type": "double"
+    },
+    "earth_distance_mi": {
+      "type": "double"
+    },
+    "mars_distance_km": {
+      "type": "double"
+    },
+    "mars_distance_mi": {
+      "type": "double"
+    },
+    "flickr_images": {
+      "type": "array",
+      "items": {
+        "type": "uri"
+      }
+    },
+    "wikipedia": {
+      "type": "uri"
+    },
+    "video": {
+      "type": "uri"
+    },
+    "details": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-company-schema.json",
+  "title": "SpaceX Company",
+  "description": "SpaceX company info document (single). Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "founder": {
+      "type": "string"
+    },
+    "founded": {
+      "type": "integer"
+    },
+    "employees": {
+      "type": "integer"
+    },
+    "vehicles": {
+      "type": "integer"
+    },
+    "launch_sites": {
+      "type": "integer"
+    },
+    "test_sites": {
+      "type": "integer"
+    },
+    "ceo": {
+      "type": "string"
+    },
+    "cto": {
+      "type": "string"
+    },
+    "coo": {
+      "type": "string"
+    },
+    "cto_propulsion": {
+      "type": "string"
+    },
+    "valuation": {
+      "type": "number"
+    },
+    "headquarters": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "flickr": {
+          "type": "string",
+          "format": "uri"
+        },
+        "twitter": {
+          "type": "string",
+          "format": "uri"
+        },
+        "elon_twitter": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "summary": {
+      "type": "string"
+    }
+  }
+}

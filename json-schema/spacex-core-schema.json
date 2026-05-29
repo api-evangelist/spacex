@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-core-schema.json",
+  "title": "SpaceX Core",
+  "description": "A serialized Falcon first-stage core. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "serial": {
+      "type": "string",
+      "description": "Booster serial (e.g. B1062)."
+    },
+    "block": {
+      "type": "integer",
+      "nullable": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "unknown",
+        "expended",
+        "lost",
+        "retired"
+      ]
+    },
+    "reuse_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "rtls_attempts": {
+      "type": "integer",
+      "default": 0
+    },
+    "rtls_landings": {
+      "type": "integer",
+      "default": 0
+    },
+    "asds_attempts": {
+      "type": "integer",
+      "default": 0
+    },
+    "asds_landings": {
+      "type": "integer",
+      "default": 0
+    },
+    "last_update": {
+      "type": "string",
+      "nullable": true
+    },
+    "launches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "serial",
+    "status"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-ship-structure.json",
+  "name": "SpaceX Ship",
+  "description": "A ship in the SpaceX fleet (droneship, recovery, support). Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "legacy_id": {
+      "type": "string",
+      "nullable": true
+    },
+    "model": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "nullable": true
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "imo": {
+      "type": "int32",
+      "nullable": true
+    },
+    "mmsi": {
+      "type": "int32",
+      "nullable": true
+    },
+    "abs": {
+      "type": "int32",
+      "nullable": true
+    },
+    "class": {
+      "type": "int32",
+      "nullable": true
+    },
+    "mass_kg": {
+      "type": "double",
+      "nullable": true
+    },
+    "mass_lbs": {
+      "type": "double",
+      "nullable": true
+    },
+    "year_built": {
+      "type": "int32",
+      "nullable": true
+    },
+    "home_port": {
+      "type": "string",
+      "nullable": true
+    },
+    "status": {
+      "type": "string",
+      "nullable": true
+    },
+    "speed_kn": {
+      "type": "double",
+      "nullable": true
+    },
+    "course_deg": {
+      "type": "double",
+      "nullable": true
+    },
+    "latitude": {
+      "type": "double",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "double",
+      "nullable": true
+    },
+    "last_ais_update": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "link": {
+      "type": "uri",
+      "nullable": true
+    },
+    "image": {
+      "type": "uri",
+      "nullable": true
+    },
+    "launches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "active"
+  ]
+}

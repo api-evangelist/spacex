@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-history-schema.json",
+  "title": "SpaceX HistoryEvent",
+  "description": "A historical SpaceX event. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "nullable": true
+    },
+    "event_date_utc": {
+      "type": "string",
+      "nullable": true,
+      "format": "date-time"
+    },
+    "event_date_unix": {
+      "type": "integer",
+      "nullable": true
+    },
+    "details": {
+      "type": "string",
+      "nullable": true
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "article": {
+          "type": "string",
+          "nullable": true,
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

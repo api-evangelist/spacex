@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-dragon-structure.json",
+  "name": "SpaceX Dragon",
+  "description": "A Dragon capsule version (Dragon 1, Dragon 2, etc.). Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "crew_capacity": {
+      "type": "int32"
+    },
+    "sidewall_angle_deg": {
+      "type": "double"
+    },
+    "orbit_duration_yr": {
+      "type": "double"
+    },
+    "dry_mass_kg": {
+      "type": "double"
+    },
+    "dry_mass_lb": {
+      "type": "double"
+    },
+    "first_flight": {
+      "type": "string",
+      "nullable": true
+    },
+    "heat_shield": {
+      "type": "object",
+      "properties": {
+        "material": {
+          "type": "string"
+        },
+        "size_meters": {
+          "type": "double"
+        },
+        "temp_degrees": {
+          "type": "double"
+        },
+        "dev_partner": {
+          "type": "string"
+        }
+      }
+    },
+    "thrusters": {
+      "type": "array",
+      "description": "Array of thruster groups.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "launch_payload_mass": {
+      "type": "object",
+      "properties": {
+        "kg": {
+          "type": "double",
+          "nullable": true
+        },
+        "lb": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "launch_payload_vol": {
+      "type": "object",
+      "properties": {
+        "cubic_meters": {
+          "type": "double",
+          "nullable": true
+        },
+        "cubic_feet": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "return_payload_mass": {
+      "type": "object",
+      "properties": {
+        "kg": {
+          "type": "double",
+          "nullable": true
+        },
+        "lb": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "return_payload_vol": {
+      "type": "object",
+      "properties": {
+        "cubic_meters": {
+          "type": "double",
+          "nullable": true
+        },
+        "cubic_feet": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "pressurized_capsule": {
+      "type": "object",
+      "properties": {
+        "payload_volume": {
+          "type": "object",
+          "properties": {
+            "cubic_meters": {
+              "type": "double",
+              "nullable": true
+            },
+            "cubic_feet": {
+              "type": "double",
+              "nullable": true
+            }
+          }
+        }
+      }
+    },
+    "trunk": {
+      "type": "object",
+      "properties": {
+        "trunk_volume": {
+          "type": "object",
+          "properties": {
+            "cubic_meters": {
+              "type": "double",
+              "nullable": true
+            },
+            "cubic_feet": {
+              "type": "double",
+              "nullable": true
+            }
+          }
+        },
+        "cargo": {
+          "type": "object",
+          "properties": {
+            "solar_array": {
+              "type": "int32"
+            },
+            "unpressurized_cargo": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "height_w_trunk": {
+      "type": "object",
+      "properties": {
+        "meters": {
+          "type": "double",
+          "nullable": true
+        },
+        "feet": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "diameter": {
+      "type": "object",
+      "properties": {
+        "meters": {
+          "type": "double",
+          "nullable": true
+        },
+        "feet": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "flickr_images": {
+      "type": "array",
+      "items": {
+        "type": "uri"
+      }
+    },
+    "wikipedia": {
+      "type": "uri"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "active",
+    "crew_capacity"
+  ]
+}

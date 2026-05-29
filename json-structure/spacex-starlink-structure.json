@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-starlink-structure.json",
+  "name": "SpaceX StarlinkSat",
+  "description": "A Starlink satellite with Space-Track OMM orbit data. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "nullable": true
+    },
+    "launch": {
+      "type": "string",
+      "nullable": true,
+      "description": "Launch UUID."
+    },
+    "longitude": {
+      "type": "double",
+      "nullable": true
+    },
+    "latitude": {
+      "type": "double",
+      "nullable": true
+    },
+    "height_km": {
+      "type": "double",
+      "nullable": true
+    },
+    "velocity_kms": {
+      "type": "double",
+      "nullable": true
+    },
+    "spaceTrack": {
+      "type": "object",
+      "description": "Raw Space-Track Orbit Mean Elements Message fields.",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-payload-structure.json",
+  "name": "SpaceX Payload",
+  "description": "A launch payload. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "nullable": true
+    },
+    "reused": {
+      "type": "boolean",
+      "default": false
+    },
+    "launch": {
+      "type": "string",
+      "nullable": true
+    },
+    "customers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "norad_ids": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      }
+    },
+    "nationalities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manufacturers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mass_kg": {
+      "type": "double",
+      "nullable": true
+    },
+    "mass_lbs": {
+      "type": "double",
+      "nullable": true
+    },
+    "orbit": {
+      "type": "string",
+      "nullable": true
+    },
+    "reference_system": {
+      "type": "string",
+      "nullable": true
+    },
+    "regime": {
+      "type": "string",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "double",
+      "nullable": true
+    },
+    "semi_major_axis_km": {
+      "type": "double",
+      "nullable": true
+    },
+    "eccentricity": {
+      "type": "double",
+      "nullable": true
+    },
+    "periapsis_km": {
+      "type": "double",
+      "nullable": true
+    },
+    "apoapsis_km": {
+      "type": "double",
+      "nullable": true
+    },
+    "inclination_deg": {
+      "type": "double",
+      "nullable": true
+    },
+    "period_min": {
+      "type": "double",
+      "nullable": true
+    },
+    "lifespan_years": {
+      "type": "double",
+      "nullable": true
+    },
+    "epoch": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "mean_motion": {
+      "type": "double",
+      "nullable": true
+    },
+    "raan": {
+      "type": "double",
+      "nullable": true
+    },
+    "arg_of_pericenter": {
+      "type": "double",
+      "nullable": true
+    },
+    "mean_anomaly": {
+      "type": "double",
+      "nullable": true
+    },
+    "dragon": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "capsule": {
+          "type": "string",
+          "nullable": true
+        },
+        "mass_returned_kg": {
+          "type": "double",
+          "nullable": true
+        },
+        "mass_returned_lbs": {
+          "type": "double",
+          "nullable": true
+        },
+        "flight_time_sec": {
+          "type": "int32",
+          "nullable": true
+        },
+        "manifest": {
+          "type": "string",
+          "nullable": true
+        },
+        "water_landing": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "land_landing": {
+          "type": "boolean",
+          "nullable": true
+        }
+      }
+    }
+  }
+}

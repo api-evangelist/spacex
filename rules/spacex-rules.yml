@@ -1,0 +1,296 @@
+extends:
+  - spectral:oas
+formats:
+  - oas3
+rules:
+  # ===== INFO / METADATA =====
+  spacex-info-title:
+    description: Title must start with "SpaceX" (community API convention).
+    message: '{{property}} should start with "SpaceX"'
+    severity: warn
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: '^SpaceX( |$)'
+  spacex-info-description-required:
+    description: Info description is required and must be non-trivial.
+    message: 'info.description must be present (>= 40 chars).'
+    severity: error
+    given: $.info
+    then:
+      field: description
+      function: length
+      functionOptions:
+        min: 40
+  spacex-info-license-apache2:
+    description: License should be Apache 2.0 to match upstream project.
+    severity: warn
+    given: $.info.license.name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Apache 2\\.0$'
+  spacex-info-status-maintenance:
+    description: Community SpaceX-API is in maintenance-only mode; mark with x-status.
+    severity: info
+    given: $.info
+    then:
+      field: x-status
+      function: truthy
+
+  # ===== OPENAPI VERSION =====
+  spacex-openapi-version-3:
+    description: Use OpenAPI 3.x.
+    severity: error
+    given: $.openapi
+    then:
+      function: pattern
+      functionOptions:
+        match: '^3\\.'
+
+  # ===== SERVERS =====
+  spacex-servers-defined:
+    description: At least one server must be defined.
+    severity: error
+    given: $.servers
+    then:
+      function: length
+      functionOptions:
+        min: 1
+  spacex-server-https:
+    description: Hosted server URL must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  spacex-server-spacexdata:
+    description: Canonical hosted server is https://api.spacexdata.com.
+    severity: info
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: 'api\\.spacexdata\\.com'
+
+  # ===== PATHS — NAMING CONVENTIONS =====
+  spacex-paths-versioned:
+    description: All paths must be prefixed with /v4 or /v5.
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/v[45]/'
+  spacex-paths-kebab-case:
+    description: Path segments use lowercase letters, digits, and hyphens only (kebab-case).
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/[a-z0-9/{}_-]+$'
+  spacex-paths-plural-collections:
+    description: Top-level resource collections should be plural nouns.
+    severity: info
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/v[45]/(capsules|company|cores|crew|dragons|history|landpads|launches|launchpads|payloads|roadster|rockets|ships|starlink)(/.*)?$'
+  spacex-paths-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '/$'
+
+  # ===== OPERATIONS =====
+  spacex-operation-operationid:
+    description: Every operation must have an operationId.
+    severity: error
+    given: $.paths.*[get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+  spacex-operation-operationid-camelcase:
+    description: operationId must be camelCase.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+  spacex-operation-summary:
+    description: Every operation must have a summary in Title Case.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+  spacex-operation-description:
+    description: Every operation must have a description.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete]
+    then:
+      field: description
+      function: truthy
+  spacex-operation-tags:
+    description: Every operation must have at least one tag.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete]
+    then:
+      field: tags
+      function: length
+      functionOptions:
+        min: 1
+
+  # ===== TAGS =====
+  spacex-tags-known:
+    description: Operation tags should be one of the documented resource tags.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete].tags[*]
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - Capsules
+          - Company
+          - Cores
+          - Crew
+          - Dragons
+          - History
+          - Landpads
+          - Launches
+          - Launchpads
+          - Payloads
+          - Roadster
+          - Rockets
+          - Ships
+          - Starlink
+
+  # ===== PARAMETERS =====
+  spacex-parameter-description:
+    description: All parameters must have descriptions.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete].parameters[*]
+    then:
+      field: description
+      function: truthy
+  spacex-parameter-id-snake-case:
+    description: Path parameter names must be snake_case or single-word.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete].parameters[?(@.in=='path')].name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]*$'
+
+  # ===== REQUEST BODIES =====
+  spacex-requestbody-json:
+    description: Request bodies must offer application/json.
+    severity: warn
+    given: $.paths.*[post,put,patch].requestBody.content
+    then:
+      field: application/json
+      function: truthy
+
+  # ===== RESPONSES =====
+  spacex-response-success:
+    description: Every operation must declare at least one 2xx response.
+    severity: error
+    given: $.paths.*[get,post,put,patch,delete].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            '^2[0-9][0-9]$':
+              type: object
+          additionalProperties: true
+          minProperties: 1
+  spacex-response-description:
+    description: Every response must have a description.
+    severity: warn
+    given: $.paths.*[get,post,put,patch,delete].responses.*
+    then:
+      field: description
+      function: truthy
+  spacex-response-not-found:
+    description: GET-by-id operations should declare a 404 response.
+    severity: info
+    given: $.paths[?(@property =~ /\\{id\\}$/)].get.responses
+    then:
+      field: '404'
+      function: truthy
+
+  # ===== SCHEMAS — PROPERTY NAMING =====
+  spacex-schema-snake-case-properties:
+    description: Schema properties should be snake_case (mongoose model convention).
+    severity: warn
+    given: $.components.schemas.*.properties.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]*$|^[A-Z][A-Z0-9_]*$'
+  spacex-schema-id-property:
+    description: Resource schemas should expose an `id` property (UUID).
+    severity: info
+    given: '$.components.schemas[?(@property =~ /^(Launch|Rocket|Capsule|Core|CrewMember|Dragon|Payload|Ship|Launchpad|Landpad|StarlinkSat|Roadster|Company|HistoryEvent)$/)].properties'
+    then:
+      field: id
+      function: truthy
+
+  # ===== SECURITY =====
+  spacex-security-scheme-defined:
+    description: At least one security scheme must be defined (for admin routes).
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+  spacex-security-spacex-key:
+    description: Admin auth header is `spacex-key`.
+    severity: info
+    given: $.components.securitySchemes[?(@.type=='apiKey' && @.in=='header')].name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^spacex-key$'
+
+  # ===== HTTP METHOD CONVENTIONS =====
+  spacex-get-no-requestbody:
+    description: GET operations must not declare a requestBody.
+    severity: error
+    given: $.paths.*.get
+    then:
+      field: requestBody
+      function: falsy
+  spacex-query-uses-post:
+    description: /query endpoints must use POST (mongoose-paginate query body).
+    severity: error
+    given: '$.paths[?(@property =~ /\\/query$/)]'
+    then:
+      field: post
+      function: truthy
+
+  # ===== GENERAL QUALITY =====
+  spacex-no-empty-description:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
+      function: length
+      functionOptions:
+        min: 1
+  spacex-microcks-extension:
+    description: Each operation should include x-microcks-operation for mocking.
+    severity: info
+    given: $.paths.*[get,post,put,patch,delete]
+    then:
+      field: x-microcks-operation
+      function: truthy

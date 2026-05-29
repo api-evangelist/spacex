@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-capsule-schema.json",
+  "title": "SpaceX Capsule",
+  "description": "A serialized Dragon capsule. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "UUID."
+    },
+    "serial": {
+      "type": "string",
+      "description": "Capsule serial (e.g. C112)."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "active",
+        "retired",
+        "destroyed"
+      ],
+      "description": "Operational status."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Dragon 1.0",
+        "Dragon 1.1",
+        "Dragon 2.0"
+      ],
+      "description": "Capsule type / generation."
+    },
+    "dragon": {
+      "type": "string",
+      "nullable": true,
+      "description": "Dragon version UUID."
+    },
+    "reuse_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "water_landings": {
+      "type": "integer",
+      "default": 0
+    },
+    "land_landings": {
+      "type": "integer",
+      "default": 0
+    },
+    "last_update": {
+      "type": "string",
+      "nullable": true,
+      "description": "Free-form latest status note."
+    },
+    "launches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "UUIDs of launches this capsule has flown."
+    }
+  },
+  "required": [
+    "serial",
+    "status",
+    "type"
+  ]
+}

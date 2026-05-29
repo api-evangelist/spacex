@@ -1,0 +1,204 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "spacex": "https://github.com/r-spacex/SpaceX-API/blob/master/docs/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "time": "http://www.w3.org/2006/time#",
+
+    "Launch": {
+      "@id": "schema:Event",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "flight_number": "schema:identifier",
+        "date_utc": "schema:startDate",
+        "date_local": "schema:startDate",
+        "details": "schema:description",
+        "upcoming": "schema:eventStatus",
+        "success": "schema:result",
+        "rocket": { "@id": "spacex:rocket", "@type": "@id" },
+        "launchpad": { "@id": "schema:location", "@type": "@id" },
+        "payloads": { "@id": "schema:about", "@type": "@id", "@container": "@set" },
+        "crew": { "@id": "schema:performer", "@container": "@set" },
+        "links": "schema:url"
+      }
+    },
+    "Rocket": {
+      "@id": "schema:Vehicle",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "type": "schema:vehicleConfiguration",
+        "active": "schema:isAccessibleForFree",
+        "first_flight": "schema:productionDate",
+        "country": "schema:countryOfOrigin",
+        "company": "schema:manufacturer",
+        "cost_per_launch": "schema:price",
+        "wikipedia": "schema:sameAs",
+        "description": "schema:description",
+        "flickr_images": "schema:image"
+      }
+    },
+    "Capsule": {
+      "@id": "schema:Vehicle",
+      "@context": {
+        "id": "dcterms:identifier",
+        "serial": "schema:serialNumber",
+        "status": "schema:status",
+        "type": "schema:vehicleConfiguration",
+        "reuse_count": "schema:numberOfPreviousOwners",
+        "last_update": "dcterms:modified",
+        "launches": { "@id": "schema:vehicleSpecialUsage", "@container": "@set" }
+      }
+    },
+    "Core": {
+      "@id": "schema:Vehicle",
+      "@context": {
+        "id": "dcterms:identifier",
+        "serial": "schema:serialNumber",
+        "block": "schema:version",
+        "status": "schema:status",
+        "reuse_count": "schema:numberOfPreviousOwners",
+        "last_update": "dcterms:modified",
+        "launches": { "@id": "schema:vehicleSpecialUsage", "@container": "@set" }
+      }
+    },
+    "CrewMember": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "status": "schema:status",
+        "agency": "schema:affiliation",
+        "image": "schema:image",
+        "wikipedia": "schema:sameAs",
+        "launches": { "@id": "schema:performerIn", "@container": "@set" }
+      }
+    },
+    "Dragon": {
+      "@id": "schema:Vehicle",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "type": "schema:vehicleConfiguration",
+        "active": "schema:isAccessibleForFree",
+        "crew_capacity": "schema:vehicleSeatingCapacity",
+        "first_flight": "schema:productionDate",
+        "wikipedia": "schema:sameAs",
+        "description": "schema:description",
+        "flickr_images": "schema:image"
+      }
+    },
+    "Payload": {
+      "@id": "schema:Product",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "type": "schema:category",
+        "reused": "schema:isFamilyFriendly",
+        "launch": { "@id": "schema:isPartOf", "@type": "@id" },
+        "customers": { "@id": "schema:funder", "@container": "@set" },
+        "manufacturers": { "@id": "schema:manufacturer", "@container": "@set" },
+        "nationalities": { "@id": "schema:countryOfOrigin", "@container": "@set" },
+        "mass_kg": "schema:weight",
+        "orbit": "schema:category"
+      }
+    },
+    "Ship": {
+      "@id": "schema:Vehicle",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "model": "schema:model",
+        "type": "schema:vehicleConfiguration",
+        "active": "schema:isAccessibleForFree",
+        "imo": "schema:identifier",
+        "mmsi": "schema:identifier",
+        "year_built": "schema:productionDate",
+        "home_port": "schema:location",
+        "latitude": "geo:lat",
+        "longitude": "geo:long",
+        "image": "schema:image"
+      }
+    },
+    "Launchpad": {
+      "@id": "schema:Place",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "full_name": "schema:alternateName",
+        "status": "schema:status",
+        "locality": "schema:addressLocality",
+        "region": "schema:addressRegion",
+        "latitude": "geo:lat",
+        "longitude": "geo:long"
+      }
+    },
+    "Landpad": {
+      "@id": "schema:Place",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "full_name": "schema:alternateName",
+        "status": "schema:status",
+        "type": "schema:category",
+        "locality": "schema:addressLocality",
+        "region": "schema:addressRegion",
+        "latitude": "geo:lat",
+        "longitude": "geo:long"
+      }
+    },
+    "StarlinkSat": {
+      "@id": "schema:Product",
+      "@context": {
+        "id": "dcterms:identifier",
+        "version": "schema:version",
+        "launch": { "@id": "schema:isPartOf", "@type": "@id" },
+        "latitude": "geo:lat",
+        "longitude": "geo:long",
+        "height_km": "schema:elevation"
+      }
+    },
+    "Roadster": {
+      "@id": "schema:Product",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "launch_date_utc": "schema:productionDate",
+        "launch_mass_kg": "schema:weight",
+        "norad_id": "schema:identifier",
+        "wikipedia": "schema:sameAs",
+        "details": "schema:description",
+        "video": "schema:video"
+      }
+    },
+    "Company": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": "dcterms:identifier",
+        "name": "schema:name",
+        "founder": "schema:founder",
+        "founded": "schema:foundingDate",
+        "employees": "schema:numberOfEmployees",
+        "ceo": "schema:employee",
+        "cto": "schema:employee",
+        "headquarters": "schema:address",
+        "links": "schema:url",
+        "summary": "schema:description"
+      }
+    },
+    "HistoryEvent": {
+      "@id": "schema:Event",
+      "@context": {
+        "id": "dcterms:identifier",
+        "title": "schema:name",
+        "event_date_utc": "schema:startDate",
+        "details": "schema:description",
+        "links": "schema:url"
+      }
+    }
+  }
+}

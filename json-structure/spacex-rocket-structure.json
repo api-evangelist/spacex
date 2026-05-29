@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/json-structure/spacex-rocket-structure.json",
+  "name": "SpaceX Rocket",
+  "description": "A rocket version (Falcon 1, Falcon 9, Falcon Heavy, Starship). Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "stages": {
+      "type": "int32"
+    },
+    "boosters": {
+      "type": "int32"
+    },
+    "cost_per_launch": {
+      "type": "double",
+      "description": "USD per launch."
+    },
+    "success_rate_pct": {
+      "type": "double"
+    },
+    "first_flight": {
+      "type": "date"
+    },
+    "country": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "height": {
+      "type": "object",
+      "properties": {
+        "meters": {
+          "type": "double",
+          "nullable": true
+        },
+        "feet": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "diameter": {
+      "type": "object",
+      "properties": {
+        "meters": {
+          "type": "double",
+          "nullable": true
+        },
+        "feet": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "mass": {
+      "type": "object",
+      "properties": {
+        "kg": {
+          "type": "double",
+          "nullable": true
+        },
+        "lb": {
+          "type": "double",
+          "nullable": true
+        }
+      }
+    },
+    "payload_weights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kg": {
+            "type": "double"
+          },
+          "lb": {
+            "type": "double"
+          }
+        }
+      }
+    },
+    "first_stage": {
+      "type": "object",
+      "properties": {
+        "reusable": {
+          "type": "boolean"
+        },
+        "engines": {
+          "type": "int32"
+        },
+        "fuel_amount_tons": {
+          "type": "double"
+        },
+        "burn_time_sec": {
+          "type": "double",
+          "nullable": true
+        },
+        "thrust_sea_level": {
+          "type": "object",
+          "properties": {
+            "kN": {
+              "type": "double",
+              "nullable": true
+            },
+            "lbf": {
+              "type": "double",
+              "nullable": true
+            }
+          }
+        },
+        "thrust_vacuum": {
+          "type": "object",
+          "properties": {
+            "kN": {
+              "type": "double",
+              "nullable": true
+            },
+            "lbf": {
+              "type": "double",
+              "nullable": true
+            }
+          }
+        }
+      }
+    },
+    "second_stage": {
+      "type": "object",
+      "properties": {
+        "reusable": {
+          "type": "boolean"
+        },
+        "engines": {
+          "type": "int32"
+        },
+        "fuel_amount_tons": {
+          "type": "double"
+        },
+        "burn_time_sec": {
+          "type": "double",
+          "nullable": true
+        },
+        "thrust": {
+          "type": "object",
+          "properties": {
+            "kN": {
+              "type": "double",
+              "nullable": true
+            },
+            "lbf": {
+              "type": "double",
+              "nullable": true
+            }
+          }
+        },
+        "payloads": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "engines": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "landing_legs": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "int32"
+        },
+        "material": {
+          "type": "string",
+          "nullable": true
+        }
+      }
+    },
+    "flickr_images": {
+      "type": "array",
+      "items": {
+        "type": "uri"
+      }
+    },
+    "wikipedia": {
+      "type": "uri"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

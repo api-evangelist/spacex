@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/spacex/json-schema/spacex-launchpad-schema.json",
+  "title": "SpaceX Launchpad",
+  "description": "A SpaceX launch pad. Derived from the r-spacex/SpaceX-API mongoose model.",
+  "x-schema-source": "documentation",
+  "x-source-url": "https://github.com/r-spacex/SpaceX-API/tree/master/docs",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "full_name": {
+      "type": "string",
+      "nullable": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "unknown",
+        "retired",
+        "lost",
+        "under construction"
+      ]
+    },
+    "locality": {
+      "type": "string",
+      "nullable": true
+    },
+    "region": {
+      "type": "string",
+      "nullable": true
+    },
+    "timezone": {
+      "type": "string",
+      "nullable": true
+    },
+    "latitude": {
+      "type": "number",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "number",
+      "nullable": true
+    },
+    "launch_attempts": {
+      "type": "integer",
+      "default": 0
+    },
+    "launch_successes": {
+      "type": "integer",
+      "default": 0
+    },
+    "rockets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "launches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

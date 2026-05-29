@@ -1,0 +1,129 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SpaceX REST API — Launches
+  description: 'SpaceX launches capability. Read-only convenience and full-detail endpoints over the community SpaceX REST API. Lead operation: Get next launch. Self-contained Naftiko capability covering the launches surface.'
+  tags:
+    - SpaceX
+    - Launches
+    - Space
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds: []
+capability:
+  consumes:
+    - type: http
+      namespace: spacex-launches
+      baseUri: https://api.spacexdata.com
+      description: SpaceX launches business capability against the community REST API (maintenance-only).
+      resources:
+        - name: launches
+          path: /v5/launches
+          operations:
+            - name: listLaunches
+              method: GET
+              description: List all launches.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: array
+                  value: $.
+            - name: queryLaunches
+              method: POST
+              path: /v5/launches/query
+              description: Run a mongoose-paginate-v2 query against launches.
+              outputRawFormat: json
+              inputParameters:
+                - name: query
+                  in: body
+                  type: object
+                  description: MongoDB find() filter.
+                - name: options
+                  in: body
+                  type: object
+                  description: Pagination + populate options.
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: launches-latest
+          path: /v5/launches/latest
+          operations:
+            - name: getLatestLaunch
+              method: GET
+              description: Get the most recent past launch.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: launches-next
+          path: /v5/launches/next
+          operations:
+            - name: getNextLaunch
+              method: GET
+              description: Get the next upcoming launch.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: launches-id
+          path: /v5/launches/{id}
+          operations:
+            - name: getLaunch
+              method: GET
+              description: Get one launch by ID.
+              outputRawFormat: json
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: mcp
+      namespace: spacex-launches-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for SpaceX launches. One tool per consumed operation.
+      tools:
+        - name: list-launches
+          description: List every SpaceX launch.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-launches.listLaunches
+          outputParameters:
+            - type: array
+              mapping: $.
+        - name: get-latest-launch
+          description: Get the most recent past SpaceX launch.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-launches.getLatestLaunch
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-next-launch
+          description: Get the next upcoming SpaceX launch.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-launches.getNextLaunch
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-launch
+          description: Get a single SpaceX launch by ID.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-launches.getLaunch
+          with: { id: tools.id }
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: query-launches
+          description: Run a MongoDB-style query against the launches collection.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: spacex-launches.queryLaunches
+          with: { query: tools.query, options: tools.options }
+          outputParameters:
+            - type: object
+              mapping: $.
