@@ -1,240 +1,221 @@
 aid: spacex
 name: SpaceX (Community API)
 description: >-
-  Community-maintained, open-source REST and GraphQL API for SpaceX data —
-  launches, rockets, capsules, cores, crew, dragons, payloads, ships,
-  landpads, launchpads, Starlink satellites, the Tesla Roadster ephemeris,
-  company info, and historical events. Operated by the r-spacex community
-  (the same group behind the r/SpaceX subreddit) and licensed Apache 2.0.
-  The canonical hosted base URL is https://api.spacexdata.com and the
-  canonical source repository is https://github.com/r-spacex/SpaceX-API.
+  Community-maintained, open-source REST and GraphQL API for SpaceX data — launches, rockets, capsules, cores, crew,
+  dragons, payloads, ships, landpads, launchpads, Starlink satellites, the Tesla Roadster ephemeris, company info, and
+  historical events. Operated by the r-spacex community (the same group behind the r/SpaceX subreddit) and licensed
+  Apache 2.0. The canonical hosted base URL is https://api.spacexdata.com and the canonical source repository is
+  https://github.com/r-spacex/SpaceX-API.
 
-  The API is currently in MAINTENANCE-ONLY MODE as of 2024. New launches
-  and missions are NOT being added to the dataset; the project remains
-  online for historical lookups and as a teaching/sample API. This makes
-  it an excellent fixture for SDK tutorials, MCP server demos, and API
-  design exercises, but it is no longer a live source of upcoming SpaceX
-  flight data.
+  The API is currently in MAINTENANCE-ONLY MODE as of 2024. New launches and missions are NOT being added to the
+  dataset; the project remains online for historical lookups and as a teaching/sample API. This makes it an excellent
+  fixture for SDK tutorials, MCP server demos, and API design exercises, but it is no longer a live source of upcoming
+  SpaceX flight data.
 
-  The data is organized as a MongoDB document store with cross-resource
-  UUID references; the /query endpoints expose mongoose-paginate-v2 with
-  full MongoDB find()/options semantics. Authentication is only required
-  for destructive (create/update/delete) admin routes; all read operations
-  are public. This community project is not affiliated with, endorsed by,
-  or officially connected to Space Exploration Technologies Corp.
+  The data is organized as a MongoDB document store with cross-resource UUID references; the /query endpoints expose
+  mongoose-paginate-v2 with full MongoDB find()/options semantics. Authentication is only required for destructive
+  (create/update/delete) admin routes; all read operations are public. This community project is not affiliated with,
+  endorsed by, or officially connected to Space Exploration Technologies Corp.
 type: Index
 position: Provider
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 x-status: maintenance-only
 x-status-note: >-
-  As of 2024 the r-spacex/SpaceX-API project is in maintenance-only mode.
-  New launches, payloads, crew, and starlink records are NOT being added;
-  existing data remains queryable and historical only.
+  As of 2024 the r-spacex/SpaceX-API project is in maintenance-only mode. New launches, payloads, crew, and starlink
+  records are NOT being added; existing data remains queryable and historical only.
 tags:
-  - Space
-  - Launch
-  - Satellites
-  - Starlink
-  - Falcon 9
-  - Falcon Heavy
-  - Dragon
-  - Rockets
-  - Open Source
-  - Community
-  - REST
-  - GraphQL
-  - Open Data
+- Space
+- Launch
+- Satellites
+- Starlink
+- Falcon 9
+- Falcon Heavy
+- Dragon
+- Rockets
+- Open Source
+- Community
+- REST
+- GraphQL
+- Open Data
 apis:
-  - aid: spacex:rest-api
-    name: SpaceX REST API (v4 + v5)
-    description: >-
-      Open-source REST API exposing all SpaceX launch, rocket, capsule,
-      core, crew, dragon, ship, landpad, launchpad, payload, Starlink,
-      Roadster, company, and history data. v4 is the canonical resource
-      surface; the Launches resource also has a v5 surface that omits
-      the v4 response/query transforms. Read operations are unauthenticated;
-      destructive operations require an x-spacex-key header.
-    humanURL: https://github.com/r-spacex/SpaceX-API
-    baseURL: https://api.spacexdata.com
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    tags:
-      - Launches
-      - Rockets
-      - Capsules
-      - Cores
-      - Crew
-      - Dragons
-      - Payloads
-      - Ships
-      - Landpads
-      - Launchpads
-      - Starlink
-      - Roadster
-      - Company
-      - History
-    properties:
-      - type: Documentation
-        url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
-      - type: GettingStarted
-        url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
-      - type: SourceCode
-        url: https://github.com/r-spacex/SpaceX-API
-      - type: OpenAPI
-        url: openapi/spacex-rest-api-openapi.yml
-      - type: Postman
-        url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
-      - type: License
-        url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
-      - type: ChangeLog
-        url: https://github.com/r-spacex/SpaceX-API/releases
-      - type: Status
-        url: https://status.spacexdata.com
-      - type: Backups
-        url: https://backups.spacexdata.com
-      - type: JSONSchema
-        url: json-schema/spacex-launch-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-rocket-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-capsule-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-core-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-crew-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-dragon-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-payload-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-ship-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-launchpad-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-landpad-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-starlink-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-roadster-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-company-schema.json
-      - type: JSONSchema
-        url: json-schema/spacex-history-schema.json
-      - type: NaftikoCapability
-        url: capabilities/spacex-launches.yaml
-      - type: NaftikoCapability
-        url: capabilities/spacex-rockets.yaml
-      - type: NaftikoCapability
-        url: capabilities/spacex-crew.yaml
-      - type: NaftikoCapability
-        url: capabilities/spacex-starlink.yaml
-      - type: NaftikoCapability
-        url: capabilities/spacex-fleet.yaml
-      - type: SDK
-        url: https://github.com/Tearth/Oddity
-        title: .NET SDK (Oddity)
-      - type: SDK
-        url: https://github.com/SaidBySolo/SpaceXPy
-        title: Python SDK (SpaceXPy)
-      - type: SDK
-        url: https://github.com/SaiBalaji22/KSBSpacexKit
-        title: Swift SDK (KSBSpacexKit)
-      - type: SDK
-        url: https://github.com/AzuxDario/Marsy
-        title: C++ SDK (Marsy)
-      - type: SDK
-        url: https://github.com/AkiaCode/spacex-api.js
-        title: Node.js SDK (spacex-api.js)
-      - type: SDK
-        url: https://github.com/ahsanz024/spacex_api
-        title: Dart SDK
-      - type: SDK
-        url: https://github.com/victorperez/spacex-api-ruby
-        title: Ruby SDK
-      - type: SDK
-        url: https://github.com/artfultom/spacex-api
-        title: Java SDK
-  - aid: spacex:graphql-api
-    name: SpaceX GraphQL API (community)
-    description: >-
-      Community-maintained GraphQL gateways over the SpaceX REST data,
-      providing typed schema access and nested-field selection across
-      launches, rockets, missions, payloads, ships, and crew. Multiple
-      community gateways exist; the SpaceXLand/api project is the most
-      widely cited reference implementation. Like the REST surface, the
-      underlying dataset is in maintenance-only mode as of 2024.
-    humanURL: https://github.com/SpaceXLand/api
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    tags:
-      - GraphQL
-      - Launches
-      - Rockets
-      - Missions
-    properties:
-      - type: Documentation
-        url: https://github.com/SpaceXLand/api
-      - type: SourceCode
-        url: https://github.com/SpaceXLand/api
-      - type: GraphQLAlternative
-        url: https://github.com/jor-dan/SpaceX-GraphQL
-        title: SpaceX-GraphQL (Jordan Owens)
-      - type: GraphQLAlternative
-        url: https://github.com/Kartikkumargujarati/xploration-graphql
-        title: xploration-graphql
-      - type: GraphQLAlternative
-        url: https://github.com/kevinstd/spacex-graphql-gateway
-        title: spacex-graphql-gateway
-common:
-  - type: Website
-    url: https://github.com/r-spacex/SpaceX-API
-  - type: GitHubOrganization
-    url: https://github.com/r-spacex
-  - type: SourceCode
-    url: https://github.com/r-spacex/SpaceX-API
-  - type: License
-    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
-    title: Apache License 2.0
+- aid: spacex:rest-api
+  name: SpaceX REST API (v4 + v5)
+  description: >-
+    Open-source REST API exposing all SpaceX launch, rocket, capsule, core, crew, dragon, ship, landpad, launchpad,
+    payload, Starlink, Roadster, company, and history data. v4 is the canonical resource surface; the Launches
+    resource also has a v5 surface that omits the v4 response/query transforms. Read operations are unauthenticated;
+    destructive operations require an x-spacex-key header.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  tags:
+  - Launches
+  - Rockets
+  - Capsules
+  - Cores
+  - Crew
+  - Dragons
+  - Payloads
+  - Ships
+  - Landpads
+  - Launchpads
+  - Starlink
+  - Roadster
+  - Company
+  - History
+  properties:
   - type: Documentation
     url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
   - type: GettingStarted
     url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: OpenAPI
+    url: openapi/spacex-rest-api-openapi.yml
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
   - type: ChangeLog
     url: https://github.com/r-spacex/SpaceX-API/releases
-  - type: Issues
-    url: https://github.com/r-spacex/SpaceX-API/issues
-  - type: PullRequests
-    url: https://github.com/r-spacex/SpaceX-API/pulls
   - type: Status
     url: https://status.spacexdata.com
   - type: Backups
     url: https://backups.spacexdata.com
-  - type: DockerImage
-    url: https://hub.docker.com/r/jakewmeyer/spacex-api/
-  - type: Clients
-    url: https://github.com/r-spacex/SpaceX-API/blob/master/docs/clients.md
-  - type: Apps
-    url: https://github.com/r-spacex/SpaceX-API/blob/master/docs/apps.md
-  - type: APIStyleGuide
-    url: https://github.com/r-spacex/api-style-guide
-  - type: Subreddit
-    url: https://www.reddit.com/r/spacex/
-  - type: Plans
-    url: plans/spacex-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/spacex-rate-limits.yml
-  - type: SpectralRules
-    url: rules/spacex-rules.yml
-  - type: Vocabulary
-    url: vocabulary/spacex-vocabulary.yml
-  - type: JSONLDContext
-    url: json-ld/spacex-context.jsonld
-  - type: Tools
-    title: MCP Server (community)
-    url: https://github.com/fercervantesx/lnl-spacex-mcp-server
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDK
+    url: https://github.com/Tearth/Oddity
+    title: .NET SDK (Oddity)
+  - type: SDK
+    url: https://github.com/SaidBySolo/SpaceXPy
+    title: Python SDK (SpaceXPy)
+  - type: SDK
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+    title: Swift SDK (KSBSpacexKit)
+  - type: SDK
+    url: https://github.com/AzuxDario/Marsy
+    title: C++ SDK (Marsy)
+  - type: SDK
+    url: https://github.com/AkiaCode/spacex-api.js
+    title: Node.js SDK (spacex-api.js)
+  - type: SDK
+    url: https://github.com/ahsanz024/spacex_api
+    title: Dart SDK
+  - type: SDK
+    url: https://github.com/victorperez/spacex-api-ruby
+    title: Ruby SDK
+  - type: SDK
+    url: https://github.com/artfultom/spacex-api
+    title: Java SDK
+- aid: spacex:graphql-api
+  name: SpaceX GraphQL API (community)
+  description: >-
+    Community-maintained GraphQL gateways over the SpaceX REST data, providing typed schema access and nested-field
+    selection across launches, rockets, missions, payloads, ships, and crew. Multiple community gateways exist; the
+    SpaceXLand/api project is the most widely cited reference implementation. Like the REST surface, the underlying
+    dataset is in maintenance-only mode as of 2024.
+  humanURL: https://github.com/SpaceXLand/api
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  tags:
+  - GraphQL
+  - Launches
+  - Rockets
+  - Missions
+  properties:
+  - type: Documentation
+    url: https://github.com/SpaceXLand/api
+  - type: SourceCode
+    url: https://github.com/SpaceXLand/api
+  - type: GraphQLAlternative
+    url: https://github.com/jor-dan/SpaceX-GraphQL
+    title: SpaceX-GraphQL (Jordan Owens)
+  - type: GraphQLAlternative
+    url: https://github.com/Kartikkumargujarati/xploration-graphql
+    title: xploration-graphql
+  - type: GraphQLAlternative
+    url: https://github.com/kevinstd/spacex-graphql-gateway
+    title: spacex-graphql-gateway
+  - url: graphql/spacex-graphql.md
+    type: GraphQL
+common:
+- type: Website
+  url: https://github.com/r-spacex/SpaceX-API
+- type: GitHubOrganization
+  url: https://github.com/r-spacex
+- type: SourceCode
+  url: https://github.com/r-spacex/SpaceX-API
+- type: License
+  url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  title: Apache License 2.0
+- type: Documentation
+  url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+- type: GettingStarted
+  url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+- type: ChangeLog
+  url: https://github.com/r-spacex/SpaceX-API/releases
+- type: Issues
+  url: https://github.com/r-spacex/SpaceX-API/issues
+- type: PullRequests
+  url: https://github.com/r-spacex/SpaceX-API/pulls
+- type: Status
+  url: https://status.spacexdata.com
+- type: Backups
+  url: https://backups.spacexdata.com
+- type: DockerImage
+  url: https://hub.docker.com/r/jakewmeyer/spacex-api/
+- type: Clients
+  url: https://github.com/r-spacex/SpaceX-API/blob/master/docs/clients.md
+- type: Apps
+  url: https://github.com/r-spacex/SpaceX-API/blob/master/docs/apps.md
+- type: APIStyleGuide
+  url: https://github.com/r-spacex/api-style-guide
+- type: Subreddit
+  url: https://www.reddit.com/r/spacex/
+- type: Plans
+  url: plans/spacex-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/spacex-rate-limits.yml
+- type: SpectralRules
+  url: rules/spacex-rules.yml
+- type: Vocabulary
+  url: vocabulary/spacex-vocabulary.yml
+- type: JSONLDContext
+  url: json-ld/spacex-context.jsonld
+- type: Tools
+  title: MCP Server (community)
+  url: https://github.com/fercervantesx/lnl-spacex-mcp-server
 url: https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-29'
 specificationVersion: '0.20'
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,743 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Capsules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/capsules"
+          },
+          "docs": "Return every Dragon capsule record in the dataset."
+        },
+        {
+          "info": {
+            "name": "Get One Capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/capsules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single Dragon capsule record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/capsules/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the capsule collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Company",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Company Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/company"
+          },
+          "docs": "Return the single SpaceX company-info document."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Cores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/cores"
+          },
+          "docs": "Return every first-stage core record in the dataset."
+        },
+        {
+          "info": {
+            "name": "Get One Core",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/cores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single first-stage core record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Cores",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/cores/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the core collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crew",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/crew"
+          },
+          "docs": "Return every Dragon crew member record."
+        },
+        {
+          "info": {
+            "name": "Get One Crew Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/crew/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single crew member record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/crew/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the crew collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Dragons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Dragon Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/dragons"
+          },
+          "docs": "Return every Dragon capsule version record (Dragon 1, Dragon 2, etc.)."
+        },
+        {
+          "info": {
+            "name": "Get One Dragon Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/dragons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single Dragon version record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Dragons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/dragons/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the dragons collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All History Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/history"
+          },
+          "docs": "Return every SpaceX historical event record."
+        },
+        {
+          "info": {
+            "name": "Get One History Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/history/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single SpaceX history event by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query History Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/history/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the history collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Landpads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Landing Pads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/landpads"
+          },
+          "docs": "Return every landing pad / droneship record."
+        },
+        {
+          "info": {
+            "name": "Get One Landing Pad",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/landpads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single landing pad by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Landing Pads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/landpads/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the landpads collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Launches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches"
+          },
+          "docs": "Return every launch record sorted ascending by flight_number."
+        },
+        {
+          "info": {
+            "name": "List Past Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/past"
+          },
+          "docs": "Return all launches with `upcoming: false`."
+        },
+        {
+          "info": {
+            "name": "List Upcoming Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/upcoming"
+          },
+          "docs": "Return all launches with `upcoming: true`. In maintenance-only mode this list is no longer updated."
+        },
+        {
+          "info": {
+            "name": "Get Latest Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/latest"
+          },
+          "docs": "Return the most recent past launch (highest flight_number with `upcoming: false`)."
+        },
+        {
+          "info": {
+            "name": "Get Next Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/next"
+          },
+          "docs": "Return the next upcoming launch (lowest flight_number with `upcoming: true`)."
+        },
+        {
+          "info": {
+            "name": "Get One Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single launch by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v5/launches/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the launches collection with optional populate."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Launchpads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Launchpads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/launchpads"
+          },
+          "docs": "Return every launchpad record."
+        },
+        {
+          "info": {
+            "name": "Get One Launchpad",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/launchpads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single launchpad by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Launchpads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/launchpads/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the launchpads collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payloads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/payloads"
+          },
+          "docs": "Return every payload record."
+        },
+        {
+          "info": {
+            "name": "Get One Payload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/payloads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single payload by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/payloads/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the payloads collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Roadster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Roadster Ephemeris",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/roadster"
+          },
+          "docs": "Return the current orbital ephemeris for Elon Musk's Tesla Roadster."
+        },
+        {
+          "info": {
+            "name": "Query Roadster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/roadster/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the roadster collection (single document)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rockets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Rockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/rockets"
+          },
+          "docs": "Return every rocket version record."
+        },
+        {
+          "info": {
+            "name": "Get One Rocket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/rockets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single rocket by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Rockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/rockets/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the rockets collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Ships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/ships"
+          },
+          "docs": "Return every ship in the SpaceX fleet (droneships, recovery ships, support)."
+        },
+        {
+          "info": {
+            "name": "Get One Ship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/ships/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single ship by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Ships",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/ships/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the ships collection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Starlink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Starlink Satellites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/starlink"
+          },
+          "docs": "Return every Starlink satellite record with raw Space-Track orbit data."
+        },
+        {
+          "info": {
+            "name": "Get One Starlink Satellite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/starlink/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single Starlink satellite by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Starlink Satellites",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/starlink/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the starlink collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
