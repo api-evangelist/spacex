@@ -19,7 +19,7 @@ description: >-
 type: Index
 position: Provider
 access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 x-status: maintenance-only
 x-status-note: >-
   As of 2024 the r-spacex/SpaceX-API project is in maintenance-only mode. New launches, payloads, crew, and starlink
@@ -48,7 +48,7 @@ apis:
     destructive operations require an x-spacex-key header.
   humanURL: https://github.com/r-spacex/SpaceX-API
   baseURL: https://api.spacexdata.com
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   tags:
   - Launches
   - Rockets
@@ -143,7 +143,7 @@ apis:
     SpaceXLand/api project is the most widely cited reference implementation. Like the REST surface, the underlying
     dataset is in maintenance-only mode as of 2024.
   humanURL: https://github.com/SpaceXLand/api
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   tags:
   - GraphQL
   - Launches
