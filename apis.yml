@@ -111,28 +111,28 @@ apis:
     url: json-schema/spacex-company-schema.json
   - type: JSONSchema
     url: json-schema/spacex-history-schema.json
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Tearth/Oddity
     title: .NET SDK (Oddity)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/SaidBySolo/SpaceXPy
     title: Python SDK (SpaceXPy)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/SaiBalaji22/KSBSpacexKit
     title: Swift SDK (KSBSpacexKit)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AzuxDario/Marsy
     title: C++ SDK (Marsy)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AkiaCode/spacex-api.js
     title: Node.js SDK (spacex-api.js)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ahsanz024/spacex_api
     title: Dart SDK
-  - type: SDK
+  - type: SDKs
     url: https://github.com/victorperez/spacex-api-ruby
     title: Ruby SDK
-  - type: SDK
+  - type: SDKs
     url: https://github.com/artfultom/spacex-api
     title: Java SDK
 - aid: spacex:graphql-api
