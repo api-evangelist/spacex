@@ -166,6 +166,10 @@ apis:
   - url: graphql/spacex-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/spacex-domain-security.yml
+- type: Authentication
+  url: authentication/spacex-authentication.yml
 - type: Website
   url: https://github.com/r-spacex/SpaceX-API
 - type: GitHubOrganization

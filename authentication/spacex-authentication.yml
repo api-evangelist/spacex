@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/spacex-rest-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: SpacexKey
+  type: apiKey
+  in: header
+  parameter: spacex-key
+  description: |-
+    Admin API key for destructive (create/update/delete) operations.
+    Not required for any read endpoint.
+  sources:
+  - openapi/spacex-rest-api-openapi.yml
