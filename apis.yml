@@ -166,6 +166,8 @@ apis:
   - url: graphql/spacex-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/spacex-agentic-access.yml
 - type: DomainSecurity
   url: security/spacex-domain-security.yml
 - type: Authentication
