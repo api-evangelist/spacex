@@ -1,0 +1,523 @@
+openapi: 3.0.3
+info:
+  title: SpaceX REST Capsules Launches API
+  description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
+
+    capsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink
+
+    satellites, the Tesla Roadster ephemeris, company info, and historical events.
+
+    Source: https://github.com/r-spacex/SpaceX-API (Apache 2.0).
+
+
+    STATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.
+
+    Existing data remains queryable; project remains hosted for historical lookups
+
+    and as a teaching/sample API.
+
+
+    Each resource is independently versioned. The Launches resource has both v4 and
+
+    v5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4
+
+    parity). All other resources are v4-only.
+
+
+    Authentication: only required for destructive (create/update/delete) admin routes
+
+    via the `spacex-key` header. All read operations are public.
+
+
+    Querying: every resource exposes a POST `/{resource}/query` endpoint that accepts
+
+    a mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.
+
+    '
+  version: '4.0'
+  contact:
+    name: r-spacex community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+  x-status: maintenance-only
+servers:
+- url: https://api.spacexdata.com
+  description: Canonical hosted REST endpoint (community-operated)
+security: []
+tags:
+- name: Launches
+  description: Detailed info about SpaceX launches (v4 and v5).
+paths:
+  /v5/launches:
+    get:
+      operationId: listLaunchesV5
+      summary: List All Launches
+      description: Return every launch record sorted ascending by flight_number.
+      tags:
+      - Launches
+      responses:
+        '200':
+          description: Array of launch records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v5/launches/past:
+    get:
+      operationId: listPastLaunches
+      summary: List Past Launches
+      description: 'Return all launches with `upcoming: false`.'
+      tags:
+      - Launches
+      responses:
+        '200':
+          description: Array of past launch records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v5/launches/upcoming:
+    get:
+      operationId: listUpcomingLaunches
+      summary: List Upcoming Launches
+      description: 'Return all launches with `upcoming: true`. In maintenance-only mode this list is no longer updated.'
+      tags:
+      - Launches
+      responses:
+        '200':
+          description: Array of upcoming launch records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v5/launches/latest:
+    get:
+      operationId: getLatestLaunch
+      summary: Get Latest Launch
+      description: 'Return the most recent past launch (highest flight_number with `upcoming: false`).'
+      tags:
+      - Launches
+      responses:
+        '200':
+          description: Latest launch record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v5/launches/next:
+    get:
+      operationId: getNextLaunch
+      summary: Get Next Launch
+      description: 'Return the next upcoming launch (lowest flight_number with `upcoming: true`).'
+      tags:
+      - Launches
+      responses:
+        '200':
+          description: Next launch record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v5/launches/{id}:
+    get:
+      operationId: getLaunch
+      summary: Get One Launch
+      description: Return a single launch by its UUID.
+      tags:
+      - Launches
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Launch record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launch'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v5/launches/query:
+    post:
+      operationId: queryLaunches
+      summary: Query Launches
+      description: Run a mongoose-paginate-v2 query against the launches collection with optional populate.
+      tags:
+      - Launches
+      requestBody:
+        $ref: '#/components/requestBodies/QueryBody'
+      responses:
+        '200':
+          description: Paginated launch result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLaunches'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Launch:
+      type: object
+      description: A SpaceX launch record.
+      properties:
+        id:
+          type: string
+        flight_number:
+          type: integer
+        name:
+          type: string
+        date_utc:
+          type: string
+          format: date-time
+        date_unix:
+          type: integer
+        date_local:
+          type: string
+        date_precision:
+          type: string
+          enum:
+          - half
+          - quarter
+          - year
+          - month
+          - day
+          - hour
+        static_fire_date_utc:
+          type: string
+          nullable: true
+          format: date-time
+        static_fire_date_unix:
+          type: integer
+          nullable: true
+        tbd:
+          type: boolean
+          default: false
+        net:
+          type: boolean
+          default: false
+        window:
+          type: integer
+          nullable: true
+        rocket:
+          type: string
+          nullable: true
+        success:
+          type: boolean
+          nullable: true
+        failures:
+          type: array
+          items:
+            type: object
+            properties:
+              time:
+                type: integer
+              altitude:
+                type: integer
+                nullable: true
+              reason:
+                type: string
+        upcoming:
+          type: boolean
+        details:
+          type: string
+          nullable: true
+        fairings:
+          type: object
+          nullable: true
+          properties:
+            reused:
+              type: boolean
+              nullable: true
+            recovery_attempt:
+              type: boolean
+              nullable: true
+            recovered:
+              type: boolean
+              nullable: true
+            ships:
+              type: array
+              items:
+                type: string
+        crew:
+          type: array
+          items:
+            type: object
+            properties:
+              crew:
+                type: string
+                nullable: true
+              role:
+                type: string
+                nullable: true
+        ships:
+          type: array
+          items:
+            type: string
+        capsules:
+          type: array
+          items:
+            type: string
+        payloads:
+          type: array
+          items:
+            type: string
+        launchpad:
+          type: string
+          nullable: true
+        cores:
+          type: array
+          items:
+            type: object
+            properties:
+              core:
+                type: string
+                nullable: true
+              flight:
+                type: integer
+                nullable: true
+              gridfins:
+                type: boolean
+                nullable: true
+              legs:
+                type: boolean
+                nullable: true
+              reused:
+                type: boolean
+                nullable: true
+              landing_attempt:
+                type: boolean
+                nullable: true
+              landing_success:
+                type: boolean
+                nullable: true
+              landing_type:
+                type: string
+                nullable: true
+              landpad:
+                type: string
+                nullable: true
+        links:
+          type: object
+          properties:
+            patch:
+              type: object
+              properties:
+                small:
+                  type: string
+                  nullable: true
+                  format: uri
+                large:
+                  type: string
+                  nullable: true
+                  format: uri
+            reddit:
+              type: object
+              properties:
+                campaign:
+                  type: string
+                  nullable: true
+                  format: uri
+                launch:
+                  type: string
+                  nullable: true
+                  format: uri
+                media:
+                  type: string
+                  nullable: true
+                  format: uri
+                recovery:
+                  type: string
+                  nullable: true
+                  format: uri
+            flickr:
+              type: object
+              properties:
+                small:
+                  type: array
+                  items:
+                    type: string
+                    format: uri
+                original:
+                  type: array
+                  items:
+                    type: string
+                    format: uri
+            presskit:
+              type: string
+              nullable: true
+              format: uri
+            webcast:
+              type: string
+              nullable: true
+              format: uri
+            youtube_id:
+              type: string
+              nullable: true
+            article:
+              type: string
+              nullable: true
+              format: uri
+            wikipedia:
+              type: string
+              nullable: true
+              format: uri
+        auto_update:
+          type: boolean
+          default: true
+      required:
+      - flight_number
+      - name
+      - date_utc
+      - date_unix
+      - date_local
+      - date_precision
+      - upcoming
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type: integer
+          nullable: true
+        nextPage:
+          type: integer
+          nullable: true
+    QueryRequest:
+      type: object
+      description: mongoose-paginate-v2 query body.
+      properties:
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
+    PaginatedLaunches:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Launch'
+  requestBodies:
+    QueryBody:
+      description: mongoose-paginate-v2 query body.
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/QueryRequest'
+          example:
+            query: {}
+            options:
+              limit: 10
+              page: 1
+  securitySchemes:
+    SpacexKey:
+      type: apiKey
+      in: header
+      name: spacex-key
+      description: 'Admin API key for destructive (create/update/delete) operations.
+
+        Not required for any read endpoint.
+
+        '

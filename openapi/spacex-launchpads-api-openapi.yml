@@ -1,0 +1,287 @@
+openapi: 3.0.3
+info:
+  title: SpaceX REST Capsules Launchpads API
+  description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
+
+    capsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink
+
+    satellites, the Tesla Roadster ephemeris, company info, and historical events.
+
+    Source: https://github.com/r-spacex/SpaceX-API (Apache 2.0).
+
+
+    STATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.
+
+    Existing data remains queryable; project remains hosted for historical lookups
+
+    and as a teaching/sample API.
+
+
+    Each resource is independently versioned. The Launches resource has both v4 and
+
+    v5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4
+
+    parity). All other resources are v4-only.
+
+
+    Authentication: only required for destructive (create/update/delete) admin routes
+
+    via the `spacex-key` header. All read operations are public.
+
+
+    Querying: every resource exposes a POST `/{resource}/query` endpoint that accepts
+
+    a mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.
+
+    '
+  version: '4.0'
+  contact:
+    name: r-spacex community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+  x-status: maintenance-only
+servers:
+- url: https://api.spacexdata.com
+  description: Canonical hosted REST endpoint (community-operated)
+security: []
+tags:
+- name: Launchpads
+  description: Detailed info about launchpads.
+paths:
+  /v4/launchpads:
+    get:
+      operationId: listLaunchpads
+      summary: List All Launchpads
+      description: Return every launchpad record.
+      tags:
+      - Launchpads
+      responses:
+        '200':
+          description: Array of launchpad records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launchpad'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v4/launchpads/{id}:
+    get:
+      operationId: getLaunchpad
+      summary: Get One Launchpad
+      description: Return a single launchpad by its UUID.
+      tags:
+      - Launchpads
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Launchpad record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launchpad'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v4/launchpads/query:
+    post:
+      operationId: queryLaunchpads
+      summary: Query Launchpads
+      description: Run a mongoose-paginate-v2 query against the launchpads collection.
+      tags:
+      - Launchpads
+      requestBody:
+        $ref: '#/components/requestBodies/QueryBody'
+      responses:
+        '200':
+          description: Paginated launchpad result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLaunchpads'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Launchpad:
+      type: object
+      description: A SpaceX launch pad.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          nullable: true
+        full_name:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - unknown
+          - retired
+          - lost
+          - under construction
+        locality:
+          type: string
+          nullable: true
+        region:
+          type: string
+          nullable: true
+        timezone:
+          type: string
+          nullable: true
+        latitude:
+          type: number
+          nullable: true
+        longitude:
+          type: number
+          nullable: true
+        launch_attempts:
+          type: integer
+          default: 0
+        launch_successes:
+          type: integer
+          default: 0
+        rockets:
+          type: array
+          items:
+            type: string
+        launches:
+          type: array
+          items:
+            type: string
+      required:
+      - status
+    PaginatedLaunchpads:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Launchpad'
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type: integer
+          nullable: true
+        nextPage:
+          type: integer
+          nullable: true
+    QueryRequest:
+      type: object
+      description: mongoose-paginate-v2 query body.
+      properties:
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  requestBodies:
+    QueryBody:
+      description: mongoose-paginate-v2 query body.
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/QueryRequest'
+          example:
+            query: {}
+            options:
+              limit: 10
+              page: 1
+  securitySchemes:
+    SpacexKey:
+      type: apiKey
+      in: header
+      name: spacex-key
+      description: 'Admin API key for destructive (create/update/delete) operations.
+
+        Not required for any read endpoint.
+
+        '

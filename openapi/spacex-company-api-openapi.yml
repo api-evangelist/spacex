@@ -1,0 +1,139 @@
+openapi: 3.0.3
+info:
+  title: SpaceX REST Capsules Company API
+  description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
+
+    capsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink
+
+    satellites, the Tesla Roadster ephemeris, company info, and historical events.
+
+    Source: https://github.com/r-spacex/SpaceX-API (Apache 2.0).
+
+
+    STATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.
+
+    Existing data remains queryable; project remains hosted for historical lookups
+
+    and as a teaching/sample API.
+
+
+    Each resource is independently versioned. The Launches resource has both v4 and
+
+    v5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4
+
+    parity). All other resources are v4-only.
+
+
+    Authentication: only required for destructive (create/update/delete) admin routes
+
+    via the `spacex-key` header. All read operations are public.
+
+
+    Querying: every resource exposes a POST `/{resource}/query` endpoint that accepts
+
+    a mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.
+
+    '
+  version: '4.0'
+  contact:
+    name: r-spacex community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+  x-status: maintenance-only
+servers:
+- url: https://api.spacexdata.com
+  description: Canonical hosted REST endpoint (community-operated)
+security: []
+tags:
+- name: Company
+  description: Detailed info about SpaceX as a company (single document).
+paths:
+  /v4/company:
+    get:
+      operationId: getCompany
+      summary: Get Company Info
+      description: Return the single SpaceX company-info document.
+      tags:
+      - Company
+      responses:
+        '200':
+          description: SpaceX company document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Company:
+      type: object
+      description: SpaceX company info document (single).
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        founder:
+          type: string
+        founded:
+          type: integer
+        employees:
+          type: integer
+        vehicles:
+          type: integer
+        launch_sites:
+          type: integer
+        test_sites:
+          type: integer
+        ceo:
+          type: string
+        cto:
+          type: string
+        coo:
+          type: string
+        cto_propulsion:
+          type: string
+        valuation:
+          type: number
+        headquarters:
+          type: object
+          properties:
+            address:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+        links:
+          type: object
+          properties:
+            website:
+              type: string
+              format: uri
+            flickr:
+              type: string
+              format: uri
+            twitter:
+              type: string
+              format: uri
+            elon_twitter:
+              type: string
+              format: uri
+        summary:
+          type: string
+  securitySchemes:
+    SpacexKey:
+      type: apiKey
+      in: header
+      name: spacex-key
+      description: 'Admin API key for destructive (create/update/delete) operations.
+
+        Not required for any read endpoint.
+
+        '

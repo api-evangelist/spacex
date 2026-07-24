@@ -1,0 +1,296 @@
+openapi: 3.0.3
+info:
+  title: SpaceX REST Capsules API
+  description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
+
+    capsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink
+
+    satellites, the Tesla Roadster ephemeris, company info, and historical events.
+
+    Source: https://github.com/r-spacex/SpaceX-API (Apache 2.0).
+
+
+    STATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.
+
+    Existing data remains queryable; project remains hosted for historical lookups
+
+    and as a teaching/sample API.
+
+
+    Each resource is independently versioned. The Launches resource has both v4 and
+
+    v5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4
+
+    parity). All other resources are v4-only.
+
+
+    Authentication: only required for destructive (create/update/delete) admin routes
+
+    via the `spacex-key` header. All read operations are public.
+
+
+    Querying: every resource exposes a POST `/{resource}/query` endpoint that accepts
+
+    a mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.
+
+    '
+  version: '4.0'
+  contact:
+    name: r-spacex community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+  x-status: maintenance-only
+servers:
+- url: https://api.spacexdata.com
+  description: Canonical hosted REST endpoint (community-operated)
+security: []
+tags:
+- name: Capsules
+  description: Detailed info for serialized Dragon capsules.
+paths:
+  /v4/capsules:
+    get:
+      operationId: listCapsules
+      summary: List All Capsules
+      description: Return every Dragon capsule record in the dataset.
+      tags:
+      - Capsules
+      responses:
+        '200':
+          description: Array of capsule records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Capsule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v4/capsules/{id}:
+    get:
+      operationId: getCapsule
+      summary: Get One Capsule
+      description: Return a single Dragon capsule record by its UUID.
+      tags:
+      - Capsules
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Capsule record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capsule'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v4/capsules/query:
+    post:
+      operationId: queryCapsules
+      summary: Query Capsules
+      description: Run a mongoose-paginate-v2 query against the capsule collection.
+      tags:
+      - Capsules
+      requestBody:
+        $ref: '#/components/requestBodies/QueryBody'
+      responses:
+        '200':
+          description: Paginated capsule result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCapsules'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    BadRequest:
+      description: Bad request — query body invalid or operation rejected.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Capsule:
+      type: object
+      description: A serialized Dragon capsule.
+      properties:
+        id:
+          type: string
+          description: UUID.
+        serial:
+          type: string
+          description: Capsule serial (e.g. C112).
+        status:
+          type: string
+          enum:
+          - unknown
+          - active
+          - retired
+          - destroyed
+          description: Operational status.
+        type:
+          type: string
+          enum:
+          - Dragon 1.0
+          - Dragon 1.1
+          - Dragon 2.0
+          description: Capsule type / generation.
+        dragon:
+          type: string
+          nullable: true
+          description: Dragon version UUID.
+        reuse_count:
+          type: integer
+          default: 0
+        water_landings:
+          type: integer
+          default: 0
+        land_landings:
+          type: integer
+          default: 0
+        last_update:
+          type: string
+          nullable: true
+          description: Free-form latest status note.
+        launches:
+          type: array
+          items:
+            type: string
+          description: UUIDs of launches this capsule has flown.
+      required:
+      - serial
+      - status
+      - type
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type: integer
+          nullable: true
+        nextPage:
+          type: integer
+          nullable: true
+    QueryRequest:
+      type: object
+      description: mongoose-paginate-v2 query body.
+      properties:
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
+    PaginatedCapsules:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Capsule'
+  requestBodies:
+    QueryBody:
+      description: mongoose-paginate-v2 query body.
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/QueryRequest'
+          example:
+            query: {}
+            options:
+              limit: 10
+              page: 1
+  securitySchemes:
+    SpacexKey:
+      type: apiKey
+      in: header
+      name: spacex-key
+      description: 'Admin API key for destructive (create/update/delete) operations.
+
+        Not required for any read endpoint.
+
+        '
