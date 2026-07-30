@@ -17,9 +17,22 @@ description: >-
   (create/update/delete) admin routes; all read operations are public. This community project is not affiliated with,
   endorsed by, or officially connected to Space Exploration Technologies Corp.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/spacex.png
 x-status: maintenance-only
 x-status-note: >-
   As of 2024 the r-spacex/SpaceX-API project is in maintenance-only mode. New launches, payloads, crew, and starlink
@@ -39,40 +52,52 @@ tags:
 - GraphQL
 - Open Data
 apis:
-- aid: spacex:rest-api
-  name: SpaceX REST API (v4 + v5)
+- aid: spacex:graphql-api
+  name: SpaceX GraphQL API (community)
   description: >-
-    Open-source REST API exposing all SpaceX launch, rocket, capsule, core, crew, dragon, ship, landpad, launchpad,
-    payload, Starlink, Roadster, company, and history data. v4 is the canonical resource surface; the Launches
-    resource also has a v5 surface that omits the v4 response/query transforms. Read operations are unauthenticated;
-    destructive operations require an x-spacex-key header.
-  humanURL: https://github.com/r-spacex/SpaceX-API
-  baseURL: https://api.spacexdata.com
+    Community-maintained GraphQL gateways over the SpaceX REST data, providing typed schema access and
+    nested-field selection across launches, rockets, missions, payloads, ships, and crew. Multiple community
+    gateways exist; the SpaceXLand/api project is the most widely cited reference implementation. Like
+    the REST surface, the underlying dataset is in maintenance-only mode as of 2024.
+  humanURL: https://github.com/SpaceXLand/api
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   tags:
+  - GraphQL
   - Launches
   - Rockets
-  - Capsules
-  - Cores
-  - Crew
-  - Dragons
-  - Payloads
-  - Ships
-  - Landpads
-  - Launchpads
-  - Starlink
-  - Roadster
-  - Company
-  - History
+  - Missions
   properties:
+  - type: Documentation
+    url: https://github.com/SpaceXLand/api
+  - type: SourceCode
+    url: https://github.com/SpaceXLand/api
+  - type: GraphQLAlternative
+    url: https://github.com/jor-dan/SpaceX-GraphQL
+    title: SpaceX-GraphQL (Jordan Owens)
+  - type: GraphQLAlternative
+    url: https://github.com/Kartikkumargujarati/xploration-graphql
+    title: xploration-graphql
+  - type: GraphQLAlternative
+    url: https://github.com/kevinstd/spacex-graphql-gateway
+    title: spacex-graphql-gateway
+  - url: graphql/spacex-graphql.md
+    type: GraphQL
+- aid: spacex:spacex-capsules-api
+  name: SpaceX (Community API) Capsules API
+  description: Detailed info for serialized Dragon capsules.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Capsules
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-capsules-api-openapi.yml
   - type: Documentation
     url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
   - type: GettingStarted
     url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
   - type: SourceCode
     url: https://github.com/r-spacex/SpaceX-API
-  - type: OpenAPI
-    url: openapi/spacex-rest-api-openapi.yml
   - type: Postman
     url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
   - type: License
@@ -113,58 +138,930 @@ apis:
     url: json-schema/spacex-history-schema.json
   - type: SDKs
     url: https://github.com/Tearth/Oddity
-    title: .NET SDK (Oddity)
   - type: SDKs
     url: https://github.com/SaidBySolo/SpaceXPy
-    title: Python SDK (SpaceXPy)
   - type: SDKs
     url: https://github.com/SaiBalaji22/KSBSpacexKit
-    title: Swift SDK (KSBSpacexKit)
   - type: SDKs
     url: https://github.com/AzuxDario/Marsy
-    title: C++ SDK (Marsy)
   - type: SDKs
     url: https://github.com/AkiaCode/spacex-api.js
-    title: Node.js SDK (spacex-api.js)
   - type: SDKs
     url: https://github.com/ahsanz024/spacex_api
-    title: Dart SDK
   - type: SDKs
     url: https://github.com/victorperez/spacex-api-ruby
-    title: Ruby SDK
   - type: SDKs
     url: https://github.com/artfultom/spacex-api
-    title: Java SDK
-- aid: spacex:graphql-api
-  name: SpaceX GraphQL API (community)
-  description: >-
-    Community-maintained GraphQL gateways over the SpaceX REST data, providing typed schema access and nested-field
-    selection across launches, rockets, missions, payloads, ships, and crew. Multiple community gateways exist; the
-    SpaceXLand/api project is the most widely cited reference implementation. Like the REST surface, the underlying
-    dataset is in maintenance-only mode as of 2024.
-  humanURL: https://github.com/SpaceXLand/api
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: spacex:spacex-company-api
+  name: SpaceX (Community API) Company API
+  description: Detailed info about SpaceX as a company (single document).
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
   tags:
-  - GraphQL
-  - Launches
-  - Rockets
-  - Missions
+  - Company
   properties:
+  - type: OpenAPI
+    url: openapi/spacex-company-api-openapi.yml
   - type: Documentation
-    url: https://github.com/SpaceXLand/api
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
   - type: SourceCode
-    url: https://github.com/SpaceXLand/api
-  - type: GraphQLAlternative
-    url: https://github.com/jor-dan/SpaceX-GraphQL
-    title: SpaceX-GraphQL (Jordan Owens)
-  - type: GraphQLAlternative
-    url: https://github.com/Kartikkumargujarati/xploration-graphql
-    title: xploration-graphql
-  - type: GraphQLAlternative
-    url: https://github.com/kevinstd/spacex-graphql-gateway
-    title: spacex-graphql-gateway
-  - url: graphql/spacex-graphql.md
-    type: GraphQL
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-cores-api
+  name: SpaceX (Community API) Cores API
+  description: Detailed info for serialized first-stage cores.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Cores
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-cores-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-crew-api
+  name: SpaceX (Community API) Crew API
+  description: Detailed info on Dragon crew members.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Crew
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-crew-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-dragons-api
+  name: SpaceX (Community API) Dragons API
+  description: Detailed info about Dragon capsule versions.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Dragons
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-dragons-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-history-api
+  name: SpaceX (Community API) History API
+  description: Detailed info on SpaceX historical events.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - History
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-history-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-landpads-api
+  name: SpaceX (Community API) Landpads API
+  description: Detailed info about landing pads and droneships.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Landpads
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-landpads-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-launches-api
+  name: SpaceX (Community API) Launches API
+  description: Detailed info about SpaceX launches (v4 and v5).
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Launches
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-launches-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-launchpads-api
+  name: SpaceX (Community API) Launchpads API
+  description: Detailed info about launchpads.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Launchpads
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-launchpads-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-payloads-api
+  name: SpaceX (Community API) Payloads API
+  description: Detailed info about launch payloads.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Payloads
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-payloads-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-roadster-api
+  name: SpaceX (Community API) Roadster API
+  description: Detailed info about Elon Musk's Tesla Roadster ephemeris.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Roadster
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-roadster-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-rockets-api
+  name: SpaceX (Community API) Rockets API
+  description: Detailed info about rocket versions.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Rockets
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-rockets-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-ships-api
+  name: SpaceX (Community API) Ships API
+  description: Detailed info about ships in the SpaceX fleet.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Ships
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-ships-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
+- aid: spacex:spacex-starlink-api
+  name: SpaceX (Community API) Starlink API
+  description: Detailed info about Starlink satellites and orbits.
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com
+  tags:
+  - Starlink
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-starlink-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/r-spacex/SpaceX-API/tree/master/docs
+  - type: GettingStarted
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/README.md
+  - type: SourceCode
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: Postman
+    url: https://app.getpostman.com/run-collection/ed4ed700dcc55b2c1f1c
+  - type: License
+    url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
+  - type: ChangeLog
+    url: https://github.com/r-spacex/SpaceX-API/releases
+  - type: Status
+    url: https://status.spacexdata.com
+  - type: Backups
+    url: https://backups.spacexdata.com
+  - type: JSONSchema
+    url: json-schema/spacex-launch-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-rocket-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-capsule-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-core-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-crew-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-dragon-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-payload-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-ship-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-launchpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-landpad-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-starlink-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-roadster-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-company-schema.json
+  - type: JSONSchema
+    url: json-schema/spacex-history-schema.json
+  - type: SDKs
+    url: https://github.com/Tearth/Oddity
+  - type: SDKs
+    url: https://github.com/SaidBySolo/SpaceXPy
+  - type: SDKs
+    url: https://github.com/SaiBalaji22/KSBSpacexKit
+  - type: SDKs
+    url: https://github.com/AzuxDario/Marsy
+  - type: SDKs
+    url: https://github.com/AkiaCode/spacex-api.js
+  - type: SDKs
+    url: https://github.com/ahsanz024/spacex_api
+  - type: SDKs
+    url: https://github.com/victorperez/spacex-api-ruby
+  - type: SDKs
+    url: https://github.com/artfultom/spacex-api
 common:
 - type: AgenticAccess
   url: agentic-access/spacex-agentic-access.yml
