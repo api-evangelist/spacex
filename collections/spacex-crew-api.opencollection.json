@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Crew API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Crew",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/crew"
+          },
+          "docs": "Return every Dragon crew member record."
+        },
+        {
+          "info": {
+            "name": "Get One Crew Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/crew/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single crew member record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/crew/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the crew collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

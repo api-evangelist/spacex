@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "f3493258-f966-445e-8ae8-baac94ea23a4",
+      "name": "Ships",
+      "description": {
+        "content": "Detailed info about ships in the SpaceX fleet.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "374ca4cb-dd97-42a1-be9e-5a19d1be7a4f",
+          "name": "List All Ships",
+          "request": {
+            "name": "List All Ships",
+            "description": {
+              "content": "Return every ship in the SpaceX fleet (droneships, recovery ships, support).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "ships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "435fd53d-bd9b-4661-a8b5-7a4c40093085",
+              "name": "Array of ship records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "ships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"active\": false,\n    \"id\": \"string\",\n    \"legacy_id\": \"string\",\n    \"model\": \"string\",\n    \"type\": \"string\",\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"imo\": 5960,\n    \"mmsi\": 5005,\n    \"abs\": 7850,\n    \"class\": 7181,\n    \"mass_kg\": 6689.758670745621,\n    \"mass_lbs\": 676.7705810173119,\n    \"year_built\": 4561,\n    \"home_port\": \"string\",\n    \"status\": \"string\",\n    \"speed_kn\": 192.11893963834603,\n    \"course_deg\": 7406.089566550269,\n    \"latitude\": 6363.660244987459,\n    \"longitude\": 9383.845312113393,\n    \"last_ais_update\": \"2024-10-22T07:33:23.872Z\",\n    \"link\": \"https://UgzGWZIlnbDbpYALr.eswzJvg+JrW54zG2PuwNC6sLK1SRE\",\n    \"image\": \"http://BiwTdJyh.wdMixqPm6FfZzQOhWHx,KrZCX1owu1IkXE,5IQ\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"active\": false,\n    \"id\": \"string\",\n    \"legacy_id\": \"string\",\n    \"model\": \"string\",\n    \"type\": \"string\",\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"imo\": 3467,\n    \"mmsi\": 9616,\n    \"abs\": 5650,\n    \"class\": 5179,\n    \"mass_kg\": 9107.009332475849,\n    \"mass_lbs\": 40.80108315424602,\n    \"year_built\": 5645,\n    \"home_port\": \"string\",\n    \"status\": \"string\",\n    \"speed_kn\": 3808.1019945823145,\n    \"course_deg\": 1779.8514381399832,\n    \"latitude\": 2276.2231809547593,\n    \"longitude\": 866.1760292753173,\n    \"last_ais_update\": \"1991-10-14T14:34:47.256Z\",\n    \"link\": \"https://JrR.tbRt1rfnWb+8d,s+vO8qD0k\",\n    \"image\": \"http://ZTFoewYyLnmRKwWZbAGNOcSRthdCbnzeZ.tazzncp\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a235e25b-671a-43ff-8b5f-58147301c28a",
+          "name": "Get One Ship",
+          "request": {
+            "name": "Get One Ship",
+            "description": {
+              "content": "Return a single ship by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "ships",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d330f9c-8e1a-48ee-9c2c-73b1f95a1933",
+              "name": "Ship record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "ships",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"active\": true,\n  \"id\": \"string\",\n  \"legacy_id\": \"string\",\n  \"model\": \"string\",\n  \"type\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"imo\": 69,\n  \"mmsi\": 4393,\n  \"abs\": 354,\n  \"class\": 7579,\n  \"mass_kg\": 9610.513978558796,\n  \"mass_lbs\": 9434.995765150763,\n  \"year_built\": 3470,\n  \"home_port\": \"string\",\n  \"status\": \"string\",\n  \"speed_kn\": 3774.2210621290083,\n  \"course_deg\": 4283.030716474325,\n  \"latitude\": 5767.613207783343,\n  \"longitude\": 3117.9301968894215,\n  \"last_ais_update\": \"1959-11-14T00:41:37.028Z\",\n  \"link\": \"http://TYbMeIgVdSWBXBRXgERGGSJpeHN.ikAVVOWSBuWD,aac3NqYswhfcBWPiGlpVRj4qRMTxLuouAx4TG\",\n  \"image\": \"https://Lj.hubtgjX\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63200c1f-b758-46ec-bf5b-33c7fd011a11",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "ships",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 9237\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "949bb76a-8c46-4ea8-bf08-8d5c7bea36fb",
+          "name": "Query Ships",
+          "request": {
+            "name": "Query Ships",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the ships collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "ships",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 2633\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a38851a9-abe8-410b-aef3-0dcfccddd4ab",
+              "name": "Paginated ship result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "ships",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 1494,\n  \"offset\": 2472,\n  \"limit\": 8328,\n  \"totalPages\": 6911,\n  \"page\": 8958,\n  \"pagingCounter\": 7174,\n  \"hasPrevPage\": true,\n  \"hasNextPage\": false,\n  \"prevPage\": 4281,\n  \"nextPage\": 4916,\n  \"docs\": [\n    {\n      \"name\": \"string\",\n      \"active\": false,\n      \"id\": \"string\",\n      \"legacy_id\": \"string\",\n      \"model\": \"string\",\n      \"type\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"imo\": 4168,\n      \"mmsi\": 161,\n      \"abs\": 7469,\n      \"class\": 1838,\n      \"mass_kg\": 8.256448742710587,\n      \"mass_lbs\": 4431.306184732519,\n      \"year_built\": 5901,\n      \"home_port\": \"string\",\n      \"status\": \"string\",\n      \"speed_kn\": 6335.8078802559085,\n      \"course_deg\": 7389.154190245706,\n      \"latitude\": 5543.476486859526,\n      \"longitude\": 2255.564986551423,\n      \"last_ais_update\": \"1946-09-08T13:16:57.776Z\",\n      \"link\": \"https://njYLKKNWgKupgVXJaaGqGYn.hhumG1NCQQloEpML+wFyzpRQ6JoC\",\n      \"image\": \"https://OXPJqOxKTuugdzMotrPGO.gkkWdydMFhQl+WW9jgEw+tpBOrjWi,QPw7PBVizL5KstFzqWPQlOwoiUFiXTL1b\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"active\": false,\n      \"id\": \"string\",\n      \"legacy_id\": \"string\",\n      \"model\": \"string\",\n      \"type\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"imo\": 392,\n      \"mmsi\": 6369,\n      \"abs\": 4537,\n      \"class\": 2252,\n      \"mass_kg\": 9550.659779410913,\n      \"mass_lbs\": 8966.336385382481,\n      \"year_built\": 6346,\n      \"home_port\": \"string\",\n      \"status\": \"string\",\n      \"speed_kn\": 2304.73521754476,\n      \"course_deg\": 7723.424709748595,\n      \"latitude\": 4175.9282129922185,\n      \"longitude\": 6219.658802222717,\n      \"last_ais_update\": \"2009-11-12T08:28:52.794Z\",\n      \"link\": \"https://dHmVoSGG.qvlxS4n,Y6qnlQ2oZG,UtohQLeOf-c-1EhTMyCG\",\n      \"image\": \"http://CLcooPMWs.toyK9Stue6ZJJO94n9lcwiTRZ5Elr1CQb1RP2OwM5s0\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b79487f-f0d8-4740-9eee-931520ea7305",
+    "name": "SpaceX REST Capsules Ships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Capsules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/capsules"
+          },
+          "docs": "Return every Dragon capsule record in the dataset."
+        },
+        {
+          "info": {
+            "name": "Get One Capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/capsules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single Dragon capsule record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/capsules/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the capsule collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

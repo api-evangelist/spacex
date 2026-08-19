@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Cores API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Cores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/cores"
+          },
+          "docs": "Return every first-stage core record in the dataset."
+        },
+        {
+          "info": {
+            "name": "Get One Core",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/cores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single first-stage core record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Cores",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/cores/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the core collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

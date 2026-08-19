@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Company API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Company",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Company Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/company"
+          },
+          "docs": "Return the single SpaceX company-info document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

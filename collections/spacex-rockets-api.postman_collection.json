@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "cb0f4050-6834-439d-b757-9a6e36326edb",
+      "name": "Rockets",
+      "description": {
+        "content": "Detailed info about rocket versions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "892928a9-2efb-496e-a2e9-a183f47cc8c5",
+          "name": "List All Rockets",
+          "request": {
+            "name": "List All Rockets",
+            "description": {
+              "content": "Return every rocket version record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "rockets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3492789f-9707-4326-aac9-a78b1a208faa",
+              "name": "Array of rocket records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "rockets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"active\": false,\n    \"stages\": 1538,\n    \"boosters\": 6265,\n    \"cost_per_launch\": 2726.5054472730053,\n    \"success_rate_pct\": 6790.961974519675,\n    \"first_flight\": \"1976-12-10\",\n    \"country\": \"string\",\n    \"company\": \"string\",\n    \"height\": {\n      \"meters\": 9451.662137798708,\n      \"feet\": 8916.475854714514\n    },\n    \"diameter\": {\n      \"meters\": 1984.3039012940478,\n      \"feet\": 2336.553719566018\n    },\n    \"mass\": {\n      \"kg\": 9211.429328304253,\n      \"lb\": 560.2754416944978\n    },\n    \"payload_weights\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"kg\": 3307.8467555563575,\n        \"lb\": 9112.101167574081\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"kg\": 2435.645654858588,\n        \"lb\": 8597.945171677347\n      }\n    ],\n    \"first_stage\": {\n      \"reusable\": false,\n      \"engines\": 9837,\n      \"fuel_amount_tons\": 4965.6134528033135,\n      \"burn_time_sec\": 4780.324744741326,\n      \"thrust_sea_level\": {\n        \"kN\": 5045.024745930216,\n        \"lbf\": 6580.128214917059\n      },\n      \"thrust_vacuum\": {\n        \"kN\": 78.29041461015707,\n        \"lbf\": 7824.3584501007535\n      }\n    },\n    \"second_stage\": {\n      \"reusable\": false,\n      \"engines\": 203,\n      \"fuel_amount_tons\": 1907.196133414083,\n      \"burn_time_sec\": 7128.772237436517,\n      \"thrust\": {\n        \"kN\": 4323.954132128863,\n        \"lbf\": 7309.119646956778\n      },\n      \"payloads\": {\n        \"key_0\": 2588,\n        \"key_1\": \"string\"\n      }\n    },\n    \"engines\": {\n      \"key_0\": 8369\n    },\n    \"landing_legs\": {\n      \"number\": 4347,\n      \"material\": \"string\"\n    },\n    \"flickr_images\": [\n      \"http://LBNkpyAwXNgVjSabK.stvlIqZjACoAq4NS.NLNwQK4emP6XNjQ24ZmpTP9S79BMvn492tOTIMlyhRe\",\n      \"https://dWrRNezWnpuSlEonVCQRCvJHECHjxci.kifZADrR0pde+GHSbOpPlbAe4l+zz0t+XrB2ub\"\n    ],\n    \"wikipedia\": \"http://F.iecPy2jqu0mGzR0R,sDUjWz\",\n    \"description\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"active\": true,\n    \"stages\": 6084,\n    \"boosters\": 5180,\n    \"cost_per_launch\": 5868.199871324251,\n    \"success_rate_pct\": 2108.6945079358197,\n    \"first_flight\": \"2005-11-10\",\n    \"country\": \"string\",\n    \"company\": \"string\",\n    \"height\": {\n      \"meters\": 3991.6350620709964,\n      \"feet\": 4272.120903728906\n    },\n    \"diameter\": {\n      \"meters\": 1517.5333508005328,\n      \"feet\": 6411.054474226245\n    },\n    \"mass\": {\n      \"kg\": 7026.003590266423,\n      \"lb\": 4298.747050132757\n    },\n    \"payload_weights\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"kg\": 4971.356629445502,\n        \"lb\": 4309.328891481234\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"kg\": 3598.4128510030855,\n        \"lb\": 477.0680403454697\n      }\n    ],\n    \"first_stage\": {\n      \"reusable\": true,\n      \"engines\": 6580,\n      \"fuel_amount_tons\": 2257.9434033126545,\n      \"burn_time_sec\": 6747.272379445612,\n      \"thrust_sea_level\": {\n        \"kN\": 4269.455484449307,\n        \"lbf\": 3652.110226498654\n      },\n      \"thrust_vacuum\": {\n        \"kN\": 5911.988093617831,\n        \"lbf\": 366.7528772845197\n      }\n    },\n    \"second_stage\": {\n      \"reusable\": false,\n      \"engines\": 9166,\n      \"fuel_amount_tons\": 5326.402172352743,\n      \"burn_time_sec\": 1343.7687858476766,\n      \"thrust\": {\n        \"kN\": 4038.6496292825123,\n        \"lbf\": 9591.250297970704\n      },\n      \"payloads\": {\n        \"key_0\": 5572.5622400993025,\n        \"key_1\": \"string\"\n      }\n    },\n    \"engines\": {\n      \"key_0\": 8537,\n      \"key_1\": false\n    },\n    \"landing_legs\": {\n      \"number\": 2382,\n      \"material\": \"string\"\n    },\n    \"flickr_images\": [\n      \"http://bNklRk.zjRQaQfNdtwyx\",\n      \"http://NejsRXEcGycpMbwGRHxfnNtrqFDsKLZvO.kdqwGgx1nPYR\"\n    ],\n    \"wikipedia\": \"https://SIDKgjO.txM8kST.G6os6U6hro7T-98gig.djmiSK2HHQJZw6IltPuRwzTVFv,hWm4OWFKfk51C8lkuQYYgYH5vX\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a01b9803-2b96-4eca-ad26-66c243a15389",
+          "name": "Get One Rocket",
+          "request": {
+            "name": "Get One Rocket",
+            "description": {
+              "content": "Return a single rocket by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "rockets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "503796ee-2964-4067-9448-4ab20c94b506",
+              "name": "Rocket record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "rockets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"active\": true,\n  \"stages\": 378,\n  \"boosters\": 4380,\n  \"cost_per_launch\": 9259.486803030317,\n  \"success_rate_pct\": 5060.850588424497,\n  \"first_flight\": \"1946-09-13\",\n  \"country\": \"string\",\n  \"company\": \"string\",\n  \"height\": {\n    \"meters\": 5606.239070253964,\n    \"feet\": 1689.8247271338485\n  },\n  \"diameter\": {\n    \"meters\": 7726.909981624399,\n    \"feet\": 5472.42787578978\n  },\n  \"mass\": {\n    \"kg\": 9065.721985597673,\n    \"lb\": 4172.960273862594\n  },\n  \"payload_weights\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kg\": 7893.919182614294,\n      \"lb\": 9714.6809049683\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kg\": 4058.823774799858,\n      \"lb\": 6011.679292321279\n    }\n  ],\n  \"first_stage\": {\n    \"reusable\": true,\n    \"engines\": 5002,\n    \"fuel_amount_tons\": 1235.4400155216372,\n    \"burn_time_sec\": 2651.8772293342763,\n    \"thrust_sea_level\": {\n      \"kN\": 8738.79275172885,\n      \"lbf\": 1201.6257748968062\n    },\n    \"thrust_vacuum\": {\n      \"kN\": 3683.568829411201,\n      \"lbf\": 7066.764829856254\n    }\n  },\n  \"second_stage\": {\n    \"reusable\": true,\n    \"engines\": 3926,\n    \"fuel_amount_tons\": 4387.639215377589,\n    \"burn_time_sec\": 9700.24276940675,\n    \"thrust\": {\n      \"kN\": 2926.4015481351967,\n      \"lbf\": 3605.1819594630188\n    },\n    \"payloads\": {\n      \"key_0\": 9796.860425179937\n    }\n  },\n  \"engines\": {\n    \"key_0\": 6394,\n    \"key_1\": 5447.128157120079\n  },\n  \"landing_legs\": {\n    \"number\": 1396,\n    \"material\": \"string\"\n  },\n  \"flickr_images\": [\n    \"http://RXFRnmCZbtzRmwRPJzWTgOkbHNAPbEK.bzSl,xXhfHVRuAFfHLNR48rnQBZzkxZCY7C+tRKFXgPrT3S-43,E0wxcKz6eBQBB7n\",\n    \"http://wKvM.zrjnRlwp+2X8aXA.Tr4lvnlOblqMyq\"\n  ],\n  \"wikipedia\": \"http://joZdbDwKvrIMDLvgjR.pbgQFOLZ.wWQREBIPelja1MZRvfcRcS8oTh6Dl,H1EuMNbp\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad1661a9-6bcb-43f2-a0fa-7c29c186b63a",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "rockets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 5723\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e834037-b17b-4a73-91a0-36f7f7ef4780",
+          "name": "Query Rockets",
+          "request": {
+            "name": "Query Rockets",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the rockets collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "rockets",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 9410,\n    \"key_1\": 6609,\n    \"key_2\": false\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "16913761-cb3c-4386-8b70-6cdb5041b2e6",
+              "name": "Paginated rocket result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "rockets",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 3204,\n  \"offset\": 4733,\n  \"limit\": 432,\n  \"totalPages\": 6854,\n  \"page\": 6606,\n  \"pagingCounter\": 8636,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": false,\n  \"prevPage\": 6455,\n  \"nextPage\": 144,\n  \"docs\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"active\": false,\n      \"stages\": 7629,\n      \"boosters\": 7960,\n      \"cost_per_launch\": 5224.938191981484,\n      \"success_rate_pct\": 8639.891231172172,\n      \"first_flight\": \"2015-12-24\",\n      \"country\": \"string\",\n      \"company\": \"string\",\n      \"height\": {\n        \"meters\": 5291.262783720041,\n        \"feet\": 9497.467224658047\n      },\n      \"diameter\": {\n        \"meters\": 2723.0835103879735,\n        \"feet\": 1667.7281220872464\n      },\n      \"mass\": {\n        \"kg\": 8378.129942600146,\n        \"lb\": 4101.5498823166\n      },\n      \"payload_weights\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kg\": 9024.835136042171,\n          \"lb\": 1971.941513879264\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kg\": 2823.8934736222764,\n          \"lb\": 5907.798351334\n        }\n      ],\n      \"first_stage\": {\n        \"reusable\": true,\n        \"engines\": 5899,\n        \"fuel_amount_tons\": 260.554370987417,\n        \"burn_time_sec\": 5255.761701389387,\n        \"thrust_sea_level\": {\n          \"kN\": 3672.958985182906,\n          \"lbf\": 6822.57482175631\n        },\n        \"thrust_vacuum\": {\n          \"kN\": 3592.998602060857,\n          \"lbf\": 2207.700568441776\n        }\n      },\n      \"second_stage\": {\n        \"reusable\": true,\n        \"engines\": 5248,\n        \"fuel_amount_tons\": 5540.585410986822,\n        \"burn_time_sec\": 1852.515039586542,\n        \"thrust\": {\n          \"kN\": 4961.903743782536,\n          \"lbf\": 1086.7616523107092\n        },\n        \"payloads\": {\n          \"key_0\": \"string\",\n          \"key_1\": true\n        }\n      },\n      \"engines\": {\n        \"key_0\": 8720\n      },\n      \"landing_legs\": {\n        \"number\": 8025,\n        \"material\": \"string\"\n      },\n      \"flickr_images\": [\n        \"http://IA.rwwiqPu9x4nrHZEsn-j1wWF2NltCCwniTGBEjwVGXu2duit5Jc8\",\n        \"http://ZDR.xpy78oC-JJdeEcSFEiRDSQyMKLwq7evgpFwBJTsFumb4xUIt988sIq6\"\n      ],\n      \"wikipedia\": \"https://yBdsTgGarPYMNLHnayctshufrHI.zlcbP3VWrsYf9RZKF6PSd8h+qCWYXv564mL7xU8GtCTl8GYqHzR8A-\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"active\": false,\n      \"stages\": 9655,\n      \"boosters\": 7791,\n      \"cost_per_launch\": 725.4363837485045,\n      \"success_rate_pct\": 7398.623831281744,\n      \"first_flight\": \"2007-08-25\",\n      \"country\": \"string\",\n      \"company\": \"string\",\n      \"height\": {\n        \"meters\": 1973.455222801046,\n        \"feet\": 6725.74130999475\n      },\n      \"diameter\": {\n        \"meters\": 1371.4925866790727,\n        \"feet\": 6279.564876602256\n      },\n      \"mass\": {\n        \"kg\": 6099.881200639492,\n        \"lb\": 5887.734667270025\n      },\n      \"payload_weights\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kg\": 501.8617336765141,\n          \"lb\": 7314.5044377551785\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kg\": 8629.156309793394,\n          \"lb\": 1364.9274297791526\n        }\n      ],\n      \"first_stage\": {\n        \"reusable\": false,\n        \"engines\": 5901,\n        \"fuel_amount_tons\": 2570.4302897410903,\n        \"burn_time_sec\": 5927.513980137898,\n        \"thrust_sea_level\": {\n          \"kN\": 4357.492652841421,\n          \"lbf\": 628.4983104258413\n        },\n        \"thrust_vacuum\": {\n          \"kN\": 4624.648966933927,\n          \"lbf\": 6009.085383299878\n        }\n      },\n      \"second_stage\": {\n        \"reusable\": false,\n        \"engines\": 8696,\n        \"fuel_amount_tons\": 4135.786988000921,\n        \"burn_time_sec\": 4296.143506222815,\n        \"thrust\": {\n          \"kN\": 9900.830305641948,\n          \"lbf\": 6086.640075819561\n        },\n        \"payloads\": {\n          \"key_0\": 7995.105267218564\n        }\n      },\n      \"engines\": {\n        \"key_0\": 9952\n      },\n      \"landing_legs\": {\n        \"number\": 5605,\n        \"material\": \"string\"\n      },\n      \"flickr_images\": [\n        \"http://ONEIyoGeyNQNrPg.kub0C4DuZM2Z.f8mNNPNRPT5e1q-iQSjsr9Wa2Q4J3yTw9jn73zW37pV-\",\n        \"http://YFWJHujkBXaRYAJdxduzRHQmCsdmGfD.rifuA2lzrsbzRWltH2Cjrop1l1DF5QWKyAdlOm\"\n      ],\n      \"wikipedia\": \"http://ksJjEeUJionlrwUHhxYj.igaSljE18RlhYzuG7\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "04c4d508-1b16-4f9c-9700-85e0e89dc7ae",
+    "name": "SpaceX REST Capsules Rockets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

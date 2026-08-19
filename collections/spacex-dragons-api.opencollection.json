@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Dragons API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dragons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Dragon Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/dragons"
+          },
+          "docs": "Return every Dragon capsule version record (Dragon 1, Dragon 2, etc.)."
+        },
+        {
+          "info": {
+            "name": "Get One Dragon Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/dragons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single Dragon version record by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Dragons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/dragons/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the dragons collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

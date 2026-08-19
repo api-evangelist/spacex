@@ -1,0 +1,399 @@
+{
+  "item": [
+    {
+      "id": "bfd3c586-7fe3-4512-93f4-c2bb98bf12c9",
+      "name": "Capsules",
+      "description": {
+        "content": "Detailed info for serialized Dragon capsules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2cebea4-7a64-435c-abba-cf4944ed005a",
+          "name": "List All Capsules",
+          "request": {
+            "name": "List All Capsules",
+            "description": {
+              "content": "Return every Dragon capsule record in the dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "capsules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdd925a0-10e0-4450-a4f5-ffad76c4996e",
+              "name": "Array of capsule records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "capsules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"serial\": \"string\",\n    \"status\": \"active\",\n    \"type\": \"Dragon 2.0\",\n    \"id\": \"string\",\n    \"dragon\": \"string\",\n    \"reuse_count\": 0,\n    \"water_landings\": 0,\n    \"land_landings\": 0,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"serial\": \"string\",\n    \"status\": \"active\",\n    \"type\": \"Dragon 1.1\",\n    \"id\": \"string\",\n    \"dragon\": \"string\",\n    \"reuse_count\": 0,\n    \"water_landings\": 0,\n    \"land_landings\": 0,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f9a9d0d-2a39-40e8-a299-51ad3b18a49e",
+              "name": "Bad request — query body invalid or operation rejected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "capsules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 3663\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "049c6b3f-970d-4589-bd57-cc8b3aa229b4",
+          "name": "Get One Capsule",
+          "request": {
+            "name": "Get One Capsule",
+            "description": {
+              "content": "Return a single Dragon capsule record by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "capsules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3de9a48-b50e-4003-93e0-d51880214354",
+              "name": "Capsule record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "capsules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serial\": \"string\",\n  \"status\": \"active\",\n  \"type\": \"Dragon 2.0\",\n  \"id\": \"string\",\n  \"dragon\": \"string\",\n  \"reuse_count\": 0,\n  \"water_landings\": 0,\n  \"land_landings\": 0,\n  \"last_update\": \"string\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c99fb57b-03fa-4782-ba7c-f3004b45bc2d",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "capsules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 3663\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "790905b4-68ac-4554-bc99-042f9c99e3d8",
+          "name": "Query Capsules",
+          "request": {
+            "name": "Query Capsules",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the capsule collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "capsules",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": 126,\n    \"key_3\": true\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "615f52a7-06ae-4531-8073-cd4fd0386a48",
+              "name": "Paginated capsule result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "capsules",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 1553,\n  \"offset\": 2159,\n  \"limit\": 5717,\n  \"totalPages\": 9193,\n  \"page\": 5651,\n  \"pagingCounter\": 1431,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": false,\n  \"prevPage\": 9991,\n  \"nextPage\": 1281,\n  \"docs\": [\n    {\n      \"serial\": \"string\",\n      \"status\": \"unknown\",\n      \"type\": \"Dragon 1.0\",\n      \"id\": \"string\",\n      \"dragon\": \"string\",\n      \"reuse_count\": 0,\n      \"water_landings\": 0,\n      \"land_landings\": 0,\n      \"last_update\": \"string\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"serial\": \"string\",\n      \"status\": \"destroyed\",\n      \"type\": \"Dragon 2.0\",\n      \"id\": \"string\",\n      \"dragon\": \"string\",\n      \"reuse_count\": 0,\n      \"water_landings\": 0,\n      \"land_landings\": 0,\n      \"last_update\": \"string\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6166b2e4-ad47-4ff0-ab65-3f0f4982525d",
+              "name": "Bad request — query body invalid or operation rejected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "capsules",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 3663\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "68455235-1c3c-4399-b03c-fd0073ea3227",
+    "name": "SpaceX REST Capsules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

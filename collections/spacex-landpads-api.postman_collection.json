@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "6b0c49e0-a03f-4577-9c74-31a7dbabe8c9",
+      "name": "Landpads",
+      "description": {
+        "content": "Detailed info about landing pads and droneships.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2448a41f-d215-41b9-99a3-726b978a97ca",
+          "name": "List All Landing Pads",
+          "request": {
+            "name": "List All Landing Pads",
+            "description": {
+              "content": "Return every landing pad / droneship record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "landpads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44529bf3-8a16-4c57-9e68-f91e875ee409",
+              "name": "Array of landing pad records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "landpads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"status\": \"active\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"type\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"latitude\": 556.5712967256276,\n    \"longitude\": 3022.522068348108,\n    \"landing_attempts\": 0,\n    \"landing_successes\": 0,\n    \"wikipedia\": \"https://WldS.ljzgh7-RNAUS1yKkH1cOlP2CatuP+rPsIQqQrR+-D6sX-VSRWEu.KOenVOAXmZl12unNLNhB3\",\n    \"details\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"status\": \"under construction\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"type\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"latitude\": 8848.348549232747,\n    \"longitude\": 2791.248921632301,\n    \"landing_attempts\": 0,\n    \"landing_successes\": 0,\n    \"wikipedia\": \"http://TQGsjaCCfQuKDRnsQzMxHJgGlUyjY.gaK1feuAMWqKAbCUc.xBtQVcVdIOr+UkQlB,LXTk+5cudZSYmvksh1qp4Hj65p+8RhwfwY+,L0-\",\n    \"details\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "670dce74-afec-4b41-91c6-0a05cbfd2b62",
+          "name": "Get One Landing Pad",
+          "request": {
+            "name": "Get One Landing Pad",
+            "description": {
+              "content": "Return a single landing pad by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "landpads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe1aa825-60f9-4acd-b457-7b53269d83ea",
+              "name": "Landing pad record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "landpads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"active\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"full_name\": \"string\",\n  \"type\": \"string\",\n  \"locality\": \"string\",\n  \"region\": \"string\",\n  \"latitude\": 5140.2350023550225,\n  \"longitude\": 4817.134753000414,\n  \"landing_attempts\": 0,\n  \"landing_successes\": 0,\n  \"wikipedia\": \"http://mJTxUJdjfdVX.bhgz1TsTJaKno,al2n6Uz+BiCVm9,zeV7s+xqScWVP2nxbXW28jPTYJ+X\",\n  \"details\": \"string\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d81f101a-20de-4336-aade-e65e4953dc69",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "landpads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 1053\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c072c4e-286b-4188-9e61-33168a5430d0",
+          "name": "Query Landing Pads",
+          "request": {
+            "name": "Query Landing Pads",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the landpads collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "landpads",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": false,\n    \"key_1\": 1593.5704965862362\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5c7e472-8ca4-4716-95e9-19e4cd2eb094",
+              "name": "Paginated landpad result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "landpads",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 4081,\n  \"offset\": 1396,\n  \"limit\": 4286,\n  \"totalPages\": 3026,\n  \"page\": 2489,\n  \"pagingCounter\": 5982,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": false,\n  \"prevPage\": 2420,\n  \"nextPage\": 5130,\n  \"docs\": [\n    {\n      \"status\": \"unknown\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"full_name\": \"string\",\n      \"type\": \"string\",\n      \"locality\": \"string\",\n      \"region\": \"string\",\n      \"latitude\": 2892.3605437841547,\n      \"longitude\": 1198.5744694580924,\n      \"landing_attempts\": 0,\n      \"landing_successes\": 0,\n      \"wikipedia\": \"http://wytGnW.ozfgnzqMeo\",\n      \"details\": \"string\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"status\": \"active\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"full_name\": \"string\",\n      \"type\": \"string\",\n      \"locality\": \"string\",\n      \"region\": \"string\",\n      \"latitude\": 9561.995942415,\n      \"longitude\": 3216.469971929684,\n      \"landing_attempts\": 0,\n      \"landing_successes\": 0,\n      \"wikipedia\": \"https://rGOrxRaKWNqFnmmIdcimtMgSUba.vbqlDDBBjEEMBAxw,z8NiOegpLO\",\n      \"details\": \"string\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a9d0c241-017e-48c4-aa63-9d01a9c0f376",
+    "name": "SpaceX REST Capsules Landpads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

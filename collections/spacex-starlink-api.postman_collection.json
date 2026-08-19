@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "b3ffe2cc-9003-469c-9dac-e68c0daf880e",
+      "name": "Starlink",
+      "description": {
+        "content": "Detailed info about Starlink satellites and orbits.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8bc0b718-6459-441e-96d6-58428deb3463",
+          "name": "List All Starlink Satellites",
+          "request": {
+            "name": "List All Starlink Satellites",
+            "description": {
+              "content": "Return every Starlink satellite record with raw Space-Track orbit data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "starlink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "722ff533-f640-4708-99ea-492294ab6b88",
+              "name": "Array of Starlink satellite records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "starlink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"version\": \"string\",\n    \"launch\": \"string\",\n    \"longitude\": 1513.4685001367498,\n    \"latitude\": 5866.635782214229,\n    \"height_km\": 1342.8924219449677,\n    \"velocity_kms\": 1363.2370058897936,\n    \"spaceTrack\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"version\": \"string\",\n    \"launch\": \"string\",\n    \"longitude\": 3107.1596252614454,\n    \"latitude\": 4839.255326033989,\n    \"height_km\": 820.313718558342,\n    \"velocity_kms\": 2037.993470739835,\n    \"spaceTrack\": {\n      \"key_0\": \"string\",\n      \"key_1\": 9054.131659861268,\n      \"key_2\": 6060.392915499023\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70dcc6ac-7b9a-48b0-ade7-2898376b486e",
+          "name": "Get One Starlink Satellite",
+          "request": {
+            "name": "Get One Starlink Satellite",
+            "description": {
+              "content": "Return a single Starlink satellite by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "starlink",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c20a1bc-4acd-4640-a758-427607a7585b",
+              "name": "Starlink satellite record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "starlink",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"version\": \"string\",\n  \"launch\": \"string\",\n  \"longitude\": 3150.006338446022,\n  \"latitude\": 8755.666950655357,\n  \"height_km\": 9979.332757022272,\n  \"velocity_kms\": 1097.2779712837967,\n  \"spaceTrack\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5853ba4-436c-444a-a6b3-c5c35a94a05e",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "starlink",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 4150\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ed9ccbf-3983-4312-94b5-39e7ad48de38",
+          "name": "Query Starlink Satellites",
+          "request": {
+            "name": "Query Starlink Satellites",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the starlink collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "starlink",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21c2bd47-4a51-4165-9305-42ea0a306c0f",
+              "name": "Paginated starlink result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "starlink",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 6477,\n  \"offset\": 6993,\n  \"limit\": 8038,\n  \"totalPages\": 1317,\n  \"page\": 7416,\n  \"pagingCounter\": 578,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": true,\n  \"prevPage\": 5152,\n  \"nextPage\": 3962,\n  \"docs\": [\n    {\n      \"id\": \"string\",\n      \"version\": \"string\",\n      \"launch\": \"string\",\n      \"longitude\": 8102.851305662406,\n      \"latitude\": 3982.535481533991,\n      \"height_km\": 9417.368451916129,\n      \"velocity_kms\": 7537.999621565671,\n      \"spaceTrack\": {\n        \"key_0\": true,\n        \"key_1\": 9562.163544544528\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"version\": \"string\",\n      \"launch\": \"string\",\n      \"longitude\": 9593.461388274642,\n      \"latitude\": 1238.3440123340251,\n      \"height_km\": 2479.1960432602978,\n      \"velocity_kms\": 5649.064764114328,\n      \"spaceTrack\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 8078,\n        \"key_3\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3cdb99db-9554-4131-821f-96ee520db8ba",
+    "name": "SpaceX REST Capsules Starlink API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

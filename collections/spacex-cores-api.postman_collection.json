@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "6fc2e5f1-c9ad-468e-b5c4-7a7e3894a7e6",
+      "name": "Cores",
+      "description": {
+        "content": "Detailed info for serialized first-stage cores.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6d14c80-6f65-4e73-a898-756dd9a20f80",
+          "name": "List All Cores",
+          "request": {
+            "name": "List All Cores",
+            "description": {
+              "content": "Return every first-stage core record in the dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "cores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e433d5b-4507-4801-987b-0136a091da09",
+              "name": "Array of core records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "cores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"serial\": \"string\",\n    \"status\": \"expended\",\n    \"id\": \"string\",\n    \"block\": 2531,\n    \"reuse_count\": 0,\n    \"rtls_attempts\": 0,\n    \"rtls_landings\": 0,\n    \"asds_attempts\": 0,\n    \"asds_landings\": 0,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"serial\": \"string\",\n    \"status\": \"lost\",\n    \"id\": \"string\",\n    \"block\": 6684,\n    \"reuse_count\": 0,\n    \"rtls_attempts\": 0,\n    \"rtls_landings\": 0,\n    \"asds_attempts\": 0,\n    \"asds_landings\": 0,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd3b6564-1b86-4a16-8e3e-4b78efd5b48d",
+          "name": "Get One Core",
+          "request": {
+            "name": "Get One Core",
+            "description": {
+              "content": "Return a single first-stage core record by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "cores",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d27022b-80d5-4595-b2ed-c430742f617b",
+              "name": "Core record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "cores",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serial\": \"string\",\n  \"status\": \"inactive\",\n  \"id\": \"string\",\n  \"block\": 7912,\n  \"reuse_count\": 0,\n  \"rtls_attempts\": 0,\n  \"rtls_landings\": 0,\n  \"asds_attempts\": 0,\n  \"asds_landings\": 0,\n  \"last_update\": \"string\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00a809ae-b613-442e-88b8-10e9d6b60332",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "cores",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 8889\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c37a86c-6fac-4911-9c3a-9a97195052da",
+          "name": "Query Cores",
+          "request": {
+            "name": "Query Cores",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the core collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "cores",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": \"string\"\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4544fe2f-30d2-48d5-8174-3f44fb8b37d1",
+              "name": "Paginated core result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "cores",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 409,\n  \"offset\": 4289,\n  \"limit\": 7844,\n  \"totalPages\": 4262,\n  \"page\": 8477,\n  \"pagingCounter\": 6418,\n  \"hasPrevPage\": true,\n  \"hasNextPage\": false,\n  \"prevPage\": 2822,\n  \"nextPage\": 4456,\n  \"docs\": [\n    {\n      \"serial\": \"string\",\n      \"status\": \"active\",\n      \"id\": \"string\",\n      \"block\": 1600,\n      \"reuse_count\": 0,\n      \"rtls_attempts\": 0,\n      \"rtls_landings\": 0,\n      \"asds_attempts\": 0,\n      \"asds_landings\": 0,\n      \"last_update\": \"string\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"serial\": \"string\",\n      \"status\": \"retired\",\n      \"id\": \"string\",\n      \"block\": 8949,\n      \"reuse_count\": 0,\n      \"rtls_attempts\": 0,\n      \"rtls_landings\": 0,\n      \"asds_attempts\": 0,\n      \"asds_landings\": 0,\n      \"last_update\": \"string\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b48d5591-6127-4863-b2e6-13666c506ed8",
+    "name": "SpaceX REST Capsules Cores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

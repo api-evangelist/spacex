@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Payloads API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payloads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/payloads"
+          },
+          "docs": "Return every payload record."
+        },
+        {
+          "info": {
+            "name": "Get One Payload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/payloads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single payload by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/payloads/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the payloads collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

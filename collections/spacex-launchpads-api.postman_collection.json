@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "50cd73b0-04e2-498f-9236-29bcf88f20f8",
+      "name": "Launchpads",
+      "description": {
+        "content": "Detailed info about launchpads.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93a4e757-d52b-424f-940f-96a131b89882",
+          "name": "List All Launchpads",
+          "request": {
+            "name": "List All Launchpads",
+            "description": {
+              "content": "Return every launchpad record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "launchpads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8302bd90-0f09-44fd-8ce7-aea6906a823b",
+              "name": "Array of launchpad records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "launchpads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"status\": \"lost\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"timezone\": \"string\",\n    \"latitude\": 4625.6425275668125,\n    \"longitude\": 3012.838047441201,\n    \"launch_attempts\": 0,\n    \"launch_successes\": 0,\n    \"rockets\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"status\": \"under construction\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"timezone\": \"string\",\n    \"latitude\": 3433.4383100202017,\n    \"longitude\": 8236.003541685583,\n    \"launch_attempts\": 0,\n    \"launch_successes\": 0,\n    \"rockets\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f996601-9523-4b50-9858-54a179e30b98",
+          "name": "Get One Launchpad",
+          "request": {
+            "name": "Get One Launchpad",
+            "description": {
+              "content": "Return a single launchpad by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "launchpads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "851c461b-35af-4594-b1be-bb6852bdfbc9",
+              "name": "Launchpad record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "launchpads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"active\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"full_name\": \"string\",\n  \"locality\": \"string\",\n  \"region\": \"string\",\n  \"timezone\": \"string\",\n  \"latitude\": 1485.2110322312517,\n  \"longitude\": 7465.281069696138,\n  \"launch_attempts\": 0,\n  \"launch_successes\": 0,\n  \"rockets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bddb79f-c8c7-4b1a-a83a-56ee9e1ab3e2",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "launchpads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 6090\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02135652-cebe-4897-aea5-f1217b23370c",
+          "name": "Query Launchpads",
+          "request": {
+            "name": "Query Launchpads",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the launchpads collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "launchpads",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 2135\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c79cb2f-9a4b-4034-b185-7291eef9e76a",
+              "name": "Paginated launchpad result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "launchpads",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 303,\n  \"offset\": 3737,\n  \"limit\": 7400,\n  \"totalPages\": 6779,\n  \"page\": 2063,\n  \"pagingCounter\": 2113,\n  \"hasPrevPage\": true,\n  \"hasNextPage\": false,\n  \"prevPage\": 9372,\n  \"nextPage\": 9392,\n  \"docs\": [\n    {\n      \"status\": \"inactive\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"full_name\": \"string\",\n      \"locality\": \"string\",\n      \"region\": \"string\",\n      \"timezone\": \"string\",\n      \"latitude\": 4002.89755501936,\n      \"longitude\": 5230.259517025517,\n      \"launch_attempts\": 0,\n      \"launch_successes\": 0,\n      \"rockets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"status\": \"inactive\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"full_name\": \"string\",\n      \"locality\": \"string\",\n      \"region\": \"string\",\n      \"timezone\": \"string\",\n      \"latitude\": 3868.969176535322,\n      \"longitude\": 8778.793689232067,\n      \"launch_attempts\": 0,\n      \"launch_successes\": 0,\n      \"rockets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e1874cbf-448c-4fee-a74b-e2f2253dad39",
+    "name": "SpaceX REST Capsules Launchpads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

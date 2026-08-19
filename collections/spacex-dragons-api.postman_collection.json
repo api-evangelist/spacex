@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "36e01a98-f7c9-446b-a942-dd24c4f82927",
+      "name": "Dragons",
+      "description": {
+        "content": "Detailed info about Dragon capsule versions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71b2eb94-40a1-48f0-baa9-074ce1ebf552",
+          "name": "List All Dragon Versions",
+          "request": {
+            "name": "List All Dragon Versions",
+            "description": {
+              "content": "Return every Dragon capsule version record (Dragon 1, Dragon 2, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "dragons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88af9dbf-08b6-4e8d-8280-3911fd6a2b88",
+              "name": "Array of Dragon version records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "dragons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"active\": true,\n    \"crew_capacity\": 273,\n    \"id\": \"string\",\n    \"sidewall_angle_deg\": 4194.044525970338,\n    \"orbit_duration_yr\": 1908.5934927006742,\n    \"dry_mass_kg\": 8330.65811279568,\n    \"dry_mass_lb\": 5362.061501801624,\n    \"first_flight\": \"string\",\n    \"heat_shield\": {\n      \"material\": \"string\",\n      \"size_meters\": 6576.027798057902,\n      \"temp_degrees\": 219.85139484058004,\n      \"dev_partner\": \"string\"\n    },\n    \"thrusters\": [\n      {\n        \"key_0\": \"string\",\n        \"key_1\": 8155\n      },\n      {\n        \"key_0\": 1835.9389494318457,\n        \"key_1\": \"string\"\n      }\n    ],\n    \"launch_payload_mass\": {\n      \"kg\": 5845.2611763692685,\n      \"lb\": 2139.4157915500546\n    },\n    \"launch_payload_vol\": {\n      \"cubic_meters\": 9348.013277776294,\n      \"cubic_feet\": 4239.0718729032\n    },\n    \"return_payload_mass\": {\n      \"kg\": 977.3260717072185,\n      \"lb\": 5539.014215674525\n    },\n    \"return_payload_vol\": {\n      \"cubic_meters\": 5073.444668578592,\n      \"cubic_feet\": 5719.674074770407\n    },\n    \"pressurized_capsule\": {\n      \"payload_volume\": {\n        \"cubic_meters\": 5567.082946123901,\n        \"cubic_feet\": 9796.86107490144\n      }\n    },\n    \"trunk\": {\n      \"trunk_volume\": {\n        \"cubic_meters\": 9208.294615291004,\n        \"cubic_feet\": 1653.5009925027266\n      },\n      \"cargo\": {\n        \"solar_array\": 1445,\n        \"unpressurized_cargo\": false\n      }\n    },\n    \"height_w_trunk\": {\n      \"meters\": 6441.986543635666,\n      \"feet\": 4494.917688418246\n    },\n    \"diameter\": {\n      \"meters\": 1397.207641662842,\n      \"feet\": 4119.758251671962\n    },\n    \"flickr_images\": [\n      \"https://UlTHPsgh.czsahu.oLeUKlhAvSGp0HPkw7MEbvLtzRwX-cr.LS.9RHsond\",\n      \"https://iuhnErhwKTaiGchlXxNANOCfjp.edayors0sIXPL\"\n    ],\n    \"wikipedia\": \"http://jWSZJjnYfuuyoW.vmjhPqtGTeUU3gN\",\n    \"description\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"active\": true,\n    \"crew_capacity\": 1438,\n    \"id\": \"string\",\n    \"sidewall_angle_deg\": 5607.800644305909,\n    \"orbit_duration_yr\": 6940.853820807449,\n    \"dry_mass_kg\": 2951.2776706539466,\n    \"dry_mass_lb\": 5468.553867144645,\n    \"first_flight\": \"string\",\n    \"heat_shield\": {\n      \"material\": \"string\",\n      \"size_meters\": 7975.868267788138,\n      \"temp_degrees\": 465.59418027597667,\n      \"dev_partner\": \"string\"\n    },\n    \"thrusters\": [\n      {\n        \"key_0\": false,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 8828,\n        \"key_1\": 6879,\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": 991.1495231789303\n      }\n    ],\n    \"launch_payload_mass\": {\n      \"kg\": 7373.518815713521,\n      \"lb\": 2510.884150547237\n    },\n    \"launch_payload_vol\": {\n      \"cubic_meters\": 59.77740780133245,\n      \"cubic_feet\": 2074.347583877966\n    },\n    \"return_payload_mass\": {\n      \"kg\": 6110.732822848879,\n      \"lb\": 9810.123281833457\n    },\n    \"return_payload_vol\": {\n      \"cubic_meters\": 3094.9778173055565,\n      \"cubic_feet\": 860.1536519778108\n    },\n    \"pressurized_capsule\": {\n      \"payload_volume\": {\n        \"cubic_meters\": 7731.717722346707,\n        \"cubic_feet\": 678.6940507070949\n      }\n    },\n    \"trunk\": {\n      \"trunk_volume\": {\n        \"cubic_meters\": 8613.263146372055,\n        \"cubic_feet\": 7050.164910661477\n      },\n      \"cargo\": {\n        \"solar_array\": 8279,\n        \"unpressurized_cargo\": false\n      }\n    },\n    \"height_w_trunk\": {\n      \"meters\": 582.1125073380363,\n      \"feet\": 3598.167357244274\n    },\n    \"diameter\": {\n      \"meters\": 3155.8119894274837,\n      \"feet\": 8952.13578773055\n    },\n    \"flickr_images\": [\n      \"https://IwhNzDxRTbRLMqOXbTqN.epjevYcL6qnlHwbca6eFifQe4\",\n      \"https://GqRuBzgUAPPZXwHBHrXNtuKJIUM.sxlzhmTGbq-QB,GLD-hgQ.KZhRmqjExYcKX9E+szmlzNyoF6ywmajUef\"\n    ],\n    \"wikipedia\": \"http://zuwmwVfZymJzgaJrntZZQoaFKeuBamAVa.qcig+n4TED0KbLO.57IygckfB+fu3n+s\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7209cd2e-10cd-4e71-ab6c-69df8bfe5566",
+          "name": "Get One Dragon Version",
+          "request": {
+            "name": "Get One Dragon Version",
+            "description": {
+              "content": "Return a single Dragon version record by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "dragons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7952cdb9-33d9-48dc-9ab7-c2f042540c88",
+              "name": "Dragon version record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "dragons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"active\": false,\n  \"crew_capacity\": 5315,\n  \"id\": \"string\",\n  \"sidewall_angle_deg\": 813.3390176521749,\n  \"orbit_duration_yr\": 7174.572256262395,\n  \"dry_mass_kg\": 3453.724563472406,\n  \"dry_mass_lb\": 511.26373576442677,\n  \"first_flight\": \"string\",\n  \"heat_shield\": {\n    \"material\": \"string\",\n    \"size_meters\": 1681.291462998804,\n    \"temp_degrees\": 6024.646258312543,\n    \"dev_partner\": \"string\"\n  },\n  \"thrusters\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 385,\n      \"key_2\": \"string\",\n      \"key_3\": 8291\n    },\n    {\n      \"key_0\": 4637\n    }\n  ],\n  \"launch_payload_mass\": {\n    \"kg\": 2660.7680159110037,\n    \"lb\": 1271.7561916692932\n  },\n  \"launch_payload_vol\": {\n    \"cubic_meters\": 7422.039011050489,\n    \"cubic_feet\": 9469.426565782425\n  },\n  \"return_payload_mass\": {\n    \"kg\": 1394.5536093449407,\n    \"lb\": 805.0678149406432\n  },\n  \"return_payload_vol\": {\n    \"cubic_meters\": 5833.8014728773815,\n    \"cubic_feet\": 9998.560795360214\n  },\n  \"pressurized_capsule\": {\n    \"payload_volume\": {\n      \"cubic_meters\": 7868.744972896166,\n      \"cubic_feet\": 7501.5130968662725\n    }\n  },\n  \"trunk\": {\n    \"trunk_volume\": {\n      \"cubic_meters\": 2531.8956892845335,\n      \"cubic_feet\": 4443.848728266512\n    },\n    \"cargo\": {\n      \"solar_array\": 6200,\n      \"unpressurized_cargo\": false\n    }\n  },\n  \"height_w_trunk\": {\n    \"meters\": 5048.10663541307,\n    \"feet\": 8426.514456274856\n  },\n  \"diameter\": {\n    \"meters\": 2813.8448394609363,\n    \"feet\": 6017.791662793228\n  },\n  \"flickr_images\": [\n    \"http://rVoOxZgjA.awymIN0sO26mGqdF+hdy4xDSrjif4gsRRZmG-3Y5pRMC7uUZs+yTTsg5BNrrfACtj\",\n    \"https://jZYOpxbCYCToAkOKHJjjPddtUwz.roif60TD\"\n  ],\n  \"wikipedia\": \"https://axPNaNURJCTWuNnuGzLfAzlDfPHRD.rmzOiGUJjx5olUjswYcev3c4oz,GMCyPAsEuVIjMG2yfPJWA0B2\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6d05afb-5c09-4e77-9ced-acc60a15dfe8",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "dragons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 1582\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "848505de-ea24-4b9f-a733-f29f742db477",
+          "name": "Query Dragons",
+          "request": {
+            "name": "Query Dragons",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the dragons collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "dragons",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": false\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69a3fc53-8beb-48fa-96b5-3d0ee2bd5445",
+              "name": "Paginated dragon result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "dragons",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 2363,\n  \"offset\": 1947,\n  \"limit\": 7483,\n  \"totalPages\": 8666,\n  \"page\": 7240,\n  \"pagingCounter\": 3856,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": false,\n  \"prevPage\": 6683,\n  \"nextPage\": 4201,\n  \"docs\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"active\": true,\n      \"crew_capacity\": 8060,\n      \"id\": \"string\",\n      \"sidewall_angle_deg\": 2687.488365094702,\n      \"orbit_duration_yr\": 3415.776543694864,\n      \"dry_mass_kg\": 7754.787004100672,\n      \"dry_mass_lb\": 2118.2469372733312,\n      \"first_flight\": \"string\",\n      \"heat_shield\": {\n        \"material\": \"string\",\n        \"size_meters\": 6283.8691023955325,\n        \"temp_degrees\": 6897.505535236836,\n        \"dev_partner\": \"string\"\n      },\n      \"thrusters\": [\n        {\n          \"key_0\": false,\n          \"key_1\": 4270.845906836385\n        },\n        {\n          \"key_0\": \"string\"\n        }\n      ],\n      \"launch_payload_mass\": {\n        \"kg\": 7471.499880129168,\n        \"lb\": 8397.115435865562\n      },\n      \"launch_payload_vol\": {\n        \"cubic_meters\": 2519.551997041636,\n        \"cubic_feet\": 1313.99809572306\n      },\n      \"return_payload_mass\": {\n        \"kg\": 547.9883827118392,\n        \"lb\": 3560.6838180826694\n      },\n      \"return_payload_vol\": {\n        \"cubic_meters\": 3557.2472066951586,\n        \"cubic_feet\": 7480.646566275638\n      },\n      \"pressurized_capsule\": {\n        \"payload_volume\": {\n          \"cubic_meters\": 1681.7704411948498,\n          \"cubic_feet\": 398.04786914357624\n        }\n      },\n      \"trunk\": {\n        \"trunk_volume\": {\n          \"cubic_meters\": 2318.1347247318217,\n          \"cubic_feet\": 9188.151344792546\n        },\n        \"cargo\": {\n          \"solar_array\": 8715,\n          \"unpressurized_cargo\": true\n        }\n      },\n      \"height_w_trunk\": {\n        \"meters\": 4441.3197671271055,\n        \"feet\": 3245.722831455705\n      },\n      \"diameter\": {\n        \"meters\": 6912.542396493864,\n        \"feet\": 3061.782233908561\n      },\n      \"flickr_images\": [\n        \"http://dSJqMOpuQGCcVShATC.lqC\",\n        \"http://vAngSObHnX.uvsjMy8N09U+ESo2IzthYurW6GMPDzS6hMlHFuLgy2B1Kh\"\n      ],\n      \"wikipedia\": \"http://MHTdhZxqcXZPDDs.bdfvz786uZKstuKlWFE1\",\n      \"description\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"active\": true,\n      \"crew_capacity\": 4863,\n      \"id\": \"string\",\n      \"sidewall_angle_deg\": 808.6724714383741,\n      \"orbit_duration_yr\": 2829.409391515383,\n      \"dry_mass_kg\": 5949.130033928097,\n      \"dry_mass_lb\": 6277.793075776569,\n      \"first_flight\": \"string\",\n      \"heat_shield\": {\n        \"material\": \"string\",\n        \"size_meters\": 4172.300479513023,\n        \"temp_degrees\": 6726.769061290037,\n        \"dev_partner\": \"string\"\n      },\n      \"thrusters\": [\n        {\n          \"key_0\": false,\n          \"key_1\": 4989.491503429516,\n          \"key_2\": 3362\n        },\n        {\n          \"key_0\": 5075,\n          \"key_1\": 5147.505490297567,\n          \"key_2\": \"string\"\n        }\n      ],\n      \"launch_payload_mass\": {\n        \"kg\": 2169.889197888919,\n        \"lb\": 8620.739245594332\n      },\n      \"launch_payload_vol\": {\n        \"cubic_meters\": 2251.9727098894095,\n        \"cubic_feet\": 6616.67026776292\n      },\n      \"return_payload_mass\": {\n        \"kg\": 5173.776827801192,\n        \"lb\": 9979.129600020264\n      },\n      \"return_payload_vol\": {\n        \"cubic_meters\": 3902.865520591499,\n        \"cubic_feet\": 3873.917097350491\n      },\n      \"pressurized_capsule\": {\n        \"payload_volume\": {\n          \"cubic_meters\": 5720.269874162262,\n          \"cubic_feet\": 818.7509475295329\n        }\n      },\n      \"trunk\": {\n        \"trunk_volume\": {\n          \"cubic_meters\": 4277.806324559063,\n          \"cubic_feet\": 3471.619977653857\n        },\n        \"cargo\": {\n          \"solar_array\": 1193,\n          \"unpressurized_cargo\": false\n        }\n      },\n      \"height_w_trunk\": {\n        \"meters\": 909.4583897523,\n        \"feet\": 4413.303520275753\n      },\n      \"diameter\": {\n        \"meters\": 6866.425442716943,\n        \"feet\": 2979.2412044104976\n      },\n      \"flickr_images\": [\n        \"https://BSTtvrpGUhL.badnFHaoufBs,D6gZhZJtrtVSt9aoLP0ScUNUK4aj8AhUm\",\n        \"https://ueITxkRSrSLyJbgwDMEWUnaLmwKWDIyg.fwtg3GBICmrd11-8wW7UMsuNIWWQulQl2W7HYokS1-voJKtKcHDo81amAWKc,4YS8q2H5vMCSS0N,5\"\n      ],\n      \"wikipedia\": \"https://IngfCEgeexIBDaYXw.vyI8SFWdjNdysJo20O\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9e44dd45-d31c-41d2-ae5e-0fd0ca4fb05d",
+    "name": "SpaceX REST Capsules Dragons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "e48485ea-4877-4341-8993-d51dc1a438c8",
+      "name": "Payloads",
+      "description": {
+        "content": "Detailed info about launch payloads.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d688785-071d-4000-8028-c9a50c6cfb0e",
+          "name": "List All Payloads",
+          "request": {
+            "name": "List All Payloads",
+            "description": {
+              "content": "Return every payload record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "payloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6df0410-54bd-4ef2-bbcc-e4cef76b8ec9",
+              "name": "Array of payload records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "payloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"reused\": false,\n    \"launch\": \"string\",\n    \"customers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"norad_ids\": [\n      8614,\n      7730\n    ],\n    \"nationalities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"manufacturers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mass_kg\": 2106.6890148485195,\n    \"mass_lbs\": 4885.284911410818,\n    \"orbit\": \"string\",\n    \"reference_system\": \"string\",\n    \"regime\": \"string\",\n    \"longitude\": 9825.64421684606,\n    \"semi_major_axis_km\": 4824.899004964407,\n    \"eccentricity\": 7649.974978850477,\n    \"periapsis_km\": 9072.292586882446,\n    \"apoapsis_km\": 3543.70414530669,\n    \"inclination_deg\": 2755.880078929128,\n    \"period_min\": 6051.482289697351,\n    \"lifespan_years\": 1773.810686229016,\n    \"epoch\": \"2017-01-07T19:37:05.958Z\",\n    \"mean_motion\": 6401.505884443605,\n    \"raan\": 3453.7117040123367,\n    \"arg_of_pericenter\": 7486.626840845693,\n    \"mean_anomaly\": 6161.666502567926,\n    \"dragon\": {\n      \"capsule\": \"string\",\n      \"mass_returned_kg\": 9187.068584413317,\n      \"mass_returned_lbs\": 3274.9739290445177,\n      \"flight_time_sec\": 5338,\n      \"manifest\": \"string\",\n      \"water_landing\": false,\n      \"land_landing\": true\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"reused\": false,\n    \"launch\": \"string\",\n    \"customers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"norad_ids\": [\n      9092,\n      1018\n    ],\n    \"nationalities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"manufacturers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mass_kg\": 7284.65297970185,\n    \"mass_lbs\": 4712.20455470939,\n    \"orbit\": \"string\",\n    \"reference_system\": \"string\",\n    \"regime\": \"string\",\n    \"longitude\": 4429.27817292626,\n    \"semi_major_axis_km\": 7843.763119397642,\n    \"eccentricity\": 5448.772617729465,\n    \"periapsis_km\": 1529.4265992265687,\n    \"apoapsis_km\": 4284.869593197555,\n    \"inclination_deg\": 5777.386229609689,\n    \"period_min\": 2918.404209304545,\n    \"lifespan_years\": 4793.6349630125305,\n    \"epoch\": \"2025-09-23T06:09:47.997Z\",\n    \"mean_motion\": 4994.596587674274,\n    \"raan\": 9027.067045528538,\n    \"arg_of_pericenter\": 5251.320449347281,\n    \"mean_anomaly\": 4179.965052884682,\n    \"dragon\": {\n      \"capsule\": \"string\",\n      \"mass_returned_kg\": 9689.962205047479,\n      \"mass_returned_lbs\": 3381.5976742642206,\n      \"flight_time_sec\": 7271,\n      \"manifest\": \"string\",\n      \"water_landing\": false,\n      \"land_landing\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9cdb322-7e9d-4eac-bcea-139f85e7a996",
+          "name": "Get One Payload",
+          "request": {
+            "name": "Get One Payload",
+            "description": {
+              "content": "Return a single payload by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "payloads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1871bc4-5810-4a6b-aeff-aae1c8bfc82d",
+              "name": "Payload record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "payloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"reused\": false,\n  \"launch\": \"string\",\n  \"customers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"norad_ids\": [\n    2614,\n    1435\n  ],\n  \"nationalities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"manufacturers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"mass_kg\": 4239.059151180785,\n  \"mass_lbs\": 4306.357905113579,\n  \"orbit\": \"string\",\n  \"reference_system\": \"string\",\n  \"regime\": \"string\",\n  \"longitude\": 4447.998997317307,\n  \"semi_major_axis_km\": 541.8650365274947,\n  \"eccentricity\": 4458.962932029222,\n  \"periapsis_km\": 8904.750540039597,\n  \"apoapsis_km\": 4947.702113106346,\n  \"inclination_deg\": 465.6464289326212,\n  \"period_min\": 198.09176780355432,\n  \"lifespan_years\": 5046.594982378257,\n  \"epoch\": \"1980-06-03T00:24:01.801Z\",\n  \"mean_motion\": 4843.025829331959,\n  \"raan\": 6541.532203764089,\n  \"arg_of_pericenter\": 795.0919825835078,\n  \"mean_anomaly\": 5698.362064570334,\n  \"dragon\": {\n    \"capsule\": \"string\",\n    \"mass_returned_kg\": 2747.451434799589,\n    \"mass_returned_lbs\": 9799.06175895035,\n    \"flight_time_sec\": 1866,\n    \"manifest\": \"string\",\n    \"water_landing\": true,\n    \"land_landing\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b28daad2-e00e-4b50-b1a6-4d496516cc6f",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "payloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 217\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c56478be-1f09-4fd2-bb48-ee2738fd2c86",
+          "name": "Query Payloads",
+          "request": {
+            "name": "Query Payloads",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the payloads collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "payloads",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 2532\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "371bd08d-31f3-4330-b673-834f6426f1c0",
+              "name": "Paginated payload result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "payloads",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 2319,\n  \"offset\": 9721,\n  \"limit\": 8615,\n  \"totalPages\": 8881,\n  \"page\": 4839,\n  \"pagingCounter\": 2493,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": false,\n  \"prevPage\": 8524,\n  \"nextPage\": 4284,\n  \"docs\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"reused\": false,\n      \"launch\": \"string\",\n      \"customers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"norad_ids\": [\n        3675,\n        3826\n      ],\n      \"nationalities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"manufacturers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mass_kg\": 3637.818479158713,\n      \"mass_lbs\": 6205.279222323153,\n      \"orbit\": \"string\",\n      \"reference_system\": \"string\",\n      \"regime\": \"string\",\n      \"longitude\": 9594.178331261355,\n      \"semi_major_axis_km\": 1458.3210299357197,\n      \"eccentricity\": 6959.3688731766515,\n      \"periapsis_km\": 948.8171171096293,\n      \"apoapsis_km\": 5635.892363047426,\n      \"inclination_deg\": 8005.751646688806,\n      \"period_min\": 5863.651985518702,\n      \"lifespan_years\": 1904.2437303672766,\n      \"epoch\": \"2015-05-08T21:38:36.124Z\",\n      \"mean_motion\": 6709.81870263469,\n      \"raan\": 1176.4143280009987,\n      \"arg_of_pericenter\": 9338.193580550174,\n      \"mean_anomaly\": 5916.871477827215,\n      \"dragon\": {\n        \"capsule\": \"string\",\n        \"mass_returned_kg\": 6941.607894525597,\n        \"mass_returned_lbs\": 7619.385055013989,\n        \"flight_time_sec\": 8878,\n        \"manifest\": \"string\",\n        \"water_landing\": true,\n        \"land_landing\": false\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"reused\": false,\n      \"launch\": \"string\",\n      \"customers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"norad_ids\": [\n        8953,\n        3964\n      ],\n      \"nationalities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"manufacturers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mass_kg\": 5326.729430410058,\n      \"mass_lbs\": 437.0325329948277,\n      \"orbit\": \"string\",\n      \"reference_system\": \"string\",\n      \"regime\": \"string\",\n      \"longitude\": 8465.80062008971,\n      \"semi_major_axis_km\": 1468.707414075855,\n      \"eccentricity\": 5516.323763240901,\n      \"periapsis_km\": 7618.540184644332,\n      \"apoapsis_km\": 7931.300585151405,\n      \"inclination_deg\": 9428.48413762066,\n      \"period_min\": 6320.5492459287325,\n      \"lifespan_years\": 3777.60999100218,\n      \"epoch\": \"1991-07-03T20:56:46.302Z\",\n      \"mean_motion\": 970.1429020107877,\n      \"raan\": 6723.306715704222,\n      \"arg_of_pericenter\": 8199.077819586857,\n      \"mean_anomaly\": 86.1086437861669,\n      \"dragon\": {\n        \"capsule\": \"string\",\n        \"mass_returned_kg\": 4409.224041448893,\n        \"mass_returned_lbs\": 6594.082243109812,\n        \"flight_time_sec\": 3687,\n        \"manifest\": \"string\",\n        \"water_landing\": true,\n        \"land_landing\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "50528406-71dc-4359-982c-cbb9b6b6e09a",
+    "name": "SpaceX REST Capsules Payloads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

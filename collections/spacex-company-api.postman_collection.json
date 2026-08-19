@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "9b676102-115e-46a4-ae35-12fce311f7f9",
+      "name": "Company",
+      "description": {
+        "content": "Detailed info about SpaceX as a company (single document).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc69c82b-72e3-4a62-80f7-9f257892aa52",
+          "name": "Get Company Info",
+          "request": {
+            "name": "Get Company Info",
+            "description": {
+              "content": "Return the single SpaceX company-info document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "beaec24d-250e-429d-80d7-c572a354e675",
+              "name": "SpaceX company document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"founder\": \"string\",\n  \"founded\": 2447,\n  \"employees\": 3032,\n  \"vehicles\": 7192,\n  \"launch_sites\": 1144,\n  \"test_sites\": 2952,\n  \"ceo\": \"string\",\n  \"cto\": \"string\",\n  \"coo\": \"string\",\n  \"cto_propulsion\": \"string\",\n  \"valuation\": 8870.574671053588,\n  \"headquarters\": {\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\"\n  },\n  \"links\": {\n    \"website\": \"https://rIYPkngFdjkbVEyvHmNazAHZodIeyiRe.zavycu.vogAkGH67M-Is6gCo1,bPKgt32TJOno-w-\",\n    \"flickr\": \"http://YmWHYUbc.adyiqmxuS\",\n    \"twitter\": \"https://hnnYpmfOxq.qjtudD.nVTr.thu.k5z3GQS9vMjTQ4cqKiRbZZ.52mY4ObH8dl\",\n    \"elon_twitter\": \"http://WwtUXoKaaEpUUNArUkRlJfGxsDhmm.eoHHPTYAcyXSPCsLBE5.t\"\n  },\n  \"summary\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c758d395-972c-46ce-927b-1777028ccd25",
+    "name": "SpaceX REST Capsules Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

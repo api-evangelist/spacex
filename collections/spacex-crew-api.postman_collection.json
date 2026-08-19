@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "1f282c95-b320-4084-8f3a-199179134885",
+      "name": "Crew",
+      "description": {
+        "content": "Detailed info on Dragon crew members.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "112feaa2-2a1d-4cfc-bcd7-620318695762",
+          "name": "List All Crew",
+          "request": {
+            "name": "List All Crew",
+            "description": {
+              "content": "Return every Dragon crew member record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "crew"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee938d3c-c734-42a8-bc07-d563cc71d5ac",
+              "name": "Array of crew member records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "crew"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"status\": \"inactive\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"agency\": \"string\",\n    \"image\": \"https://PUMPRIyiMgBc.idrN8,Hvoi0krpygEGvI7uBsupnNc0sP57\",\n    \"wikipedia\": \"http://fjcLuMlCtBVjshMJ.islrMp2yINHoQwozfwo1bJqAJlfOUv6w51yTbKBDDRb3aD4.CnQhq5FCg4jKD\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"status\": \"retired\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"agency\": \"string\",\n    \"image\": \"https://FPxyDoUJDDYtpzamrTIiu.mppp-HaUBOWVgbev63EcMTIZhBdEa5iP-LBS.79hBBh,PSpAqHkmZP8CBsxZOmk,qtSpE9Ck9I\",\n    \"wikipedia\": \"https://uCTN.hinl-5UGaeQw5bwXFMeDVeyPL\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ba2e48e-6186-4f68-a68e-bcb19b5606f5",
+          "name": "Get One Crew Member",
+          "request": {
+            "name": "Get One Crew Member",
+            "description": {
+              "content": "Return a single crew member record by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "crew",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "beb954ec-2519-4af3-a587-319592da3633",
+              "name": "Crew member record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "crew",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"retired\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"agency\": \"string\",\n  \"image\": \"http://IFGkKzubhuZZvoPKtErQcZJneiN.cgwq8ivDxz8x+\",\n  \"wikipedia\": \"http://M.obqyvoUvULpTjyZ21CfQaKaQyP\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04578e0d-c50c-4112-add3-7757700f8d97",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "crew",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 7241\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cda690f-ae81-49d8-b3a1-1472f29bcd13",
+          "name": "Query Crew",
+          "request": {
+            "name": "Query Crew",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the crew collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "crew",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 7568,\n    \"key_1\": \"string\"\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d484bac0-73c2-4e2f-9723-fa96b80e6ad7",
+              "name": "Paginated crew result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "crew",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 8655,\n  \"offset\": 1203,\n  \"limit\": 8902,\n  \"totalPages\": 537,\n  \"page\": 7454,\n  \"pagingCounter\": 4080,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": true,\n  \"prevPage\": 9202,\n  \"nextPage\": 222,\n  \"docs\": [\n    {\n      \"status\": \"unknown\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"agency\": \"string\",\n      \"image\": \"https://AjiAcPZRijfPrKXsDKVYu.wbNDIGXsjnZqYPX,YizsRSTZUMpvoF3igxP3CSMuE0mpXK9mkJ3Z\",\n      \"wikipedia\": \"https://AHoZATea.axeP1+Q8,Kg.U\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"status\": \"inactive\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"agency\": \"string\",\n      \"image\": \"http://EJVVZlS.zkfbfsD,Lwxz.-GfFRxfv93ditoD\",\n      \"wikipedia\": \"https://NCaoJWdINUVqxSkdCVRhM.cqodTrBP4wr+iHJn7Z.B+AeGjYf0kp0pjt9A,fo\",\n      \"launches\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "36f5d9bd-6743-4370-94b0-9036cfc731da",
+    "name": "SpaceX REST Capsules Crew API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

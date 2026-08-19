@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "0d901351-d460-4f34-ace5-9923a0ebb4d6",
+      "name": "Launches",
+      "description": {
+        "content": "Detailed info about SpaceX launches (v4 and v5).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a928810-39af-4a46-97c5-e533b47e530a",
+          "name": "List All Launches",
+          "request": {
+            "name": "List All Launches",
+            "description": {
+              "content": "Return every launch record sorted ascending by flight_number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d17da6d6-c9b9-4923-80b7-508cd7a502c6",
+              "name": "Array of launch records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"flight_number\": 4357,\n    \"name\": \"string\",\n    \"date_utc\": \"1988-04-10T18:23:40.754Z\",\n    \"date_unix\": 9691,\n    \"date_local\": \"string\",\n    \"date_precision\": \"half\",\n    \"upcoming\": false,\n    \"id\": \"string\",\n    \"static_fire_date_utc\": \"1995-03-20T12:57:59.373Z\",\n    \"static_fire_date_unix\": 8631,\n    \"tbd\": false,\n    \"net\": false,\n    \"window\": 1499,\n    \"rocket\": \"string\",\n    \"success\": true,\n    \"failures\": [\n      {\n        \"time\": 3728,\n        \"altitude\": 8269,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 6136,\n        \"altitude\": 4445,\n        \"reason\": \"string\"\n      }\n    ],\n    \"details\": \"string\",\n    \"fairings\": {\n      \"reused\": false,\n      \"recovery_attempt\": true,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launchpad\": \"string\",\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 9291,\n        \"gridfins\": true,\n        \"legs\": true,\n        \"reused\": false,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 6455,\n        \"gridfins\": true,\n        \"legs\": true,\n        \"reused\": false,\n        \"landing_attempt\": false,\n        \"landing_success\": false,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://qcBEclDSvAclcBRADtsiewsDdmhTOtII.swoItYgzK9N5knT1DWYKQwlINJQFxHEBz0AJEGP\",\n        \"large\": \"https://FlTIXfCqDPtiizCCYQDAWH.kbdep1V6wqwXZkBMFWwcjyWCUnTpV0N.bNC6fBTxFs7W\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://WnzvM.qnT98wKbiUPO9o047SJoEua,L\",\n        \"launch\": \"https://newVOorADQsEwaZmatQrZYGf.jre-Uh0+UMfsA20AY7UUslHq23pFrJPYoPuFEUukmJYXWZrxgY\",\n        \"media\": \"http://rjOROpdlyMHKuQUqEVEQaAfX.fjyTv6c5\",\n        \"recovery\": \"https://zApSdodReUZlaBAtSao.codPAwszDWoyiDT6j.ZjcaSvbZw9QhrlefhG.RCHDfgjFDUWBdye3sx3sKD4Jt6vN-JPVjoiQ6gzTQJIJRhh2\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"https://XlrhRzXhdkESk.rbmniNvUcnETYArpsdLjDY5GCYrUXoz+\",\n          \"http://rMmkvOsCIXqOMSsKunnPxTMNiNyKzWNJ.zbrd0VoQ0H234spuwi+xCfneBC2yyrNW6DIotokt97SNaBF8gA-pOsVpbZtHnb8SsCTcDxopzvE5bg-2d6\"\n        ],\n        \"original\": [\n          \"https://zJ.lhnzjtZbRE2Q\",\n          \"http://MRgmiKfWuhpcEgeftxO.uohkjTC1JNG+SyyJbFx.BB8h4SSdlVx2Rt5\"\n        ]\n      },\n      \"presskit\": \"https://AOkmm.svziw.8+omGcWikXIL\",\n      \"webcast\": \"https://DRTwQsKgAAF.iksctMnVMQJ0xd1\",\n      \"youtube_id\": \"string\",\n      \"article\": \"http://JzYU.shZkz5Gg9Qw3TijuhCKAV+P2fxbs7QHwJz,h1kmvnoqu0CnVOrl\",\n      \"wikipedia\": \"http://bVXYSDkORsriTCdSgAmYVDQhNV.gcjaXD35n8f6BvH3e.t\"\n    },\n    \"auto_update\": true\n  },\n  {\n    \"flight_number\": 9337,\n    \"name\": \"string\",\n    \"date_utc\": \"2016-05-19T16:28:08.917Z\",\n    \"date_unix\": 1452,\n    \"date_local\": \"string\",\n    \"date_precision\": \"year\",\n    \"upcoming\": true,\n    \"id\": \"string\",\n    \"static_fire_date_utc\": \"1990-08-23T22:40:13.505Z\",\n    \"static_fire_date_unix\": 3788,\n    \"tbd\": false,\n    \"net\": false,\n    \"window\": 7897,\n    \"rocket\": \"string\",\n    \"success\": true,\n    \"failures\": [\n      {\n        \"time\": 8149,\n        \"altitude\": 9875,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 9451,\n        \"altitude\": 4923,\n        \"reason\": \"string\"\n      }\n    ],\n    \"details\": \"string\",\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": false,\n      \"recovered\": false,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launchpad\": \"string\",\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 2124,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 7560,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://LEDeEwsmeVnTyiIlOCaSykcbblXRUAK.pxf9Zaz98D+XHMPx1SjHblHSMU.qHua3HnUueNlK0Y9l\",\n        \"large\": \"http://DipqoITqLDJFtADGQMZZzpWaFaiRTxAeu.ujrbAKoOkwc+7-ppe4pj\"\n      },\n      \"reddit\": {\n        \"campaign\": \"http://OForDHzEkJWRLNfAbmJAPE.fvodPP7\",\n        \"launch\": \"https://tCzVFdwokqSmeIgLVnlCwqMNUAALzaxJ.vuwunuplJ1nZx2FBBbXVzrOgZjLWsRi\",\n        \"media\": \"https://RtlGONZGmD.dwheLYHhyeBn\",\n        \"recovery\": \"https://AmVFKcbjKOkIQYthqbvUbRvpNoR.awqcd20NRd9xJf+sFdcltWuT5g-cPSC7-zdRWos.jBtd1jMWa3t+FpV\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://aKywcnByBrKwFVHqOqHLpOVqxHDK.frceMc2CpUnWU9GKzApbREPo,4bYVtLV9KJntoYatT5wZSAicPxdKOeSORzv5nxeY9+C,uh6fgMtP9bEOTxz8w\",\n          \"http://EjgeZMNygoSTcDnwrEkszumdmv.petyjal0SReOqIRiFOiN91u-F5xIxY,c5JsZU-+CH4YMTFvQTCKfZ9Tkb2uyG6mew2w.M+qzIt,9e\"\n        ],\n        \"original\": [\n          \"https://negHTFE.llufEWryopftgarJ,e.2zypZBRS7-u+QTtXD-L9yJP1dIaz-G97\",\n          \"http://pCeXMWBGJgdHRxq.dkbwNbIfPeVN+YMW,QS-Osb.TEJqagBlfmmcwd4hoiOAHkbAiHs\"\n        ]\n      },\n      \"presskit\": \"http://ARfSwdVDuCwvSHIvpKydgHqOEWDYF.mycyqfRDVwojM56mw6B5Jk9yaZLnUxYrLwmcyEgsg\",\n      \"webcast\": \"https://CKhRLwyrncwaypaYzdBRMclV.xminTiHMaeppZwCRDUfLQ6YCe\",\n      \"youtube_id\": \"string\",\n      \"article\": \"http://CTssMAm.xdup0RK3j+ss5mdqXVSqh-,7jgCZqSwyVnfsD2xlA9uDP\",\n      \"wikipedia\": \"https://bBuSbbMuefNhKIpsrZwoP.ozzyW5LDUZ9qnFvvWqTRJ6CwIsnPp+0jS+5C0wwKRf-oZn+iKn1CouXVMgOGoMuqW+xUDBlcdR\"\n    },\n    \"auto_update\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e93f1205-da00-470b-bed2-f977a7705b76",
+          "name": "List Past Launches",
+          "request": {
+            "name": "List Past Launches",
+            "description": {
+              "content": "Return all launches with `upcoming: false`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches",
+                "past"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcc4158b-0ba4-4f78-b93b-c71fc423894d",
+              "name": "Array of past launch records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    "past"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"flight_number\": 7928,\n    \"name\": \"string\",\n    \"date_utc\": \"2009-04-02T09:17:07.336Z\",\n    \"date_unix\": 5571,\n    \"date_local\": \"string\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": true,\n    \"id\": \"string\",\n    \"static_fire_date_utc\": \"1983-11-01T19:24:42.989Z\",\n    \"static_fire_date_unix\": 4671,\n    \"tbd\": false,\n    \"net\": false,\n    \"window\": 1618,\n    \"rocket\": \"string\",\n    \"success\": false,\n    \"failures\": [\n      {\n        \"time\": 8228,\n        \"altitude\": 2102,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 6116,\n        \"altitude\": 96,\n        \"reason\": \"string\"\n      }\n    ],\n    \"details\": \"string\",\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": false,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launchpad\": \"string\",\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 3423,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 5074,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": false,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://QYOseXtwxzRnFmXdDnejwPLMIICa.wyvGg,jsWhbXG.XlUzIhRarO5jmcDG6JNv\",\n        \"large\": \"http://NwdZyHPwzqEJvmW.gdtpuCwC7EPcyzjzzqPiEUS8nnCzNhHwaoCTna-JUUoxm0m-a-FR0TLj\"\n      },\n      \"reddit\": {\n        \"campaign\": \"http://kBmjfhsTUULRalx.mcbeYdE9WbtDQqabLssEm.O\",\n        \"launch\": \"http://uabdscMrB.umes4OpJMQrOv\",\n        \"media\": \"http://WSGMW.qrXcKuK7hnt3jr8T.HUdigW4TiqNmXpEaNVKM5KHiuMyBk0u\",\n        \"recovery\": \"http://TRFDdqQLEUzvJwhAJdVmOvnL.cgQkslhRzOy68hhgI8iL8MBOtEQhkR66Kjh\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://otVoGoicBCeEyvKoGXWWxWkevm.evosa2Jxp0Kk\",\n          \"https://cohWEx.ivuwKKWmyW\"\n        ],\n        \"original\": [\n          \"https://CQOqXxlHgGsOL.yevlop-1buQjsB\",\n          \"https://sNSPqatfiOzEyidfbYJefqa.zwwkKNOWlSkU,rGOjFAOwBrETOljM0V6.cVxExKLk5JE5K\"\n        ]\n      },\n      \"presskit\": \"http://CxEtdCRiZF.vibXhsaqcgKFiGeWDLtGJuh\",\n      \"webcast\": \"https://VnsPaSEIxBljjmGbfqFeYby.oyzrFf5LFOybu9,Z8JLyNKvraYKHWPm-P-DMpVpmWA3RlGUgCfR\",\n      \"youtube_id\": \"string\",\n      \"article\": \"http://PpxuCyHjlzgOTPihDzmrJQvGA.esPY5aXrxS5\",\n      \"wikipedia\": \"http://lZtVgQWDmBMveLXNuCQegUnpOAxoS.hhdbB+-wZ+vZJpQD7CzZXNGraUTRwABLWoYngSjElZ3Vse-MBtUOMcIDrsD20Ko5uqh.W\"\n    },\n    \"auto_update\": true\n  },\n  {\n    \"flight_number\": 3427,\n    \"name\": \"string\",\n    \"date_utc\": \"2004-03-07T20:33:41.263Z\",\n    \"date_unix\": 3586,\n    \"date_local\": \"string\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": true,\n    \"id\": \"string\",\n    \"static_fire_date_utc\": \"1959-05-09T13:22:52.978Z\",\n    \"static_fire_date_unix\": 5803,\n    \"tbd\": false,\n    \"net\": false,\n    \"window\": 8296,\n    \"rocket\": \"string\",\n    \"success\": true,\n    \"failures\": [\n      {\n        \"time\": 5603,\n        \"altitude\": 6277,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 5074,\n        \"altitude\": 8898,\n        \"reason\": \"string\"\n      }\n    ],\n    \"details\": \"string\",\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": false,\n      \"recovered\": false,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launchpad\": \"string\",\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 1823,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": false,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 805,\n        \"gridfins\": true,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"http://yJjIlplKuWBBQLYvcgDx.ajjvGBh3ZXg6gUU1TI9+FBlA+1YbzOoU4tc1ECJ4gYFyXelM-v4UaoXAwmbaRbUD,cSP\",\n        \"large\": \"http://cCZveepDpwDdROaQyHwuvsWZU.xsbJEBpDkKE7cu6PNO.Pg,ls0rfLVFgdBpo19ylMMxR4yZ\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://xFDKNlMJNiORslJVGiMaHQMqMHiTzw.rsHYlQDTKKtT8wNukRAkoHBZiO,ClC-CorMnFqW0+z8VA1mKluttBxe\",\n        \"launch\": \"http://XRwrcOkthPYTlra.ixUtC6N7JHPyybH,UX09OahOhcJYu.\",\n        \"media\": \"http://vKMYDCGPYbxitmSJoeTlI.ddmBWjkVxl49sr.Tz-5ut2kONM7NNZQQEuXzagqYmwOhD0T1\",\n        \"recovery\": \"http://TgZSsqUoaiRdcQLlbLKxpVVmZrMqOIEFL.flxX-kBk.nMsTbjEb.uIL5+HBmQar\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://FJFWLPcuIRJQsKDSjCAFlYPXJDUf.ziwc+0iU5D,yv,V9Pr8,bvoH0q+,xu+V4-Ak-g41tZhZf9d8pzpiwMG14Zs.3ou82KnZv\",\n          \"https://avNEyKAxOoAhjGgWodlldFqykkQfER.lztmn5u\"\n        ],\n        \"original\": [\n          \"https://acUjWgUYhaVKOaQPENyNBxCi.khwxZVc6hHTRkKvL43P7HmsYZddkEzbl8CwtLslO40M0\",\n          \"https://THDlbkdLMGMbHNktJMQNcsVANH.mleDwVeA8dZz\"\n        ]\n      },\n      \"presskit\": \"http://iAOhyBcgJtG.wwtpQ1ZbM7iaiKQ7MwjMMQoziUQm0JwjDeRvXuCPoZzUC2pdz6gmsr1IT9eBFAgKRrszmuqV5\",\n      \"webcast\": \"http://jKMvWXCtUEbjtsCxZeKvCpaJdrQtCpt.nkncReyWZRUD8Vy9ZbgvdMDe9Q7SEBuO-EtuIijsy32uH,Y\",\n      \"youtube_id\": \"string\",\n      \"article\": \"https://GHJDFYxGAyYWDrD.kjnewIA\",\n      \"wikipedia\": \"http://q.htkhA1U7xqD7Whpr3oKTdoPK5JVmWHZX7rQlJq\"\n    },\n    \"auto_update\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50c9f9b5-63c6-498a-9839-2397bf7d4195",
+          "name": "List Upcoming Launches",
+          "request": {
+            "name": "List Upcoming Launches",
+            "description": {
+              "content": "Return all launches with `upcoming: true`. In maintenance-only mode this list is no longer updated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches",
+                "upcoming"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c952b76f-9d19-4df8-9a16-b0610498c5b9",
+              "name": "Array of upcoming launch records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    "upcoming"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"flight_number\": 7928,\n    \"name\": \"string\",\n    \"date_utc\": \"2009-04-02T09:17:07.336Z\",\n    \"date_unix\": 5571,\n    \"date_local\": \"string\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": true,\n    \"id\": \"string\",\n    \"static_fire_date_utc\": \"1983-11-01T19:24:42.989Z\",\n    \"static_fire_date_unix\": 4671,\n    \"tbd\": false,\n    \"net\": false,\n    \"window\": 1618,\n    \"rocket\": \"string\",\n    \"success\": false,\n    \"failures\": [\n      {\n        \"time\": 8228,\n        \"altitude\": 2102,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 6116,\n        \"altitude\": 96,\n        \"reason\": \"string\"\n      }\n    ],\n    \"details\": \"string\",\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": false,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launchpad\": \"string\",\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 3423,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 5074,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": false,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://QYOseXtwxzRnFmXdDnejwPLMIICa.wyvGg,jsWhbXG.XlUzIhRarO5jmcDG6JNv\",\n        \"large\": \"http://NwdZyHPwzqEJvmW.gdtpuCwC7EPcyzjzzqPiEUS8nnCzNhHwaoCTna-JUUoxm0m-a-FR0TLj\"\n      },\n      \"reddit\": {\n        \"campaign\": \"http://kBmjfhsTUULRalx.mcbeYdE9WbtDQqabLssEm.O\",\n        \"launch\": \"http://uabdscMrB.umes4OpJMQrOv\",\n        \"media\": \"http://WSGMW.qrXcKuK7hnt3jr8T.HUdigW4TiqNmXpEaNVKM5KHiuMyBk0u\",\n        \"recovery\": \"http://TRFDdqQLEUzvJwhAJdVmOvnL.cgQkslhRzOy68hhgI8iL8MBOtEQhkR66Kjh\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://otVoGoicBCeEyvKoGXWWxWkevm.evosa2Jxp0Kk\",\n          \"https://cohWEx.ivuwKKWmyW\"\n        ],\n        \"original\": [\n          \"https://CQOqXxlHgGsOL.yevlop-1buQjsB\",\n          \"https://sNSPqatfiOzEyidfbYJefqa.zwwkKNOWlSkU,rGOjFAOwBrETOljM0V6.cVxExKLk5JE5K\"\n        ]\n      },\n      \"presskit\": \"http://CxEtdCRiZF.vibXhsaqcgKFiGeWDLtGJuh\",\n      \"webcast\": \"https://VnsPaSEIxBljjmGbfqFeYby.oyzrFf5LFOybu9,Z8JLyNKvraYKHWPm-P-DMpVpmWA3RlGUgCfR\",\n      \"youtube_id\": \"string\",\n      \"article\": \"http://PpxuCyHjlzgOTPihDzmrJQvGA.esPY5aXrxS5\",\n      \"wikipedia\": \"http://lZtVgQWDmBMveLXNuCQegUnpOAxoS.hhdbB+-wZ+vZJpQD7CzZXNGraUTRwABLWoYngSjElZ3Vse-MBtUOMcIDrsD20Ko5uqh.W\"\n    },\n    \"auto_update\": true\n  },\n  {\n    \"flight_number\": 3427,\n    \"name\": \"string\",\n    \"date_utc\": \"2004-03-07T20:33:41.263Z\",\n    \"date_unix\": 3586,\n    \"date_local\": \"string\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": true,\n    \"id\": \"string\",\n    \"static_fire_date_utc\": \"1959-05-09T13:22:52.978Z\",\n    \"static_fire_date_unix\": 5803,\n    \"tbd\": false,\n    \"net\": false,\n    \"window\": 8296,\n    \"rocket\": \"string\",\n    \"success\": true,\n    \"failures\": [\n      {\n        \"time\": 5603,\n        \"altitude\": 6277,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 5074,\n        \"altitude\": 8898,\n        \"reason\": \"string\"\n      }\n    ],\n    \"details\": \"string\",\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": false,\n      \"recovered\": false,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"string\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launchpad\": \"string\",\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 1823,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": false,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 805,\n        \"gridfins\": true,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"string\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"http://yJjIlplKuWBBQLYvcgDx.ajjvGBh3ZXg6gUU1TI9+FBlA+1YbzOoU4tc1ECJ4gYFyXelM-v4UaoXAwmbaRbUD,cSP\",\n        \"large\": \"http://cCZveepDpwDdROaQyHwuvsWZU.xsbJEBpDkKE7cu6PNO.Pg,ls0rfLVFgdBpo19ylMMxR4yZ\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://xFDKNlMJNiORslJVGiMaHQMqMHiTzw.rsHYlQDTKKtT8wNukRAkoHBZiO,ClC-CorMnFqW0+z8VA1mKluttBxe\",\n        \"launch\": \"http://XRwrcOkthPYTlra.ixUtC6N7JHPyybH,UX09OahOhcJYu.\",\n        \"media\": \"http://vKMYDCGPYbxitmSJoeTlI.ddmBWjkVxl49sr.Tz-5ut2kONM7NNZQQEuXzagqYmwOhD0T1\",\n        \"recovery\": \"http://TgZSsqUoaiRdcQLlbLKxpVVmZrMqOIEFL.flxX-kBk.nMsTbjEb.uIL5+HBmQar\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://FJFWLPcuIRJQsKDSjCAFlYPXJDUf.ziwc+0iU5D,yv,V9Pr8,bvoH0q+,xu+V4-Ak-g41tZhZf9d8pzpiwMG14Zs.3ou82KnZv\",\n          \"https://avNEyKAxOoAhjGgWodlldFqykkQfER.lztmn5u\"\n        ],\n        \"original\": [\n          \"https://acUjWgUYhaVKOaQPENyNBxCi.khwxZVc6hHTRkKvL43P7HmsYZddkEzbl8CwtLslO40M0\",\n          \"https://THDlbkdLMGMbHNktJMQNcsVANH.mleDwVeA8dZz\"\n        ]\n      },\n      \"presskit\": \"http://iAOhyBcgJtG.wwtpQ1ZbM7iaiKQ7MwjMMQoziUQm0JwjDeRvXuCPoZzUC2pdz6gmsr1IT9eBFAgKRrszmuqV5\",\n      \"webcast\": \"http://jKMvWXCtUEbjtsCxZeKvCpaJdrQtCpt.nkncReyWZRUD8Vy9ZbgvdMDe9Q7SEBuO-EtuIijsy32uH,Y\",\n      \"youtube_id\": \"string\",\n      \"article\": \"https://GHJDFYxGAyYWDrD.kjnewIA\",\n      \"wikipedia\": \"http://q.htkhA1U7xqD7Whpr3oKTdoPK5JVmWHZX7rQlJq\"\n    },\n    \"auto_update\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7da90545-cd94-4560-8437-2afb3499f85d",
+          "name": "Get Latest Launch",
+          "request": {
+            "name": "Get Latest Launch",
+            "description": {
+              "content": "Return the most recent past launch (highest flight_number with `upcoming: false`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b520efcd-561d-4b68-9a66-156cc1ad33c4",
+              "name": "Latest launch record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"flight_number\": 5817,\n  \"name\": \"string\",\n  \"date_utc\": \"2017-04-12T07:35:39.369Z\",\n  \"date_unix\": 1870,\n  \"date_local\": \"string\",\n  \"date_precision\": \"day\",\n  \"upcoming\": true,\n  \"id\": \"string\",\n  \"static_fire_date_utc\": \"2013-09-11T10:50:40.991Z\",\n  \"static_fire_date_unix\": 7714,\n  \"tbd\": false,\n  \"net\": false,\n  \"window\": 7041,\n  \"rocket\": \"string\",\n  \"success\": true,\n  \"failures\": [\n    {\n      \"time\": 1345,\n      \"altitude\": 94,\n      \"reason\": \"string\"\n    },\n    {\n      \"time\": 7818,\n      \"altitude\": 2748,\n      \"reason\": \"string\"\n    }\n  ],\n  \"details\": \"string\",\n  \"fairings\": {\n    \"reused\": false,\n    \"recovery_attempt\": false,\n    \"recovered\": false,\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"crew\": [\n    {\n      \"crew\": \"string\",\n      \"role\": \"string\"\n    },\n    {\n      \"crew\": \"string\",\n      \"role\": \"string\"\n    }\n  ],\n  \"ships\": [\n    \"string\",\n    \"string\"\n  ],\n  \"capsules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"payloads\": [\n    \"string\",\n    \"string\"\n  ],\n  \"launchpad\": \"string\",\n  \"cores\": [\n    {\n      \"core\": \"string\",\n      \"flight\": 4943,\n      \"gridfins\": false,\n      \"legs\": true,\n      \"reused\": true,\n      \"landing_attempt\": true,\n      \"landing_success\": false,\n      \"landing_type\": \"string\",\n      \"landpad\": \"string\"\n    },\n    {\n      \"core\": \"string\",\n      \"flight\": 7631,\n      \"gridfins\": false,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"string\",\n      \"landpad\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"patch\": {\n      \"small\": \"http://G.voxvZ7czExS5hMLfNj6WWFqip9LsOXcaSr9Kf,zWx5SAfpRs40SH2FdbFWc3P1cyg7ij-u\",\n      \"large\": \"http://WlvpXCuIhCqxYYWPqp.qopEeGzTEKeCwZjBW7Udj+GnG\"\n    },\n    \"reddit\": {\n      \"campaign\": \"http://tKjtoIAalQsijzpHlIQv.cylwD6e6v\",\n      \"launch\": \"http://ZUiEQKkXpUiJNzFYUcptc.fqfctOdQQ\",\n      \"media\": \"http://GevPfRwORarslEoAYn.iimpm5k8Z.V35WrVrMP,YR36z\",\n      \"recovery\": \"https://S.vbyaeBLwzxqiKnxKlTqM4mWq,DKQFQenHXicMB05CBTwq\"\n    },\n    \"flickr\": {\n      \"small\": [\n        \"https://JXaLBuxxnb.ptpIhE1by-RT8oJJIHtTAXFLqkBH8H1BiXoC5dNDzWYa1CTX0g+jTwQXY6\",\n        \"http://THRIMIFxXdhitzQmYbAWfv.mibSGysf\"\n      ],\n      \"original\": [\n        \"https://bnjeoIAfrYcWSZS.tzgQPwTD9-HTS\",\n        \"http://OYoMnqlF.rlpkS0s1TcDjF0WKZAyXEzdutMTz+aJyjHmWneT.Gay5B7OhQ-v.U4Il85n--VFC\"\n      ]\n    },\n    \"presskit\": \"http://gBmLDVwLTmaIswLVE.prhoAq95FwmBjI7rvrmlJhVn0Qf2hCK9opusqhXz\",\n    \"webcast\": \"https://obADlNCVNrzeokTFFLuSjHUmIWJHbeSt.tkbsQmtfcCKXeJSAnPuWOysgnqbJf5E0\",\n    \"youtube_id\": \"string\",\n    \"article\": \"https://MbhSlFCHWZqXO.gbhzpybpfwEIKDeBQz,xvam7G+F\",\n    \"wikipedia\": \"http://xtiEKTurRqbUbgoNHnA.fqjjk9s+ISAW7fvn6awQtu2hYtcQ-ym\"\n  },\n  \"auto_update\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db96d423-4152-46e3-9509-ddbab50c9ef2",
+          "name": "Get Next Launch",
+          "request": {
+            "name": "Get Next Launch",
+            "description": {
+              "content": "Return the next upcoming launch (lowest flight_number with `upcoming: true`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches",
+                "next"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ccda01a-b56f-40ca-85a0-042f449db105",
+              "name": "Next launch record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"flight_number\": 5817,\n  \"name\": \"string\",\n  \"date_utc\": \"2017-04-12T07:35:39.369Z\",\n  \"date_unix\": 1870,\n  \"date_local\": \"string\",\n  \"date_precision\": \"day\",\n  \"upcoming\": true,\n  \"id\": \"string\",\n  \"static_fire_date_utc\": \"2013-09-11T10:50:40.991Z\",\n  \"static_fire_date_unix\": 7714,\n  \"tbd\": false,\n  \"net\": false,\n  \"window\": 7041,\n  \"rocket\": \"string\",\n  \"success\": true,\n  \"failures\": [\n    {\n      \"time\": 1345,\n      \"altitude\": 94,\n      \"reason\": \"string\"\n    },\n    {\n      \"time\": 7818,\n      \"altitude\": 2748,\n      \"reason\": \"string\"\n    }\n  ],\n  \"details\": \"string\",\n  \"fairings\": {\n    \"reused\": false,\n    \"recovery_attempt\": false,\n    \"recovered\": false,\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"crew\": [\n    {\n      \"crew\": \"string\",\n      \"role\": \"string\"\n    },\n    {\n      \"crew\": \"string\",\n      \"role\": \"string\"\n    }\n  ],\n  \"ships\": [\n    \"string\",\n    \"string\"\n  ],\n  \"capsules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"payloads\": [\n    \"string\",\n    \"string\"\n  ],\n  \"launchpad\": \"string\",\n  \"cores\": [\n    {\n      \"core\": \"string\",\n      \"flight\": 4943,\n      \"gridfins\": false,\n      \"legs\": true,\n      \"reused\": true,\n      \"landing_attempt\": true,\n      \"landing_success\": false,\n      \"landing_type\": \"string\",\n      \"landpad\": \"string\"\n    },\n    {\n      \"core\": \"string\",\n      \"flight\": 7631,\n      \"gridfins\": false,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"string\",\n      \"landpad\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"patch\": {\n      \"small\": \"http://G.voxvZ7czExS5hMLfNj6WWFqip9LsOXcaSr9Kf,zWx5SAfpRs40SH2FdbFWc3P1cyg7ij-u\",\n      \"large\": \"http://WlvpXCuIhCqxYYWPqp.qopEeGzTEKeCwZjBW7Udj+GnG\"\n    },\n    \"reddit\": {\n      \"campaign\": \"http://tKjtoIAalQsijzpHlIQv.cylwD6e6v\",\n      \"launch\": \"http://ZUiEQKkXpUiJNzFYUcptc.fqfctOdQQ\",\n      \"media\": \"http://GevPfRwORarslEoAYn.iimpm5k8Z.V35WrVrMP,YR36z\",\n      \"recovery\": \"https://S.vbyaeBLwzxqiKnxKlTqM4mWq,DKQFQenHXicMB05CBTwq\"\n    },\n    \"flickr\": {\n      \"small\": [\n        \"https://JXaLBuxxnb.ptpIhE1by-RT8oJJIHtTAXFLqkBH8H1BiXoC5dNDzWYa1CTX0g+jTwQXY6\",\n        \"http://THRIMIFxXdhitzQmYbAWfv.mibSGysf\"\n      ],\n      \"original\": [\n        \"https://bnjeoIAfrYcWSZS.tzgQPwTD9-HTS\",\n        \"http://OYoMnqlF.rlpkS0s1TcDjF0WKZAyXEzdutMTz+aJyjHmWneT.Gay5B7OhQ-v.U4Il85n--VFC\"\n      ]\n    },\n    \"presskit\": \"http://gBmLDVwLTmaIswLVE.prhoAq95FwmBjI7rvrmlJhVn0Qf2hCK9opusqhXz\",\n    \"webcast\": \"https://obADlNCVNrzeokTFFLuSjHUmIWJHbeSt.tkbsQmtfcCKXeJSAnPuWOysgnqbJf5E0\",\n    \"youtube_id\": \"string\",\n    \"article\": \"https://MbhSlFCHWZqXO.gbhzpybpfwEIKDeBQz,xvam7G+F\",\n    \"wikipedia\": \"http://xtiEKTurRqbUbgoNHnA.fqjjk9s+ISAW7fvn6awQtu2hYtcQ-ym\"\n  },\n  \"auto_update\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a100f0c5-7c62-4c60-88cb-f48434da7b7e",
+          "name": "Get One Launch",
+          "request": {
+            "name": "Get One Launch",
+            "description": {
+              "content": "Return a single launch by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddba2964-5065-43ed-9f51-00e0cf4ff8d9",
+              "name": "Launch record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"flight_number\": 5817,\n  \"name\": \"string\",\n  \"date_utc\": \"2017-04-12T07:35:39.369Z\",\n  \"date_unix\": 1870,\n  \"date_local\": \"string\",\n  \"date_precision\": \"day\",\n  \"upcoming\": true,\n  \"id\": \"string\",\n  \"static_fire_date_utc\": \"2013-09-11T10:50:40.991Z\",\n  \"static_fire_date_unix\": 7714,\n  \"tbd\": false,\n  \"net\": false,\n  \"window\": 7041,\n  \"rocket\": \"string\",\n  \"success\": true,\n  \"failures\": [\n    {\n      \"time\": 1345,\n      \"altitude\": 94,\n      \"reason\": \"string\"\n    },\n    {\n      \"time\": 7818,\n      \"altitude\": 2748,\n      \"reason\": \"string\"\n    }\n  ],\n  \"details\": \"string\",\n  \"fairings\": {\n    \"reused\": false,\n    \"recovery_attempt\": false,\n    \"recovered\": false,\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"crew\": [\n    {\n      \"crew\": \"string\",\n      \"role\": \"string\"\n    },\n    {\n      \"crew\": \"string\",\n      \"role\": \"string\"\n    }\n  ],\n  \"ships\": [\n    \"string\",\n    \"string\"\n  ],\n  \"capsules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"payloads\": [\n    \"string\",\n    \"string\"\n  ],\n  \"launchpad\": \"string\",\n  \"cores\": [\n    {\n      \"core\": \"string\",\n      \"flight\": 4943,\n      \"gridfins\": false,\n      \"legs\": true,\n      \"reused\": true,\n      \"landing_attempt\": true,\n      \"landing_success\": false,\n      \"landing_type\": \"string\",\n      \"landpad\": \"string\"\n    },\n    {\n      \"core\": \"string\",\n      \"flight\": 7631,\n      \"gridfins\": false,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"string\",\n      \"landpad\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"patch\": {\n      \"small\": \"http://G.voxvZ7czExS5hMLfNj6WWFqip9LsOXcaSr9Kf,zWx5SAfpRs40SH2FdbFWc3P1cyg7ij-u\",\n      \"large\": \"http://WlvpXCuIhCqxYYWPqp.qopEeGzTEKeCwZjBW7Udj+GnG\"\n    },\n    \"reddit\": {\n      \"campaign\": \"http://tKjtoIAalQsijzpHlIQv.cylwD6e6v\",\n      \"launch\": \"http://ZUiEQKkXpUiJNzFYUcptc.fqfctOdQQ\",\n      \"media\": \"http://GevPfRwORarslEoAYn.iimpm5k8Z.V35WrVrMP,YR36z\",\n      \"recovery\": \"https://S.vbyaeBLwzxqiKnxKlTqM4mWq,DKQFQenHXicMB05CBTwq\"\n    },\n    \"flickr\": {\n      \"small\": [\n        \"https://JXaLBuxxnb.ptpIhE1by-RT8oJJIHtTAXFLqkBH8H1BiXoC5dNDzWYa1CTX0g+jTwQXY6\",\n        \"http://THRIMIFxXdhitzQmYbAWfv.mibSGysf\"\n      ],\n      \"original\": [\n        \"https://bnjeoIAfrYcWSZS.tzgQPwTD9-HTS\",\n        \"http://OYoMnqlF.rlpkS0s1TcDjF0WKZAyXEzdutMTz+aJyjHmWneT.Gay5B7OhQ-v.U4Il85n--VFC\"\n      ]\n    },\n    \"presskit\": \"http://gBmLDVwLTmaIswLVE.prhoAq95FwmBjI7rvrmlJhVn0Qf2hCK9opusqhXz\",\n    \"webcast\": \"https://obADlNCVNrzeokTFFLuSjHUmIWJHbeSt.tkbsQmtfcCKXeJSAnPuWOysgnqbJf5E0\",\n    \"youtube_id\": \"string\",\n    \"article\": \"https://MbhSlFCHWZqXO.gbhzpybpfwEIKDeBQz,xvam7G+F\",\n    \"wikipedia\": \"http://xtiEKTurRqbUbgoNHnA.fqjjk9s+ISAW7fvn6awQtu2hYtcQ-ym\"\n  },\n  \"auto_update\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be8e488f-a609-4b15-b6fc-35c11a8c21d0",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 107\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e78d764-a0a0-4b15-9e9f-4be3a5da0e97",
+          "name": "Query Launches",
+          "request": {
+            "name": "Query Launches",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the launches collection with optional populate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v5",
+                "launches",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": false\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abe2ac61-2cd2-4d1f-bfb8-7e34529f98ad",
+              "name": "Paginated launch result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v5",
+                    "launches",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 7309,\n  \"offset\": 7426,\n  \"limit\": 8927,\n  \"totalPages\": 4481,\n  \"page\": 8622,\n  \"pagingCounter\": 2276,\n  \"hasPrevPage\": true,\n  \"hasNextPage\": false,\n  \"prevPage\": 7546,\n  \"nextPage\": 8173,\n  \"docs\": [\n    {\n      \"flight_number\": 2960,\n      \"name\": \"string\",\n      \"date_utc\": \"2001-02-06T01:03:40.645Z\",\n      \"date_unix\": 4830,\n      \"date_local\": \"string\",\n      \"date_precision\": \"day\",\n      \"upcoming\": true,\n      \"id\": \"string\",\n      \"static_fire_date_utc\": \"1982-08-14T19:18:46.833Z\",\n      \"static_fire_date_unix\": 7957,\n      \"tbd\": false,\n      \"net\": false,\n      \"window\": 4122,\n      \"rocket\": \"string\",\n      \"success\": true,\n      \"failures\": [\n        {\n          \"time\": 2727,\n          \"altitude\": 7488,\n          \"reason\": \"string\"\n        },\n        {\n          \"time\": 8081,\n          \"altitude\": 8888,\n          \"reason\": \"string\"\n        }\n      ],\n      \"details\": \"string\",\n      \"fairings\": {\n        \"reused\": false,\n        \"recovery_attempt\": true,\n        \"recovered\": false,\n        \"ships\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"crew\": [\n        {\n          \"crew\": \"string\",\n          \"role\": \"string\"\n        },\n        {\n          \"crew\": \"string\",\n          \"role\": \"string\"\n        }\n      ],\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ],\n      \"capsules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"payloads\": [\n        \"string\",\n        \"string\"\n      ],\n      \"launchpad\": \"string\",\n      \"cores\": [\n        {\n          \"core\": \"string\",\n          \"flight\": 238,\n          \"gridfins\": false,\n          \"legs\": true,\n          \"reused\": true,\n          \"landing_attempt\": true,\n          \"landing_success\": true,\n          \"landing_type\": \"string\",\n          \"landpad\": \"string\"\n        },\n        {\n          \"core\": \"string\",\n          \"flight\": 591,\n          \"gridfins\": false,\n          \"legs\": true,\n          \"reused\": false,\n          \"landing_attempt\": false,\n          \"landing_success\": true,\n          \"landing_type\": \"string\",\n          \"landpad\": \"string\"\n        }\n      ],\n      \"links\": {\n        \"patch\": {\n          \"small\": \"http://eVNNjzwjlAdhyorRBXtzr.fnbwyy8A5.X8W5zJLT950bUBgWiWpyDrgKnOR,tPfbVr4qxVwgXKiB\",\n          \"large\": \"http://OzQgocXkZNzpJIvcE.qdYl2EhtN+jdBqWUd36L7MIEMmPnY5GZA4RN8h4R8VAH.jciOt4kZXsf+PhYuefIcFj\"\n        },\n        \"reddit\": {\n          \"campaign\": \"https://GTSydumicSPQJDRJrCV.vsioVsnojBEdUcfLCAc7PeZ+szACH-ACJUcMIAQEmxj\",\n          \"launch\": \"https://GuVQKWfgoyXpbbvZFskDDOwvCbApk.knquio8yvEVwwzgTCAkpN8-lUqXuu,x88mJmlEtVjHTbAolOqGT2qO0z0Zz9vbBZd\",\n          \"media\": \"http://zCjomK.mkmmGEtYRdsOThenlNtR74Z+Urxoc7zxPGijFJN7lpv,Fm7\",\n          \"recovery\": \"http://Sc.vjwdkdALHJ5ajY.kc,Uf31npKdQ9gBiAz\"\n        },\n        \"flickr\": {\n          \"small\": [\n            \"https://hkkqkoPmCjMOURrFDLDDP.oeJ-xnnvLPZEALQbNmCsMUcT6ZZizQXVUhmhYM8ia-0\",\n            \"https://cTMXkYR.ajwnmwRqGjgT0Ep0zGogpzO9WdJ7Q+XvPJh9lJYa8VOtQPj-tRFvs16wLbiabLrtAb2CEFyIAGP3r\"\n          ],\n          \"original\": [\n            \"http://G.mqhoWl2s6nBeZUoBr9pFyEmRjZ,9\",\n            \"http://qJvYhUbIIgB.jnFsj.WUJHxck6ppLKUtknFUxkczBAm.ncaIg,TEEFi6a94hzqLhv3ZmUi7MkwoEMMQXFjs3ppIG8T\"\n          ]\n        },\n        \"presskit\": \"http://jYjWCxpeulqXEPeuxerYd.cqfrawmc7fsuKwQN.Lu6JvUHY3dDYjPgzesZ7vnvTS46q2WtsijA\",\n        \"webcast\": \"http://NdzYVlCMyMRajnzfd.areoLPRYo2GsqnrOTOQjLZbTZyZP0yufii-hkFB6\",\n        \"youtube_id\": \"string\",\n        \"article\": \"https://pvXOCO.drtDg1yvlwzIJNxQWko34llfsETV2mgFLhbHRrj5ChFCix\",\n        \"wikipedia\": \"https://tFgDaBAWGG.kfeDMHlFDEdcDIaMSkOSKcBC4dFbhhQmCLp9\"\n      },\n      \"auto_update\": true\n    },\n    {\n      \"flight_number\": 6608,\n      \"name\": \"string\",\n      \"date_utc\": \"2007-11-08T07:58:02.200Z\",\n      \"date_unix\": 725,\n      \"date_local\": \"string\",\n      \"date_precision\": \"hour\",\n      \"upcoming\": true,\n      \"id\": \"string\",\n      \"static_fire_date_utc\": \"2016-05-02T07:42:47.051Z\",\n      \"static_fire_date_unix\": 8353,\n      \"tbd\": false,\n      \"net\": false,\n      \"window\": 6770,\n      \"rocket\": \"string\",\n      \"success\": true,\n      \"failures\": [\n        {\n          \"time\": 6807,\n          \"altitude\": 7397,\n          \"reason\": \"string\"\n        },\n        {\n          \"time\": 8402,\n          \"altitude\": 988,\n          \"reason\": \"string\"\n        }\n      ],\n      \"details\": \"string\",\n      \"fairings\": {\n        \"reused\": true,\n        \"recovery_attempt\": false,\n        \"recovered\": false,\n        \"ships\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"crew\": [\n        {\n          \"crew\": \"string\",\n          \"role\": \"string\"\n        },\n        {\n          \"crew\": \"string\",\n          \"role\": \"string\"\n        }\n      ],\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ],\n      \"capsules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"payloads\": [\n        \"string\",\n        \"string\"\n      ],\n      \"launchpad\": \"string\",\n      \"cores\": [\n        {\n          \"core\": \"string\",\n          \"flight\": 3528,\n          \"gridfins\": true,\n          \"legs\": true,\n          \"reused\": false,\n          \"landing_attempt\": true,\n          \"landing_success\": true,\n          \"landing_type\": \"string\",\n          \"landpad\": \"string\"\n        },\n        {\n          \"core\": \"string\",\n          \"flight\": 705,\n          \"gridfins\": true,\n          \"legs\": false,\n          \"reused\": false,\n          \"landing_attempt\": false,\n          \"landing_success\": true,\n          \"landing_type\": \"string\",\n          \"landpad\": \"string\"\n        }\n      ],\n      \"links\": {\n        \"patch\": {\n          \"small\": \"http://fXkxJC.nattK4IG6V4RgIG9Vqj+,mL.WKyD+dJOZpCdUm\",\n          \"large\": \"https://BwBUYhVjQKEPtolww.idcuFKAeu\"\n        },\n        \"reddit\": {\n          \"campaign\": \"https://YtxMfBujaRz.mihKTmg7wR86OMRTTSSK7cT7Q,-JbkXU,3kdE1TCZxBDOm231ArYcQOqJ7Fhz4DUfk\",\n          \"launch\": \"http://yyXeMzMgTwWOQPgGMxiYMSSxKbUlFWj.haxkqkJQ9xAfdF1O9Zk7K\",\n          \"media\": \"https://SWxfQuWuzNqCtFJWeQGqlXOlefDi.dnATP5W7gGTitIPIZhvwVSG3OoBpFIx+kffCzCi,8G+8vez2JBO4jcV7S,tA4fpw-adiFm9\",\n          \"recovery\": \"http://FxvjMwxgNAffdxzuXUWF.iuocWUZcq3dM+0f6q6\"\n        },\n        \"flickr\": {\n          \"small\": [\n            \"https://GdIVKrHJVQyDGbDneMExFbOqaAoombkTP.jgym8UI8LcHiqfTf8WPsC+\",\n            \"https://IIipPMxhiBDlHPwhJnoFOydFGxyOLt.ibnHMF.yrhb0rc,gT2WW9YvMadg9t,nPT3do5f0Xr,GdqpADKtEyzqQmw\"\n          ],\n          \"original\": [\n            \"http://doxAQewoXTPY.fupbLDxOgIWIzvIYpxb,97zSvqaCTBLmURkc1Er02Wl8wu7QkPGV6PxdcNfjp6\",\n            \"http://K.hcmeCAgsGDfGbp3WZtD0VItIHUiv1B0CkHMmzUxvnI9btfEcpL2+ii\"\n          ]\n        },\n        \"presskit\": \"http://avFtkAYxMCLomEKTFDKolOb.ojqwoTfts5UV105FECvhyNaEEVeu8HMUR1m0n9q+YYO03Q.50LeJtmVmgncv\",\n        \"webcast\": \"http://bHUnfzZqQIflVzoZOJoBLfsFbgqQrqwb.asdmmNd-R.1-pgdHZCSHil,JPsgCecvMIIldcEcq2KD.y\",\n        \"youtube_id\": \"string\",\n        \"article\": \"https://WWNQlAlYAsgjBKHtheOnZQRiQCS.fqbMIfrZavi3LVr1APJGSTPj4rcMG+uqQkk5kc5yBNlo-3+9DsSUukdftlTw.BsyeEgH1\",\n        \"wikipedia\": \"https://vokdn.afajv\"\n      },\n      \"auto_update\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ff80be8b-44f4-486d-b547-34ff3724636b",
+    "name": "SpaceX REST Capsules Launches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

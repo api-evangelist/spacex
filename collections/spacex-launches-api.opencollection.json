@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Launches API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Launches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches"
+          },
+          "docs": "Return every launch record sorted ascending by flight_number."
+        },
+        {
+          "info": {
+            "name": "List Past Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/past"
+          },
+          "docs": "Return all launches with `upcoming: false`."
+        },
+        {
+          "info": {
+            "name": "List Upcoming Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/upcoming"
+          },
+          "docs": "Return all launches with `upcoming: true`. In maintenance-only mode this list is no longer updated."
+        },
+        {
+          "info": {
+            "name": "Get Latest Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/latest"
+          },
+          "docs": "Return the most recent past launch (highest flight_number with `upcoming: false`)."
+        },
+        {
+          "info": {
+            "name": "Get Next Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/next"
+          },
+          "docs": "Return the next upcoming launch (lowest flight_number with `upcoming: true`)."
+        },
+        {
+          "info": {
+            "name": "Get One Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+              }
+            ]
+          },
+          "docs": "Return a single launch by its UUID."
+        },
+        {
+          "info": {
+            "name": "Query Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v5/launches/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the launches collection with optional populate."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

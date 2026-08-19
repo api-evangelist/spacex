@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "0bca60b2-bf44-4862-8bb6-9dc7ffd42a99",
+      "name": "History",
+      "description": {
+        "content": "Detailed info on SpaceX historical events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "522d6e85-6286-4ed6-b763-58f40adfc2a2",
+          "name": "List All History Events",
+          "request": {
+            "name": "List All History Events",
+            "description": {
+              "content": "Return every SpaceX historical event record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aae24697-32bd-4877-9d5f-dd3abc4d8596",
+              "name": "Array of history event records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"event_date_utc\": \"1974-03-19T16:39:19.921Z\",\n    \"event_date_unix\": 8956,\n    \"details\": \"string\",\n    \"links\": {\n      \"article\": \"https://LzFRFvqUEWXZqZcEWyyiHJnbz.aonO7SM9BaHZzlXuS-lm8E3qhA-SQca\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"event_date_utc\": \"2004-12-20T10:11:46.583Z\",\n    \"event_date_unix\": 604,\n    \"details\": \"string\",\n    \"links\": {\n      \"article\": \"http://oDMRisGcXclGhRKEMBjGbQXCaVAvPZYgv.ktyz,OnH-2lAm0\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbd478d7-c538-4990-924c-a91038048f63",
+          "name": "Get One History Event",
+          "request": {
+            "name": "Get One History Event",
+            "description": {
+              "content": "Return a single SpaceX history event by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "history",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d4c3ce6-59aa-4733-ac04-f18a51ec76ce",
+              "name": "History event record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "history",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"event_date_utc\": \"2016-06-12T06:48:58.048Z\",\n  \"event_date_unix\": 7243,\n  \"details\": \"string\",\n  \"links\": {\n    \"article\": \"http://zQDnXxlIWjMP.egiorETbhCplshkc3c1pbfqMXi+dgjlbetMNLTqVff\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bdacac6-f3c6-4b7e-92af-7efc3c5df784",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "history",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": 6578\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e86c90d-3bef-4523-9fd8-ba6c690cb1ac",
+          "name": "Query History Events",
+          "request": {
+            "name": "Query History Events",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the history collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "history",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": \"string\"\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "726a5a4d-1489-465d-95dd-6f5c2bb56126",
+              "name": "Paginated history result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "history",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 2961,\n  \"offset\": 6254,\n  \"limit\": 4150,\n  \"totalPages\": 1300,\n  \"page\": 2551,\n  \"pagingCounter\": 4173,\n  \"hasPrevPage\": true,\n  \"hasNextPage\": false,\n  \"prevPage\": 3870,\n  \"nextPage\": 26,\n  \"docs\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"event_date_utc\": \"1964-04-11T09:49:17.323Z\",\n      \"event_date_unix\": 2693,\n      \"details\": \"string\",\n      \"links\": {\n        \"article\": \"https://MYHNwzgPZCoTvC.gwivvnJgQtuW8FFADKm5Hh7yNqAWkAC1TVGS0ytqpOuyy6fT.EwlY4YS.P\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"event_date_utc\": \"1982-03-26T17:09:37.551Z\",\n      \"event_date_unix\": 1366,\n      \"details\": \"string\",\n      \"links\": {\n        \"article\": \"https://mHX.axgqCg3MbpFyzoB5,LbVhmtrKyUw.,+ggfKhop.rmj4SzBCQttkxt\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fbe1a2f3-3691-44fd-883d-0014e2bca181",
+    "name": "SpaceX REST Capsules History API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "item": [
+    {
+      "id": "d721ac95-4a6c-4506-b19a-3ea8e81c7260",
+      "name": "Roadster",
+      "description": {
+        "content": "Detailed info about Elon Musk's Tesla Roadster ephemeris.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5962e57b-ea88-4b2a-b4e4-e4c071c81b76",
+          "name": "Get Roadster Ephemeris",
+          "request": {
+            "name": "Get Roadster Ephemeris",
+            "description": {
+              "content": "Return the current orbital ephemeris for Elon Musk's Tesla Roadster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "roadster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4869647-d87c-4d5a-a460-e862af476739",
+              "name": "Roadster ephemeris record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "roadster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"launch_date_utc\": \"1978-12-02T17:17:50.933Z\",\n  \"launch_date_unix\": 6514,\n  \"launch_mass_kg\": 3791.1511363114105,\n  \"launch_mass_lbs\": 8865.791459219594,\n  \"norad_id\": 7337,\n  \"epoch_jd\": 8286.479101479319,\n  \"orbit_type\": \"string\",\n  \"apoapsis_au\": 1616.3907849850946,\n  \"periapsis_au\": 7376.627058668878,\n  \"semi_major_axis_au\": 288.20507881492597,\n  \"eccentricity\": 2472.0972314049804,\n  \"inclination\": 5777.871676770997,\n  \"longitude\": 2958.677060002685,\n  \"periapsis_arg\": 254.57303628565907,\n  \"period_days\": 6821.108935646947,\n  \"speed_kph\": 1422.7883965990718,\n  \"speed_mph\": 6451.84990552581,\n  \"earth_distance_km\": 3592.12195787593,\n  \"earth_distance_mi\": 1996.9257686977637,\n  \"mars_distance_km\": 9746.2823576217,\n  \"mars_distance_mi\": 226.7944785251641,\n  \"flickr_images\": [\n    \"http://nwlIGtWoSjLxsxxl.thaEES9QOy0Ub6LPiwi4OMEWSFm4ilGNPTdVrAn7emXQeWGdCVhscR,aKZEA3ItneVrxbACj4YxV4B-XK4C\",\n    \"https://jydPVjdLGwIAnEMWDkzHOFdknfdVWuHp.ehfyI1KSPXMcBo.Slxm-mFAIHIkdcoGRiLsLVjTy\"\n  ],\n  \"wikipedia\": \"https://LvmZAMkpmdGPmNWaeoflIicimpF.fay\",\n  \"video\": \"http://hBrozxPWdxUWmegjYiTSb.gljx\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b8c1ee6-9f77-46f1-9153-123bcc1e2352",
+          "name": "Query Roadster",
+          "request": {
+            "name": "Query Roadster",
+            "description": {
+              "content": "Run a mongoose-paginate-v2 query against the roadster collection (single document).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "roadster",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 5185,\n    \"key_1\": \"string\"\n  },\n  \"options\": {\n    \"select\": \"<string>\",\n    \"sort\": \"<string>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"pagination\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "347f8246-823f-4a68-b57a-c9bedcb40c7a",
+              "name": "Paginated roadster result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "roadster",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "704ac076-a89e-4f47-942f-a437ffd1165d",
+    "name": "SpaceX REST Capsules Roadster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained, open-source REST API for SpaceX data — launches, rockets,\ncapsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink\nsatellites, the Tesla Roadster ephemeris, company info, and historical events.\nSource: https://github.com/r-spacex/SpaceX-API (Apache 2.0).\n\nSTATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.\nExisting data remains queryable; project remains hosted for historical lookups\nand as a teaching/sample API.\n\nEach resource is independently versioned. The Launches resource has both v4 and\nv5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4\nparity). All other resources are v4-only.\n\nAuthentication: only required for destructive (create/update/delete) admin routes\nvia the `spacex-key` header. All read operations are public.\n\nQuerying: every resource exposes a POST `/{resource}/query` endpoint that accepts\na mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.\n\n\nContact Support:\n Name: r-spacex community",
+      "type": "text/plain"
+    }
+  }
+}

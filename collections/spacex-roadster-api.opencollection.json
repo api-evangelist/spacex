@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX REST Capsules Roadster API",
+    "version": "4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Roadster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Roadster Ephemeris",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v4/roadster"
+          },
+          "docs": "Return the current orbital ephemeris for Elon Musk's Tesla Roadster."
+        },
+        {
+          "info": {
+            "name": "Query Roadster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v4/roadster/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a mongoose-paginate-v2 query against the roadster collection (single document)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
