@@ -1118,7 +1118,7 @@ common:
 url: https://raw.githubusercontent.com/api-evangelist/spacex/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-29'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
