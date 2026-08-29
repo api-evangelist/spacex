@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Ships API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -112,22 +112,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
-  responses:
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     PaginationEnvelope:
       type: object
@@ -150,11 +134,13 @@ components:
         hasNextPage:
           type: boolean
         prevPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         nextPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
     Ship:
       type: object
       description: A ship in the SpaceX fleet (droneship, recovery, support).
@@ -164,14 +150,17 @@ components:
         name:
           type: string
         legacy_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         model:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         roles:
           type: array
           items:
@@ -179,55 +168,71 @@ components:
         active:
           type: boolean
         imo:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         mmsi:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         abs:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         class:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         mass_kg:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         mass_lbs:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         year_built:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         home_port:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         status:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         speed_kn:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         course_deg:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         latitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         longitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         last_ais_update:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           format: date-time
         link:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           format: uri
         image:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           format: uri
         launches:
           type: array
@@ -236,6 +241,15 @@ components:
       required:
       - name
       - active
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
     PaginatedShips:
       allOf:
       - $ref: '#/components/schemas/PaginationEnvelope'
@@ -282,15 +296,22 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   requestBodies:
     QueryBody:
       description: mongoose-paginate-v2 query body.

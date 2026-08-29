@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Starlink API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -113,15 +113,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PaginatedStarlink:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/StarlinkSat'
     PaginationEnvelope:
       type: object
       description: Default mongoose-paginate-v2 wrapper.
@@ -143,11 +134,57 @@ components:
         hasNextPage:
           type: boolean
         prevPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         nextPage:
+          type:
+          - integer
+          - 'null'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
           type: integer
-          nullable: true
+          description: HTTP status code echoed in body.
+    StarlinkSat:
+      type: object
+      description: A Starlink satellite with Space-Track OMM orbit data.
+      properties:
+        id:
+          type: string
+        version:
+          type:
+          - string
+          - 'null'
+        launch:
+          type:
+          - string
+          - 'null'
+          description: Launch UUID.
+        longitude:
+          type:
+          - number
+          - 'null'
+        latitude:
+          type:
+          - number
+          - 'null'
+        height_km:
+          type:
+          - number
+          - 'null'
+        velocity_kms:
+          type:
+          - number
+          - 'null'
+        spaceTrack:
+          type: object
+          description: Raw Space-Track Orbit Mean Elements Message fields.
+          additionalProperties: true
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -185,44 +222,15 @@ components:
                 items: {}
               - type: object
               - type: string
-    StarlinkSat:
-      type: object
-      description: A Starlink satellite with Space-Track OMM orbit data.
-      properties:
-        id:
-          type: string
-        version:
-          type: string
-          nullable: true
-        launch:
-          type: string
-          nullable: true
-          description: Launch UUID.
-        longitude:
-          type: number
-          nullable: true
-        latitude:
-          type: number
-          nullable: true
-        height_km:
-          type: number
-          nullable: true
-        velocity_kms:
-          type: number
-          nullable: true
-        spaceTrack:
-          type: object
-          description: Raw Space-Track Orbit Mean Elements Message fields.
-          additionalProperties: true
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
+    PaginatedStarlink:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/StarlinkSat'
   parameters:
     IdParam:
       name: id

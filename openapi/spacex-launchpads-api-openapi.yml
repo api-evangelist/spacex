@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Launchpads API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -113,6 +113,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type:
+          - integer
+          - 'null'
+        nextPage:
+          type:
+          - integer
+          - 'null'
     Launchpad:
       type: object
       description: A SpaceX launch pad.
@@ -120,11 +148,13 @@ components:
         id:
           type: string
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         full_name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         status:
           type: string
           enum:
@@ -135,20 +165,25 @@ components:
           - lost
           - under construction
         locality:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         region:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         timezone:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         latitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         longitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         launch_attempts:
           type: integer
           default: 0
@@ -174,32 +209,15 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Launchpad'
-    PaginationEnvelope:
+    Error:
       type: object
-      description: Default mongoose-paginate-v2 wrapper.
       properties:
-        totalDocs:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
           type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalPages:
-          type: integer
-        page:
-          type: integer
-        pagingCounter:
-          type: integer
-        hasPrevPage:
-          type: boolean
-        hasNextPage:
-          type: boolean
-        prevPage:
-          type: integer
-          nullable: true
-        nextPage:
-          type: integer
-          nullable: true
+          description: HTTP status code echoed in body.
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -237,15 +255,6 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
   parameters:
     IdParam:
       name: id

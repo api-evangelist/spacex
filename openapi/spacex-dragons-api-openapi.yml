@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Dragons API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -113,33 +113,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CubicMetersFeet:
-      type: object
-      properties:
-        cubic_meters:
-          type: number
-          nullable: true
-        cubic_feet:
-          type: number
-          nullable: true
-    MetersFeet:
-      type: object
-      properties:
-        meters:
-          type: number
-          nullable: true
-        feet:
-          type: number
-          nullable: true
-    PaginatedDragons:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Dragon'
     PaginationEnvelope:
       type: object
       description: Default mongoose-paginate-v2 wrapper.
@@ -161,48 +134,64 @@ components:
         hasNextPage:
           type: boolean
         prevPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         nextPage:
-          type: integer
-          nullable: true
-    QueryRequest:
+          type:
+          - integer
+          - 'null'
+    CubicMetersFeet:
       type: object
-      description: mongoose-paginate-v2 query body.
       properties:
-        query:
-          type: object
-          description: MongoDB find() filter document.
-          additionalProperties: true
-        options:
-          type: object
-          description: Pagination + projection options.
-          properties:
-            select:
-              description: Fields to include/exclude (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            sort:
-              description: Sort order (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            offset:
-              type: integer
-            page:
-              type: integer
-            limit:
-              type: integer
-            pagination:
-              type: boolean
-            populate:
-              description: Populate definitions (array, object, or string).
-              oneOf:
-              - type: array
-                items: {}
-              - type: object
-              - type: string
+        cubic_meters:
+          type:
+          - number
+          - 'null'
+        cubic_feet:
+          type:
+          - number
+          - 'null'
+    PaginatedDragons:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Dragon'
+    KgLb:
+      type: object
+      properties:
+        kg:
+          type:
+          - number
+          - 'null'
+        lb:
+          type:
+          - number
+          - 'null'
+    MetersFeet:
+      type: object
+      properties:
+        meters:
+          type:
+          - number
+          - 'null'
+        feet:
+          type:
+          - number
+          - 'null'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
     Dragon:
       type: object
       description: A Dragon capsule version (Dragon 1, Dragon 2, etc.).
@@ -226,8 +215,9 @@ components:
         dry_mass_lb:
           type: number
         first_flight:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         heat_shield:
           type: object
           properties:
@@ -289,24 +279,43 @@ components:
       - type
       - active
       - crew_capacity
-    Error:
+    QueryRequest:
       type: object
+      description: mongoose-paginate-v2 query body.
       properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
-    KgLb:
-      type: object
-      properties:
-        kg:
-          type: number
-          nullable: true
-        lb:
-          type: number
-          nullable: true
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
   parameters:
     IdParam:
       name: id

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Company API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,

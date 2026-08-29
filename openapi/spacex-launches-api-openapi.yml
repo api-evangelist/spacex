@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Launches API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -184,23 +184,35 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
-  responses:
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type:
+          - integer
+          - 'null'
+        nextPage:
+          type:
+          - integer
+          - 'null'
     Launch:
       type: object
       description: A SpaceX launch record.
@@ -228,12 +240,14 @@ components:
           - day
           - hour
         static_fire_date_utc:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           format: date-time
         static_fire_date_unix:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         tbd:
           type: boolean
           default: false
@@ -241,14 +255,17 @@ components:
           type: boolean
           default: false
         window:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         rocket:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         success:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         failures:
           type: array
           items:
@@ -257,28 +274,34 @@ components:
               time:
                 type: integer
               altitude:
-                type: integer
-                nullable: true
+                type:
+                - integer
+                - 'null'
               reason:
                 type: string
         upcoming:
           type: boolean
         details:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         fairings:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           properties:
             reused:
-              type: boolean
-              nullable: true
+              type:
+              - boolean
+              - 'null'
             recovery_attempt:
-              type: boolean
-              nullable: true
+              type:
+              - boolean
+              - 'null'
             recovered:
-              type: boolean
-              nullable: true
+              type:
+              - boolean
+              - 'null'
             ships:
               type: array
               items:
@@ -289,11 +312,13 @@ components:
             type: object
             properties:
               crew:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               role:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
         ships:
           type: array
           items:
@@ -307,40 +332,50 @@ components:
           items:
             type: string
         launchpad:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         cores:
           type: array
           items:
             type: object
             properties:
               core:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               flight:
-                type: integer
-                nullable: true
+                type:
+                - integer
+                - 'null'
               gridfins:
-                type: boolean
-                nullable: true
+                type:
+                - boolean
+                - 'null'
               legs:
-                type: boolean
-                nullable: true
+                type:
+                - boolean
+                - 'null'
               reused:
-                type: boolean
-                nullable: true
+                type:
+                - boolean
+                - 'null'
               landing_attempt:
-                type: boolean
-                nullable: true
+                type:
+                - boolean
+                - 'null'
               landing_success:
-                type: boolean
-                nullable: true
+                type:
+                - boolean
+                - 'null'
               landing_type:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               landpad:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
         links:
           type: object
           properties:
@@ -348,31 +383,37 @@ components:
               type: object
               properties:
                 small:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   format: uri
                 large:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   format: uri
             reddit:
               type: object
               properties:
                 campaign:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   format: uri
                 launch:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   format: uri
                 media:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   format: uri
                 recovery:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   format: uri
             flickr:
               type: object
@@ -388,23 +429,28 @@ components:
                     type: string
                     format: uri
             presskit:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               format: uri
             webcast:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               format: uri
             youtube_id:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             article:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               format: uri
             wikipedia:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               format: uri
         auto_update:
           type: boolean
@@ -417,32 +463,24 @@ components:
       - date_local
       - date_precision
       - upcoming
-    PaginationEnvelope:
+    PaginatedLaunches:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Launch'
+    Error:
       type: object
-      description: Default mongoose-paginate-v2 wrapper.
       properties:
-        totalDocs:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
           type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalPages:
-          type: integer
-        page:
-          type: integer
-        pagingCounter:
-          type: integer
-        hasPrevPage:
-          type: boolean
-        hasNextPage:
-          type: boolean
-        prevPage:
-          type: integer
-          nullable: true
-        nextPage:
-          type: integer
-          nullable: true
+          description: HTTP status code echoed in body.
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -480,24 +518,22 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
-    PaginatedLaunches:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Launch'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   requestBodies:
     QueryBody:
       description: mongoose-paginate-v2 query body.

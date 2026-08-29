@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Landpads API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -112,72 +112,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   schemas:
-    Landpad:
-      type: object
-      description: A SpaceX landing pad or droneship.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-          nullable: true
-        full_name:
-          type: string
-          nullable: true
-        status:
-          type: string
-          enum:
-          - active
-          - inactive
-          - unknown
-          - retired
-          - lost
-          - under construction
-        type:
-          type: string
-          nullable: true
-          description: e.g. RTLS, ASDS.
-        locality:
-          type: string
-          nullable: true
-        region:
-          type: string
-          nullable: true
-        latitude:
-          type: number
-          nullable: true
-        longitude:
-          type: number
-          nullable: true
-        landing_attempts:
-          type: integer
-          default: 0
-        landing_successes:
-          type: integer
-          default: 0
-        wikipedia:
-          type: string
-          nullable: true
-          format: uri
-        details:
-          type: string
-          nullable: true
-        launches:
-          type: array
-          items:
-            type: string
-      required:
-      - status
     PaginationEnvelope:
       type: object
       description: Default mongoose-paginate-v2 wrapper.
@@ -199,11 +134,96 @@ components:
         hasNextPage:
           type: boolean
         prevPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         nextPage:
+          type:
+          - integer
+          - 'null'
+    Landpad:
+      type: object
+      description: A SpaceX landing pad or droneship.
+      properties:
+        id:
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+        full_name:
+          type:
+          - string
+          - 'null'
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - unknown
+          - retired
+          - lost
+          - under construction
+        type:
+          type:
+          - string
+          - 'null'
+          description: e.g. RTLS, ASDS.
+        locality:
+          type:
+          - string
+          - 'null'
+        region:
+          type:
+          - string
+          - 'null'
+        latitude:
+          type:
+          - number
+          - 'null'
+        longitude:
+          type:
+          - number
+          - 'null'
+        landing_attempts:
           type: integer
-          nullable: true
+          default: 0
+        landing_successes:
+          type: integer
+          default: 0
+        wikipedia:
+          type:
+          - string
+          - 'null'
+          format: uri
+        details:
+          type:
+          - string
+          - 'null'
+        launches:
+          type: array
+          items:
+            type: string
+      required:
+      - status
+    PaginatedLandpads:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Landpad'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -241,24 +261,15 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
-    PaginatedLandpads:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Landpad'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   responses:
     NotFound:
       description: Resource not found.

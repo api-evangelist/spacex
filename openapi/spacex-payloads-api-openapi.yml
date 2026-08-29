@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules Payloads API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -112,130 +112,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   schemas:
-    Payload:
-      type: object
-      description: A launch payload.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-          nullable: true
-        type:
-          type: string
-          nullable: true
-        reused:
-          type: boolean
-          default: false
-        launch:
-          type: string
-          nullable: true
-        customers:
-          type: array
-          items:
-            type: string
-        norad_ids:
-          type: array
-          items:
-            type: integer
-        nationalities:
-          type: array
-          items:
-            type: string
-        manufacturers:
-          type: array
-          items:
-            type: string
-        mass_kg:
-          type: number
-          nullable: true
-        mass_lbs:
-          type: number
-          nullable: true
-        orbit:
-          type: string
-          nullable: true
-        reference_system:
-          type: string
-          nullable: true
-        regime:
-          type: string
-          nullable: true
-        longitude:
-          type: number
-          nullable: true
-        semi_major_axis_km:
-          type: number
-          nullable: true
-        eccentricity:
-          type: number
-          nullable: true
-        periapsis_km:
-          type: number
-          nullable: true
-        apoapsis_km:
-          type: number
-          nullable: true
-        inclination_deg:
-          type: number
-          nullable: true
-        period_min:
-          type: number
-          nullable: true
-        lifespan_years:
-          type: number
-          nullable: true
-        epoch:
-          type: string
-          nullable: true
-          format: date-time
-        mean_motion:
-          type: number
-          nullable: true
-        raan:
-          type: number
-          nullable: true
-        arg_of_pericenter:
-          type: number
-          nullable: true
-        mean_anomaly:
-          type: number
-          nullable: true
-        dragon:
-          type: object
-          nullable: true
-          properties:
-            capsule:
-              type: string
-              nullable: true
-            mass_returned_kg:
-              type: number
-              nullable: true
-            mass_returned_lbs:
-              type: number
-              nullable: true
-            flight_time_sec:
-              type: integer
-              nullable: true
-            manifest:
-              type: string
-              nullable: true
-            water_landing:
-              type: boolean
-              nullable: true
-            land_landing:
-              type: boolean
-              nullable: true
     PaginationEnvelope:
       type: object
       description: Default mongoose-paginate-v2 wrapper.
@@ -257,11 +134,174 @@ components:
         hasNextPage:
           type: boolean
         prevPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         nextPage:
+          type:
+          - integer
+          - 'null'
+    Payload:
+      type: object
+      description: A launch payload.
+      properties:
+        id:
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        reused:
+          type: boolean
+          default: false
+        launch:
+          type:
+          - string
+          - 'null'
+        customers:
+          type: array
+          items:
+            type: string
+        norad_ids:
+          type: array
+          items:
+            type: integer
+        nationalities:
+          type: array
+          items:
+            type: string
+        manufacturers:
+          type: array
+          items:
+            type: string
+        mass_kg:
+          type:
+          - number
+          - 'null'
+        mass_lbs:
+          type:
+          - number
+          - 'null'
+        orbit:
+          type:
+          - string
+          - 'null'
+        reference_system:
+          type:
+          - string
+          - 'null'
+        regime:
+          type:
+          - string
+          - 'null'
+        longitude:
+          type:
+          - number
+          - 'null'
+        semi_major_axis_km:
+          type:
+          - number
+          - 'null'
+        eccentricity:
+          type:
+          - number
+          - 'null'
+        periapsis_km:
+          type:
+          - number
+          - 'null'
+        apoapsis_km:
+          type:
+          - number
+          - 'null'
+        inclination_deg:
+          type:
+          - number
+          - 'null'
+        period_min:
+          type:
+          - number
+          - 'null'
+        lifespan_years:
+          type:
+          - number
+          - 'null'
+        epoch:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mean_motion:
+          type:
+          - number
+          - 'null'
+        raan:
+          type:
+          - number
+          - 'null'
+        arg_of_pericenter:
+          type:
+          - number
+          - 'null'
+        mean_anomaly:
+          type:
+          - number
+          - 'null'
+        dragon:
+          type:
+          - object
+          - 'null'
+          properties:
+            capsule:
+              type:
+              - string
+              - 'null'
+            mass_returned_kg:
+              type:
+              - number
+              - 'null'
+            mass_returned_lbs:
+              type:
+              - number
+              - 'null'
+            flight_time_sec:
+              type:
+              - integer
+              - 'null'
+            manifest:
+              type:
+              - string
+              - 'null'
+            water_landing:
+              type:
+              - boolean
+              - 'null'
+            land_landing:
+              type:
+              - boolean
+              - 'null'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
           type: integer
-          nullable: true
+          description: HTTP status code echoed in body.
+    PaginatedPayloads:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Payload'
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -299,24 +339,15 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
-    PaginatedPayloads:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Payload'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   responses:
     NotFound:
       description: Resource not found.

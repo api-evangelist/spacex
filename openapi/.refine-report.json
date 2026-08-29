@@ -35,6 +35,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "spacex-capsules-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-company-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-cores-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-crew-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-dragons-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-history-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-landpads-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-launches-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-launchpads-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-payloads-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-roadster-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-rockets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-ships-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "spacex-starlink-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

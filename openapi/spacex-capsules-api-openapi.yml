@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SpaceX REST Capsules API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
@@ -116,29 +116,53 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
-  responses:
-    BadRequest:
-      description: Bad request — query body invalid or operation rejected.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type:
+          - integer
+          - 'null'
+        nextPage:
+          type:
+          - integer
+          - 'null'
+    PaginatedCapsules:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Capsule'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
     Capsule:
       type: object
       description: A serialized Dragon capsule.
@@ -165,8 +189,9 @@ components:
           - Dragon 2.0
           description: Capsule type / generation.
         dragon:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Dragon version UUID.
         reuse_count:
           type: integer
@@ -178,8 +203,9 @@ components:
           type: integer
           default: 0
         last_update:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Free-form latest status note.
         launches:
           type: array
@@ -190,32 +216,6 @@ components:
       - serial
       - status
       - type
-    PaginationEnvelope:
-      type: object
-      description: Default mongoose-paginate-v2 wrapper.
-      properties:
-        totalDocs:
-          type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalPages:
-          type: integer
-        page:
-          type: integer
-        pagingCounter:
-          type: integer
-        hasPrevPage:
-          type: boolean
-        hasNextPage:
-          type: boolean
-        prevPage:
-          type: integer
-          nullable: true
-        nextPage:
-          type: integer
-          nullable: true
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -253,24 +253,28 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
-    PaginatedCapsules:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Capsule'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    BadRequest:
+      description: Bad request — query body invalid or operation rejected.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   requestBodies:
     QueryBody:
       description: mongoose-paginate-v2 query body.
