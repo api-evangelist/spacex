@@ -17,6 +17,19 @@ description: >-
   (create/update/delete) admin routes; all read operations are public. This community project is not affiliated with,
   endorsed by, or officially connected to Space Exploration Technologies Corp.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -1077,6 +1090,12 @@ apis:
   - type: SDKs
     url: https://github.com/artfultom/spacex-api
 common:
+- type: IssueTracker
+  url: https://github.com/SpaceXLand/api/issues
+- type: CodeOfConduct
+  url: https://github.com/SpaceXLand/api/blob/master/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/SpaceXLand/api/blob/master/CONTRIBUTING.md
 - type: AgenticAccess
   url: agentic-access/spacex-agentic-access.yml
 - type: DomainSecurity
