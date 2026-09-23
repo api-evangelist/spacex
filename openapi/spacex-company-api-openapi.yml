@@ -1,39 +1,11 @@
 openapi: 3.2.0
 info:
-  title: SpaceX REST Capsules Company API
+  title: SpaceX REST Company API
   description: 'Community-maintained, open-source REST API for SpaceX data — launches, rockets,
 
     capsules, cores, crew, dragons, payloads, ships, landpads, launchpads, Starlink
 
-    satellites, the Tesla Roadster ephemeris, company info, and historical events.
-
-    Source: https://github.com/r-spacex/SpaceX-API (Apache 2.0).
-
-
-    STATUS: Maintenance-only as of 2024. New launches/missions are NOT being added.
-
-    Existing data remains queryable; project remains hosted for historical lookups
-
-    and as a teaching/sample API.
-
-
-    Each resource is independently versioned. The Launches resource has both v4 and
-
-    v5 surfaces; v5 omits the v4 response/query transforms (`tdb` typo retained for v4
-
-    parity). All other resources are v4-only.
-
-
-    Authentication: only required for destructive (create/update/delete) admin routes
-
-    via the `spacex-key` header. All read operations are public.
-
-
-    Querying: every resource exposes a POST `/{resource}/query` endpoint that accepts
-
-    a mongoose-paginate-v2 body of the form `{ query: <MongoDB find()>, options: {...} }`.
-
-    '
+    satellites, the Tesla Roadster ephemeris, company info, and historical events.'
   version: '4.0'
   contact:
     name: r-spacex community
