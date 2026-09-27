@@ -18,17 +18,21 @@ description: >-
   endorsed by, or officially connected to Space Exploration Technologies Corp.
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - r-spacex/spacex-api
+    - spacexland/api
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -60,7 +64,7 @@ tags:
 - Falcon Heavy
 - Dragon
 - Rockets
-- Open-Source
+- Open Source
 - Community
 - REST
 - GraphQL
@@ -79,6 +83,7 @@ tags_raw:
 - REST
 - GraphQL
 - Open Data
+- Open-Source
 apis:
 - aid: spacex:graphql-api
   name: SpaceX GraphQL API (community)

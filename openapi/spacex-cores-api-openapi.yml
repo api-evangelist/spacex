@@ -84,23 +84,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  responses:
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    PaginatedCores:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Core'
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -166,15 +150,6 @@ components:
           type:
           - integer
           - 'null'
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
     Core:
       type: object
       description: A serialized Falcon first-stage core.
@@ -223,6 +198,40 @@ components:
       required:
       - serial
       - status
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
+    PaginatedCores:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Core'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   requestBodies:
     QueryBody:
       description: mongoose-paginate-v2 query body.
@@ -236,15 +245,6 @@ components:
             options:
               limit: 10
               page: 1
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey

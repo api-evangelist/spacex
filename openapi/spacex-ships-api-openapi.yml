@@ -85,15 +85,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PaginatedShips:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Ship'
     Ship:
       type: object
       description: A ship in the SpaceX fleet (droneship, recovery, support).
@@ -259,6 +250,15 @@ components:
           type:
           - integer
           - 'null'
+    PaginatedShips:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Ship'
     Error:
       type: object
       properties:
@@ -268,6 +268,15 @@ components:
         status:
           type: integer
           description: HTTP status code echoed in body.
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   responses:
     NotFound:
       description: Resource not found.
@@ -288,15 +297,6 @@ components:
             options:
               limit: 10
               page: 1
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey
