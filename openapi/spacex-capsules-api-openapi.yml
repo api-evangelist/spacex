@@ -89,89 +89,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    QueryRequest:
-      type: object
-      description: mongoose-paginate-v2 query body.
-      properties:
-        query:
-          type: object
-          description: MongoDB find() filter document.
-          additionalProperties: true
-        options:
-          type: object
-          description: Pagination + projection options.
-          properties:
-            select:
-              description: Fields to include/exclude (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            sort:
-              description: Sort order (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            offset:
-              type: integer
-            page:
-              type: integer
-            limit:
-              type: integer
-            pagination:
-              type: boolean
-            populate:
-              description: Populate definitions (array, object, or string).
-              oneOf:
-              - type: array
-                items: {}
-              - type: object
-              - type: string
-    PaginationEnvelope:
-      type: object
-      description: Default mongoose-paginate-v2 wrapper.
-      properties:
-        totalDocs:
-          type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalPages:
-          type: integer
-        page:
-          type: integer
-        pagingCounter:
-          type: integer
-        hasPrevPage:
-          type: boolean
-        hasNextPage:
-          type: boolean
-        prevPage:
-          type:
-          - integer
-          - 'null'
-        nextPage:
-          type:
-          - integer
-          - 'null'
-    PaginatedCapsules:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Capsule'
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
     Capsule:
       type: object
       description: A serialized Dragon capsule.
@@ -225,15 +142,89 @@ components:
       - serial
       - status
       - type
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
+    QueryRequest:
+      type: object
+      description: mongoose-paginate-v2 query body.
+      properties:
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type:
+          - integer
+          - 'null'
+        nextPage:
+          type:
+          - integer
+          - 'null'
+    PaginatedCapsules:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Capsule'
   responses:
     NotFound:
       description: Resource not found.
@@ -260,6 +251,15 @@ components:
             options:
               limit: 10
               page: 1
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey
