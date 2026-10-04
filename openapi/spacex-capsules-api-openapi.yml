@@ -89,6 +89,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PaginatedCapsules:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Capsule'
     Capsule:
       type: object
       description: A serialized Dragon capsule.
@@ -216,15 +225,15 @@ components:
           type:
           - integer
           - 'null'
-    PaginatedCapsules:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Capsule'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   responses:
     NotFound:
       description: Resource not found.
@@ -251,15 +260,6 @@ components:
             options:
               limit: 10
               page: 1
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey

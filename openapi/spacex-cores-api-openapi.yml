@@ -85,6 +85,52 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PaginatedCores:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/Core'
+    QueryRequest:
+      type: object
+      description: mongoose-paginate-v2 query body.
+      properties:
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
     Core:
       type: object
       description: A serialized Falcon first-stage core.
@@ -133,43 +179,6 @@ components:
       required:
       - serial
       - status
-    QueryRequest:
-      type: object
-      description: mongoose-paginate-v2 query body.
-      properties:
-        query:
-          type: object
-          description: MongoDB find() filter document.
-          additionalProperties: true
-        options:
-          type: object
-          description: Pagination + projection options.
-          properties:
-            select:
-              description: Fields to include/exclude (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            sort:
-              description: Sort order (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            offset:
-              type: integer
-            page:
-              type: integer
-            limit:
-              type: integer
-            pagination:
-              type: boolean
-            populate:
-              description: Populate definitions (array, object, or string).
-              oneOf:
-              - type: array
-                items: {}
-              - type: object
-              - type: string
     Error:
       type: object
       properties:
@@ -179,15 +188,6 @@ components:
         status:
           type: integer
           description: HTTP status code echoed in body.
-    PaginatedCores:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/Core'
     PaginationEnvelope:
       type: object
       description: Default mongoose-paginate-v2 wrapper.
@@ -216,6 +216,15 @@ components:
           type:
           - integer
           - 'null'
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   responses:
     NotFound:
       description: Resource not found.
@@ -236,15 +245,6 @@ components:
             options:
               limit: 10
               page: 1
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey
