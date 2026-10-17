@@ -85,15 +85,43 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PaginatedCrew:
-      allOf:
-      - $ref: '#/components/schemas/PaginationEnvelope'
-      - type: object
-        properties:
-          docs:
-            type: array
-            items:
-              $ref: '#/components/schemas/CrewMember'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Human-readable error message.
+        status:
+          type: integer
+          description: HTTP status code echoed in body.
+    PaginationEnvelope:
+      type: object
+      description: Default mongoose-paginate-v2 wrapper.
+      properties:
+        totalDocs:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+        page:
+          type: integer
+        pagingCounter:
+          type: integer
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type:
+          - integer
+          - 'null'
+        nextPage:
+          type:
+          - integer
+          - 'null'
     CrewMember:
       type: object
       description: A SpaceX Dragon crew member.
@@ -132,6 +160,15 @@ components:
             type: string
       required:
       - status
+    PaginatedCrew:
+      allOf:
+      - $ref: '#/components/schemas/PaginationEnvelope'
+      - type: object
+        properties:
+          docs:
+            type: array
+            items:
+              $ref: '#/components/schemas/CrewMember'
     QueryRequest:
       type: object
       description: mongoose-paginate-v2 query body.
@@ -169,52 +206,6 @@ components:
                 items: {}
               - type: object
               - type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Human-readable error message.
-        status:
-          type: integer
-          description: HTTP status code echoed in body.
-    PaginationEnvelope:
-      type: object
-      description: Default mongoose-paginate-v2 wrapper.
-      properties:
-        totalDocs:
-          type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalPages:
-          type: integer
-        page:
-          type: integer
-        pagingCounter:
-          type: integer
-        hasPrevPage:
-          type: boolean
-        hasNextPage:
-          type: boolean
-        prevPage:
-          type:
-          - integer
-          - 'null'
-        nextPage:
-          type:
-          - integer
-          - 'null'
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
   responses:
     NotFound:
       description: Resource not found.
@@ -235,6 +226,15 @@ components:
             options:
               limit: 10
               page: 1
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey

@@ -85,54 +85,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CubicMetersFeet:
-      type: object
-      properties:
-        cubic_meters:
-          type:
-          - number
-          - 'null'
-        cubic_feet:
-          type:
-          - number
-          - 'null'
-    QueryRequest:
-      type: object
-      description: mongoose-paginate-v2 query body.
-      properties:
-        query:
-          type: object
-          description: MongoDB find() filter document.
-          additionalProperties: true
-        options:
-          type: object
-          description: Pagination + projection options.
-          properties:
-            select:
-              description: Fields to include/exclude (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            sort:
-              description: Sort order (string or object).
-              oneOf:
-              - type: string
-              - type: object
-            offset:
-              type: integer
-            page:
-              type: integer
-            limit:
-              type: integer
-            pagination:
-              type: boolean
-            populate:
-              description: Populate definitions (array, object, or string).
-              oneOf:
-              - type: array
-                items: {}
-              - type: object
-              - type: string
     Error:
       type: object
       properties:
@@ -169,28 +121,6 @@ components:
         nextPage:
           type:
           - integer
-          - 'null'
-    MetersFeet:
-      type: object
-      properties:
-        meters:
-          type:
-          - number
-          - 'null'
-        feet:
-          type:
-          - number
-          - 'null'
-    KgLb:
-      type: object
-      properties:
-        kg:
-          type:
-          - number
-          - 'null'
-        lb:
-          type:
-          - number
           - 'null'
     Dragon:
       type: object
@@ -288,15 +218,76 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Dragon'
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
-      schema:
-        type: string
-        pattern: ^[a-f0-9]{24}$
+    CubicMetersFeet:
+      type: object
+      properties:
+        cubic_meters:
+          type:
+          - number
+          - 'null'
+        cubic_feet:
+          type:
+          - number
+          - 'null'
+    MetersFeet:
+      type: object
+      properties:
+        meters:
+          type:
+          - number
+          - 'null'
+        feet:
+          type:
+          - number
+          - 'null'
+    QueryRequest:
+      type: object
+      description: mongoose-paginate-v2 query body.
+      properties:
+        query:
+          type: object
+          description: MongoDB find() filter document.
+          additionalProperties: true
+        options:
+          type: object
+          description: Pagination + projection options.
+          properties:
+            select:
+              description: Fields to include/exclude (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            sort:
+              description: Sort order (string or object).
+              oneOf:
+              - type: string
+              - type: object
+            offset:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            pagination:
+              type: boolean
+            populate:
+              description: Populate definitions (array, object, or string).
+              oneOf:
+              - type: array
+                items: {}
+              - type: object
+              - type: string
+    KgLb:
+      type: object
+      properties:
+        kg:
+          type:
+          - number
+          - 'null'
+        lb:
+          type:
+          - number
+          - 'null'
   responses:
     NotFound:
       description: Resource not found.
@@ -317,6 +308,15 @@ components:
             options:
               limit: 10
               page: 1
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Resource UUID (MongoDB ObjectId, e.g. `5e9d0d95eda69973a809d1ec`).
+      schema:
+        type: string
+        pattern: ^[a-f0-9]{24}$
   securitySchemes:
     SpacexKey:
       type: apiKey
